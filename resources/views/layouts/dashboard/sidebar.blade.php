@@ -50,7 +50,7 @@
                     <span class="ml-4">QNS</span>
                 </a>
             </li>
-            <li class="relative px-6 py-3">
+            {{-- <li class="relative px-6 py-3">
                 <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-tersier hover:text-gray-800 -200"
                     @click="togglePagesMenu" aria-haspopup="true">
@@ -81,7 +81,7 @@
                         </li>
                     </ul>
                 </template>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </aside>
@@ -105,8 +105,10 @@
         </a>
         <ul class="mt-6">
             <li class="relative px-6 py-3">
-                <span class="absolute inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg bg-tersier"
-                    aria-hidden="true"></span>
+                @if (!isset($menu))
+                    <span class="absolute inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg bg-tersier"
+                        aria-hidden="true"></span>
+                @endif
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-tersier hover:text-gray-800 -200 "
                     href="index.html">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -121,18 +123,33 @@
         </ul>
         <ul>
             <li class="relative px-6 py-3">
+                @if (isset($menu) && $menu == 'user')
+                    <span class="absolute inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg bg-tersier"
+                        aria-hidden="true"></span>
+                @endif
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-tersier hover:text-gray-800 -200"
-                    href="forms.html">
+                    href="{{ route('user.index') }}">
+                    <i class="w-5 fa-solid fa-user-group"></i>
+                    <span class="ml-4">User</span>
+                </a>
+            </li>
+            <li class="relative px-6 py-3">
+                @if (isset($menu) && $menu == 'qns')
+                    <span class="absolute inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg bg-tersier"
+                        aria-hidden="true"></span>
+                @endif
+                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-tersier hover:text-gray-800 -200"
+                    href="{{ route('qns.index') }}">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path
                             d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
                         </path>
                     </svg>
-                    <span class="ml-4">Forms</span>
+                    <span class="ml-4">QNS</span>
                 </a>
             </li>
-            <li class="relative px-6 py-3">
+            {{-- <li class="relative px-6 py-3">
                 <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-tersier hover:text-gray-800 -200"
                     @click="togglePagesMenu" aria-haspopup="true">
@@ -174,7 +191,7 @@
                         </li>
                     </ul>
                 </template>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </aside>

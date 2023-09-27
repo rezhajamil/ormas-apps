@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.form-input {
+    @apply block w-full mt-1 text-sm rounded-md focus:border-gray-300 focus:ring-gray-300 focus:outline-none;
+}
