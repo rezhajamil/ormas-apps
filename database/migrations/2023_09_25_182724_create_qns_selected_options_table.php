@@ -16,7 +16,8 @@ class CreateQnsSelectedOptionsTable extends Migration
         Schema::create('qns_selected_options', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('response_id');
-            $table->unsignedBigInteger('option_id');
+            $table->unsignedBigInteger('question_id');
+            $table->unsignedBigInteger('option_id')->nullable();
             $table->string('other_text')->nullable();
             $table->timestamps();
         });

@@ -63,7 +63,7 @@
                             <th class="px-4 py-3">Tipe</th>
                             <th class="px-4 py-3">Kreator</th>
                             <th class="px-4 py-3">Nama</th>
-                            <th class="px-4 py-3">Jumlah Soal</th>
+                            <th class="px-4 py-3">Jumlah Pertanyaan</th>
                             <th class="px-4 py-3">Jumlah Responden</th>
                             <th class="px-4 py-3">Tanggal Dibuat</th>
                             <th class="px-4 py-3">Status</th>
@@ -109,17 +109,17 @@
                                 </td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="{{ route('qns.show', $data->id) }}" class="text-premier">
+                                        <a href="{{ route('qns.show', $data->id) }}" class="text-lg text-premier">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>
-                                        <a href="{{ route('qns.edit', $data->id) }}" class="text-premier">
-                                            <i class="fa-solid fa-pencil"></i>
+                                        <a href="{{ route('qns.result', $data->id) }}" class="text-lg text-premier">
+                                            <i class="fa-solid fa-square-poll-vertical"></i>
                                         </a>
                                         <form action="{{ route('qns.destroy', $data->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
-                                                class="flex items-center text-premier focus:outline-none focus:shadow-outline-gray"
+                                                class="flex items-center text-lg text-premier focus:outline-none focus:shadow-outline-gray"
                                                 aria-label="Delete">
                                                 <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
                                                     viewBox="0 0 20 20">

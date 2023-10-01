@@ -16,6 +16,11 @@ class QnsSelectedOption extends Model
         return $this->belongsTo(QnsResponse::class, 'response_id');
     }
 
+    public function question()
+    {
+        return $this->belongsTo(QnsQuestion::class, 'question_id');
+    }
+
     public function option()
     {
         return $this->belongsTo(QnsOption::class, 'option_id');

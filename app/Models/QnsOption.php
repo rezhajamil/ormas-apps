@@ -13,6 +13,16 @@ class QnsOption extends Model
 
     public function question()
     {
-        return $this->belongsTo(QnsResponse::class, 'response_id');
+        return $this->belongsTo(QnsQuestion::class, 'question_id');
+    }
+
+    public function correct_option()
+    {
+        return $this->belongsTo(QnsQuestion::class, 'id', 'correct_option');
+    }
+
+    public function selected_option()
+    {
+        return $this->hasMany(QnsSelectedOption::class, 'option_id', 'id');
     }
 }

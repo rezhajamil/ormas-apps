@@ -20,4 +20,14 @@ class QnsQuestion extends Model
     {
         return $this->hasMany(QnsOption::class, 'question_id');
     }
+
+    public function selected_option()
+    {
+        return $this->hasMany(QnsSelectedOption::class, 'question_id');
+    }
+
+    public function correct_option()
+    {
+        return $this->hasOne(QnsOption::class, 'correct_option', 'id');
+    }
 }
