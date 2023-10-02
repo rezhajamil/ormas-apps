@@ -12,5 +12,6 @@ Route::middleware(['auth'])->group(
         Route::get('/qns/answer/{id}', [QnsController::class, 'answer'])->name('qns.answer');
         Route::post('/qns/answer/{id}', [QnsController::class, 'store_answer'])->name('qns.store_answer');
         Route::get('/qns/result/{id}', [QnsController::class, 'result'])->name('qns.result');
+        Route::get('/qns/result_detail/{id}', [QnsController::class, 'result_detail'])->name('qns.result_detail');
     }
 );

@@ -1,13 +1,23 @@
 @extends('layouts.dashboard.app')
 @section('content')
     <div class="container grid px-6 py-6 mx-auto">
-        <a class="flex items-center justify-between px-3 py-2 font-semibold text-white bg-gray-800 rounded-md shadow-md w-fit focus:outline-none focus:shadow-outline-purple"
-            href="{{ route('qns.index') }}">
-            <div class="flex items-center">
-                <i class="w-5 fa-solid fa-arrow-left"></i>
-                <span class="">Kembali</span>
-            </div>
-        </a>
+        <div class="flex gap-4">
+            <a class="flex items-center justify-between px-3 py-2 font-semibold text-white bg-gray-800 rounded-md shadow-md w-fit focus:outline-none focus:shadow-outline-purple"
+                href="{{ route('qns.index') }}">
+                <div class="flex items-center">
+                    <i class="w-5 fa-solid fa-arrow-left"></i>
+                    <span class="">Kembali</span>
+                </div>
+            </a>
+            <a class="flex items-center justify-between px-3 py-2 font-semibold rounded-md shadow-md text-sekunder bg-tersier w-fit focus:outline-none focus:shadow-outline-purple"
+                href="{{ route('qns.result_detail', $qns->id) }}">
+                <div class="flex items-center">
+                    <i class="w-5 fa-solid fa-table-list"></i>
+                    <span class="">Hasil Detail</span>
+                </div>
+            </a>
+
+        </div>
         <h4 class="my-4 text-lg font-semibold text-gray-600 ">
             Hasil {{ ucwords($qns->name) }}
         </h4>
