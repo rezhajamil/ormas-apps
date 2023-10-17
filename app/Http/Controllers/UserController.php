@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.user.create');
     }
 
     /**
@@ -84,5 +84,14 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function change_status($id)
+    {
+        $user = User::find($id);
+        $user->status = !$user->status;
+        $user->save();
+
+        return back();
     }
 }

@@ -1,7 +1,7 @@
 <!-- Desktop sidebar -->
 <aside class="z-20 flex-shrink-0 hidden w-64 overflow-y-auto bg-premier md:block">
     <div class="py-4 text-gray-500 ">
-        <a class="ml-6 text-lg font-bold text-tersier " href="#">
+        <a class="ml-6 text-lg font-bold text-tersier " href="{{ URL::to('/') }}">
             Dashboard
         </a>
         <ul class="mt-6">
@@ -11,7 +11,7 @@
                         aria-hidden="true"></span>
                 @endif
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-tersier hover:text-gray-800 -200 "
-                    href="index.html">
+                    href="{{ URL::to('/') }}">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path
@@ -100,7 +100,7 @@
     x-transition:leave-end="opacity-0 transform -translate-x-20" @click.away="closeSideMenu"
     @keydown.escape="closeSideMenu">
     <div class="py-4 text-gray-500 ">
-        <a class="ml-6 text-lg font-bold text-tersier " href="#">
+        <a class="ml-6 text-lg font-bold text-tersier " href="{{ URL::to('/') }}">
             Dashboard
         </a>
         <ul class="mt-6">
@@ -110,7 +110,7 @@
                         aria-hidden="true"></span>
                 @endif
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-tersier hover:text-gray-800 -200 "
-                    href="index.html">
+                    href="{{ URL::to('/') }}">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path

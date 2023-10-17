@@ -16,7 +16,7 @@ class CreateQnsResponsesTable extends Migration
         Schema::create('qns_responses', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('qns_id');
-            $table->string('user_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('id_digipos')->nullable();
             $table->string('telp')->nullable();
             $table->string('telp_responder')->nullable();

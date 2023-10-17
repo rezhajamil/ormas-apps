@@ -13,10 +13,10 @@
                 </div>
                 <div>
                     <p class="mb-2 text-sm font-medium text-gray-600 ">
-                        Total clients
+                        Total User
                     </p>
                     <p class="text-lg font-semibold text-gray-700 ">
-                        6389
+                        {{ $users }}
                     </p>
                 </div>
             </div>

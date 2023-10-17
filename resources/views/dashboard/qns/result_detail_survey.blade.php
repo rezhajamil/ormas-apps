@@ -35,7 +35,7 @@
                             @endforeach
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y ">
+                    <tbody class="bg-white divide-y">
                         @foreach ($qns->response as $i_response => $response)
                             <tr class="text-gray-700">
                                 <td class="px-4 py-3 text-sm border-r w-fit">
