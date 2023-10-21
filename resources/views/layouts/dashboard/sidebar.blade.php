@@ -2,7 +2,7 @@
 <aside class="z-20 flex-shrink-0 hidden w-64 overflow-y-auto bg-premier md:block">
     <div class="py-4 text-gray-500 ">
         <a class="ml-6 text-lg font-bold text-tersier " href="{{ URL::to('/') }}">
-            Dashboard
+            Dashboard ORMAS
         </a>
         <ul class="mt-6">
             <li class="relative px-6 py-3">
@@ -50,38 +50,33 @@
                     <span class="ml-4">QNS</span>
                 </a>
             </li>
-            {{-- <li class="relative px-6 py-3">
+            <li class="relative px-6 py-3">
+                @if (isset($menu) && $menu == 'outlet')
+                    <span class="absolute inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg bg-tersier"
+                        aria-hidden="true"></span>
+                @endif
                 <button
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-tersier hover:text-gray-800 -200"
+                    class="inline-flex items-center justify-between w-full  text-tersier hover:text-gray-800 text-sm font-semibold transition-colors duration-150 "
                     @click="togglePagesMenu" aria-haspopup="true">
                     <span class="inline-flex items-center">
-                        <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
-                            </path>
-                        </svg>
-                        <span class="ml-4">Pages</span>
+                        <i class="fa-solid fa-shop"></i>
+                        <span class="ml-4">Outlet</span>
                     </span>
-                    <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
+                    <i class="fa-solid fa-chevron-down"></i>
                 </button>
                 <template x-if="isPagesMenuOpen">
                     <ul x-transition:enter="transition-all ease-in-out duration-300"
                         x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
                         x-transition:leave="transition-all ease-in-out duration-300"
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
-                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 "
+                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-white hover:text-gray-100 rounded-md shadow-inner bg-red-900 "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 -200">
-                            <a class="w-full" href="pages/login.html">Login</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                            <a class="w-full" href="{{ route('outlet.index') }}">List Outlet</a>
                         </li>
                     </ul>
                 </template>
-            </li> --}}
+            </li>
         </ul>
     </div>
 </aside>
@@ -149,49 +144,45 @@
                     <span class="ml-4">QNS</span>
                 </a>
             </li>
-            {{-- <li class="relative px-6 py-3">
+            <li class="relative px-6 py-3">
+                @if (isset($menu) && $menu == 'outlet')
+                    <span class="absolute inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg bg-tersier"
+                        aria-hidden="true"></span>
+                @endif
+                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-tersier hover:text-gray-800 -200"
+                    href="{{ route('qns.index') }}">
+                    <i class="fa-solid fa-shop"></i>
+                    <span class="ml-4">Outlet</span>
+                </a>
+            </li>
+
+            <li class="relative px-6 py-3">
+                @if (isset($menu) && $menu == 'outlet')
+                    <span class="absolute inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg bg-tersier"
+                        aria-hidden="true"></span>
+                @endif
                 <button
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-tersier hover:text-gray-800 -200"
+                    class="inline-flex items-center justify-between w-full  text-tersier hover:text-gray-800 text-sm font-semibold transition-colors duration-150 "
                     @click="togglePagesMenu" aria-haspopup="true">
                     <span class="inline-flex items-center">
-                        <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
-                            </path>
-                        </svg>
-                        <span class="ml-4">Pages</span>
+                        <i class="fa-solid fa-shop"></i>
+                        <span class="ml-4">Outlet</span>
                     </span>
-                    <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
+                    <i class="fa-solid fa-chevron-down"></i>
                 </button>
                 <template x-if="isPagesMenuOpen">
                     <ul x-transition:enter="transition-all ease-in-out duration-300"
                         x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
                         x-transition:leave="transition-all ease-in-out duration-300"
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
-                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 "
+                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-white hover:text-gray-100 rounded-md shadow-inner bg-red-900 "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 -200">
-                            <a class="w-full" href="pages/login.html">Login</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 -200">
-                            <a class="w-full" href="pages/forgot-password.html">
-                                Forgot password
-                            </a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 -200">
-                            <a class="w-full" href="pages/404.html">404</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 -200">
-                            <a class="w-full" href="pages/blank.html">Blank</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                            <a class="w-full" href="{{ route('outlet.index') }}">List Outlet</a>
                         </li>
                     </ul>
                 </template>
-            </li> --}}
+            </li>
         </ul>
     </div>
 </aside>

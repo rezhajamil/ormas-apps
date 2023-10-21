@@ -9,8 +9,9 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-        $users = User::where('role', '!=', 'superadmin')->where('status', 1)->count();
+        $admin_users = User::where('role', 'admin')->where('status', 1)->count();
+        $sf_users = User::where('role', 'sf')->where('status', 1)->count();
 
-        return view('dashboard.index', compact('users'));
+        return view('dashboard.index', compact('admin_users', 'sf_users'));
     }
 }

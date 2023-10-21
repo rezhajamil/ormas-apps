@@ -41,5 +41,6 @@ Route::middleware(['auth'])->group(function () {
 
 require __DIR__ . '/user.php';
 require __DIR__ . '/qns.php';
+require __DIR__ . '/outlet.php';
 
 require __DIR__ . '/auth.php';

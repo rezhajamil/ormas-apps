@@ -1,58 +1,53 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 text-gray-500 fill-current" />
-            </a>
-        </x-slot>
+@extends('layouts.app')
+@section('content')
+    <div class="flex items-center min-h-screen p-6 bg-gray-50 ">
+        <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl ">
+            <div class="flex flex-col overflow-y-auto md:flex-row">
+                <div class="sm:h-32 md:h-auto w-fit">
+                    <img aria-hidden="true" class="object-cover w-full h-full" src="{{ asset('img/telkomsel-login.webp') }}"
+                        alt="Telkomsel Login" />
+                </div>
+                <form method="POST" action="{{ route('login') }}"
+                    class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
+                    @csrf
+                    <div class="w-full">
+                        <h1 class="mb-4 text-xl font-semibold text-gray-700">
+                            Login
+                        </h1>
+                        <label class="block text-sm">
+                            <span class="text-gray-700">Username</span>
+                            <input
+                                class="block w-full mt-1 text-sm focus:border-premier focus:outline-none focus:shadow-outline-purple  form-input"
+                                name="username" type="text" placeholder="Username" />
+                            @error('username')
+                                <span class="text-red-600 italic text-sm">{{ $message }}</span>
+                            @enderror
+                        </label>
+                        <label class="block mt-4 text-sm">
+                            <span class="text-gray-700">Password</span>
+                            <input
+                                class="block w-full mt-1 text-sm focus:border-premier focus:outline-none focus:shadow-outline-purple  form-input"
+                                placeholder="Password" type="password" name="password" />
+                            @error('password')
+                                <span class="text-red-600 italic text-sm">{{ $message }}</span>
+                            @enderror
+                        </label>
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+                        <!-- You should use a button here, as the anchor is only used for the example  -->
+                        <button
+                            class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-premier border border-transparent rounded-lg active:bg-premier hover:bg-sekunder focus:outline-none focus:shadow-outline-purple">
+                            Log in
+                        </button>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="username" :value="__('Username')" />
-
-                <x-input id="username" class="block w-full mt-1" type="text" name="username" :value="old('username')" required
-                    autofocus />
+                        <p class="mt-1">
+                            <a class="text-sm font-medium text-gray-500 mt-2 transition-all hover:underline"
+                                href="{{ route('register') }}">
+                                Create account
+                            </a>
+                        </p>
+                    </div>
+                </form>
             </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block w-full mt-1" type="password" name="password" required
-                    autocomplete="current-password" />
-            </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox"
-                        class="text-indigo-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                        name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="text-sm text-gray-600 underline hover:text-gray-900"
-                        href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+        </div>
+    </div>
+@endsection

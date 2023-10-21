@@ -15,15 +15,13 @@ class CreateTerritoryTable extends Migration
     {
         Schema::create('territory', function (Blueprint $table) {
             $table->id();
-            $table->string('provinsi', 50)->nullable();
             $table->string('regional', 50)->nullable();
             $table->string('branch', 50)->nullable();
-            $table->text('sub_branch')->nullable();
             $table->string('cluster', 50)->nullable();
-            $table->text('kab_new')->nullable();
-            $table->string('mitra', 50)->nullable();
-            $table->text('dealer_code')->nullable();
-            $table->tinyInteger('lbo_city')->nullable();
+            $table->string('provinsi', 50)->nullable();
+            $table->string('kabupaten', 50)->nullable();
+            $table->string('kecamatan', 50)->nullable();
+            $table->string('desa', 50)->nullable();
         });
     }
 
