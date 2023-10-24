@@ -2,18 +2,30 @@
 @section('content')
     <div class="container grid px-6 py-6 mx-auto">
         <a class="flex items-center justify-between px-3 py-2 font-semibold text-white bg-gray-800 rounded-md shadow-md w-fit focus:outline-none focus:shadow-outline-purple"
-            href="{{ route('qns.index') }}">
+            href="{{ route('user.index') }}">
             <div class="flex items-center">
                 <i class="w-5 fa-solid fa-arrow-left"></i>
                 <span class="">Kembali</span>
             </div>
         </a>
         <h4 class="my-4 text-lg font-semibold text-gray-600 ">
-            Buat Quiz
+            Tambah User
         </h4>
-        <form action="{{ route('qns.store') }}" method="post" class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md">
+        <form action="{{ route('user.store') }}" method="post" class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md">
             @csrf
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-4">
+                <label class="block text-sm">
+                    <span class="text-gray-700 ">
+                        ID Digipos*
+                    </span>
+                    <input type="number" name="id_digipos" class="form-input" placeholder="ID Digipos"
+                        value="{{ old('id_digipos') }}" required />
+                    @error('id_digipos')
+                        <span class="text-xs text-red-600 ">
+                            {{ $message }}
+                        </span>
+                    @enderror
+                </label>
                 <label class="block text-sm">
                     <span class="text-gray-700 ">
                         Nama*
@@ -28,11 +40,11 @@
                 </label>
                 <label class="block text-sm">
                     <span class="text-gray-700 ">
-                        Durasi (Menit)*
+                        Telepon*
                     </span>
-                    <input type="number" name="duration" class="form-input" placeholder="Durasi"
-                        value="{{ old('duration') }}" required />
-                    @error('duration')
+                    <input type="number" name="telp" class="form-input" placeholder="0812345xxxxx"
+                        value="{{ old('telp') }}" required />
+                    @error('telp')
                         <span class="text-xs text-red-600 ">
                             {{ $message }}
                         </span>
@@ -40,10 +52,11 @@
                 </label>
                 <label class="block text-sm">
                     <span class="text-gray-700 ">
-                        Tanggal Mulai
+                        Email*
                     </span>
-                    <input type="date" name="start_date" class="form-input" value="{{ old('start_date') }}" />
-                    @error('start_date')
+                    <input type="email" name="email" class="form-input" placeholder="Email" value="{{ old('email') }}"
+                        required />
+                    @error('email')
                         <span class="text-xs text-red-600 ">
                             {{ $message }}
                         </span>
@@ -51,21 +64,11 @@
                 </label>
                 <label class="block text-sm">
                     <span class="text-gray-700 ">
-                        Tanggal Selesai
+                        Username*
                     </span>
-                    <input type="date" name="end_date" class="form-input" value="{{ old('end_date') }}" />
-                    @error('end_date')
-                        <span class="text-xs text-red-600 ">
-                            {{ $message }}
-                        </span>
-                    @enderror
-                </label>
-                <label class="block text-sm col-span-full">
-                    <span class="text-gray-700 ">
-                        Deskripsi
-                    </span>
-                    <textarea name="description" id="description" cols="30" rows="5" class="form-input">{{ old('description') }}</textarea>
-                    @error('description')
+                    <input type="text" name="username" class="lowercase form-input" placeholder="Username"
+                        value="{{ old('username') }}" required />
+                    @error('username')
                         <span class="text-xs text-red-600 ">
                             {{ $message }}
                         </span>
