@@ -20,7 +20,6 @@ class CreateOutletsTable extends Migration
             $table->string('nama_outlet');
             $table->string('telp_pemilik');
             $table->string('nama_sf');
-            $table->string('regional')->nullable();
             $table->string('branch')->nullable();
             $table->string('sub_branch')->nullable();
             $table->string('cluster')->nullable();
@@ -34,6 +33,9 @@ class CreateOutletsTable extends Migration
             $table->string('hari_kunjungan')->nullable();
             $table->string('remark_fisik')->nullable();
             $table->string('pjp')->nullable();
+            $table->string('kecamatan_lighthouse')->nullable();
+            $table->string('hrc_index')->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

@@ -35,6 +35,7 @@
                         <input type="hidden" name="qns_id" value="{{ $qns->id }}">
                         <input type="hidden" name="id_digipos" value="{{ $user->id_digipos }}">
                         <input type="hidden" name="telp" value="{{ $user->telp }}">
+                        <input type="hidden" name="user" value="{{ request()->get('user') }}">
                         @foreach ($qns->question as $i_question => $question)
                             <div class="flex flex-col py-4 border-b-4 gap-y-3">
                                 <span class="font-semibold">{{ $i_question + 1 }}) {{ $question->text }}</span>

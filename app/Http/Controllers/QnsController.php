@@ -7,6 +7,7 @@ use App\Models\QnsOption;
 use App\Models\QnsQuestion;
 use App\Models\QnsResponse;
 use App\Models\QnsSelectedOption;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -203,7 +204,12 @@ class QnsController extends Controller
 
     public function answer(Request $request, $id)
     {
-        $user = auth()->user();
+        if (isset($request->user)) {
+            $user = User::find($request->user);
+        } else {
+            $user = auth()->user();
+        }
+
         $qns = Qns::with(['creator', 'question.option', 'response'])->find($id);
         $history = QnsResponse::where('qns_id', $id)->where('id_digipos', $user->id_digipos)->first();
 
@@ -237,8 +243,12 @@ class QnsController extends Controller
     public function store_answer(Request $request, $id)
     {
         $qns = Qns::with(['creator', 'question.option', 'response'])->find($id);
-        $user = auth()->user();
-        // ddd($request);
+        if (isset($request->user)) {
+            $user = User::find($request->user);
+        } else {
+            $user = auth()->user();
+        }
+
         if ($qns->type == 'survey') {
             $response = QnsResponse::create([
                 'qns_id' => $qns->id,

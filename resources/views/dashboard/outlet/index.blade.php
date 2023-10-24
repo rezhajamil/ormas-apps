@@ -19,12 +19,17 @@
                     </span>
                     <select id="search_by"
                         class="block w-full mt-1 text-sm rounded-md form-select focus:border-sekunder focus:ring-sekunder focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                        <option value="regional">Regional</option>
-                        <option value="branch">Branch</option>
-                        <option value="cluster">Cluster</option>
-                        <option value="digipos">Digipos</option>
-                        <option value="nama">Nama</option>
-                        <option value="telp">Telp</option>
+                        <option value="id_outlet">ID Outlet</option>
+                        <option value="nama_outlet">Nama Outlet</option>
+                        <option value="telp_pemilik">Telp Pemilik</option>
+                        <option value="nama_sf">Nama SF</option>
+                        <option value="tap_kcp">TAP</option>
+                        <option value="side_id">SIDE ID</option>
+                        <option value="kategori">Kategori</option>
+                        <option value="pareto">Pareto</option>
+                        <option value="frekuensi_kunjungan">Frekuensi</option>
+                        <option value="hari_kunjungan">Hari</option>
+                        <option value="hrc_index">HRC Index</option>
                     </select>
                 </label>
                 <label class="block mt-4 text-sm">
@@ -47,77 +52,129 @@
                 </div>
             </a>
         </div>
-        <div class="w-full overflow-hidden border rounded-md shadow-xs">
+        <div class="w-full border rounded-md shadow-xs">
             <div class="w-full overflow-x-auto">
                 <table class="w-full whitespace-no-wrap">
                     <thead>
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50 ">
-                            <th class="px-4 py-3">No</th>
-                            <th class="px-4 py-3">Regional</th>
-                            <th class="px-4 py-3">Branch</th>
-                            <th class="px-4 py-3">Cluster</th>
-                            <th class="px-4 py-3">ID Digipos</th>
-                            <th class="px-4 py-3">Username</th>
-                            <th class="px-4 py-3">Nama</th>
-                            <th class="px-4 py-3">Telepon</th>
-                            <th class="px-4 py-3">Status</th>
-                            <th class="px-4 py-3">Actions</th>
+                            <th class="p-2 border-x whitespace-nowrap">No</th>
+                            <th class="p-2 border-x whitespace-nowrap">Kabupaten</th>
+                            <th class="p-2 border-x whitespace-nowrap">Kecamatan</th>
+                            <th class="p-2 border-x whitespace-nowrap">Nama Outlet</th>
+                            <th class="p-2 border-x whitespace-nowrap">ID Outlet</th>
+                            <th class="p-2 border-x whitespace-nowrap">Telepon Pemilik</th>
+                            <th class="p-2 border-x whitespace-nowrap">Nama SF</th>
+                            <th class="p-2 border-x whitespace-nowrap">TAP</th>
+                            <th class="p-2 border-x whitespace-nowrap">SIDE ID</th>
+                            <th class="p-2 border-x whitespace-nowrap">Kategori</th>
+                            <th class="p-2 border-x whitespace-nowrap">Pareto</th>
+                            <th class="p-2 border-x whitespace-nowrap">Frekuensi</th>
+                            <th class="p-2 border-x whitespace-nowrap">Hari</th>
+                            <th class="p-2 border-x whitespace-nowrap">Remark Fisik</th>
+                            <th class="p-2 border-x whitespace-nowrap">PJP</th>
+                            <th class="p-2 border-x whitespace-nowrap">Lighthouse</th>
+                            <th class="p-2 border-x whitespace-nowrap">HRC Index</th>
+                            <th class="p-2 border-x whitespace-nowrap">Status</th>
+                            <th class="p-2 border-x whitespace-nowrap">Actions</th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y ">
-                        @foreach ($users as $idx => $user)
+                    <tbody class="bg-white divide-y">
+                        @foreach ($outlets as $idx => $outlet)
                             <tr class="text-gray-700 ">
-                                <td class="px-4 py-3 text-sm">
+                                <td class="p-2 text-sm border">
                                     {{ $idx + 1 }}
                                 </td>
-                                <td class="px-4 py-3 text-sm regional">
-                                    {{ $user->regional }}
+                                <td class="p-2 text-sm border kabupaten">
+                                    {{ $outlet->kabupaten }}
                                 </td>
-                                <td class="px-4 py-3 text-sm branch">
-                                    {{ $user->branch }}
+                                <td class="p-2 text-sm border kecamatan">
+                                    {{ $outlet->kecamatan }}
                                 </td>
-                                <td class="px-4 py-3 text-sm cluster">
-                                    {{ $user->cluster }}
+                                <td class="p-2 text-sm border nama_outlet">
+                                    {{ $outlet->nama_outlet }}
                                 </td>
-                                <td class="px-4 py-3 text-sm digipos">
-                                    {{ $user->id_digipos }}
+                                <td class="p-2 text-sm border id_outlet">
+                                    {{ $outlet->id_outlet }}
                                 </td>
-                                <td class="px-4 py-3 text-sm username">
-                                    {{ $user->username }}
+                                <td class="p-2 text-sm border telp_pemilik">
+                                    {{ $outlet->telp_pemilik }}
                                 </td>
-                                <td class="px-4 py-3 text-sm nama">
-                                    {{ $user->name }}
+                                <td class="p-2 text-sm border nama_sf">
+                                    {{ $outlet->nama_sf }}
                                 </td>
-                                <td class="px-4 py-3 text-sm telp">
-                                    {{ $user->telp }}
+                                <td class="p-2 text-sm border tap_kcp">
+                                    {{ $outlet->tap_kcp }}
                                 </td>
-                                <td class="px-4 py-3 text-xs status" status="{{ $user->status ? 'Aktif' : 'Tidak Aktif' }}">
-                                    @if ($user->status)
-                                        <span
-                                            class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full whitespace-nowrap ">
-                                            Aktif
-                                        </span>
-                                    @else
-                                        <span
-                                            class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full whitespace-nowrap ">
-                                            Tidak Aktif
-                                        </span>
-                                    @endif
+                                <td class="p-2 text-sm border side_id_cover">
+                                    {{ $outlet->side_id_cover }}
                                 </td>
-                                <td class="px-4 py-3">
+                                <td class="p-2 text-sm border kategori">
+                                    @switch($outlet->kategori)
+                                        @case('PLATINUM')
+                                            <span
+                                                class="px-2 py-1 font-semibold leading-tight text-white bg-[#dedddb] rounded-full whitespace-nowrap ">
+                                                {{ $outlet->kategori }}
+                                            </span>
+                                        @break
+
+                                        @case('GOLD')
+                                            <span
+                                                class="px-2 py-1 font-semibold leading-tight text-white bg-[#FFD700] rounded-full whitespace-nowrap ">
+                                                {{ $outlet->kategori }}
+                                            </span>
+                                        @break
+
+                                        @case('SILVER')
+                                            <span
+                                                class="px-2 py-1 font-semibold leading-tight text-white bg-[#C0C0C0] rounded-full whitespace-nowrap ">
+                                                {{ $outlet->kategori }}
+                                            </span>
+                                        @break
+
+                                        @case('BRONZE')
+                                            <span
+                                                class="px-2 py-1 font-semibold leading-tight text-white bg-[#CD7F32] rounded-full whitespace-nowrap ">
+                                                {{ $outlet->kategori }}
+                                            </span>
+                                        @break
+
+                                        @default
+                                    @endswitch
+                                </td>
+                                <td class="p-2 text-sm border pareto">
+                                    {{ $outlet->pareto }}
+                                </td>
+                                <td class="p-2 text-sm border frekuensi_kunjungan">
+                                    {{ $outlet->frekuensi_kunjungan }}
+                                </td>
+                                <td class="p-2 text-sm border hari_kunjungan">
+                                    {{ $outlet->hari_kunjungan }}
+                                </td>
+                                <td class="p-2 text-sm border remark_fisik">
+                                    {{ $outlet->remark_fisik }}
+                                </td>
+                                <td class="p-2 text-sm border pjp">
+                                    {{ $outlet->pjp }}
+                                </td>
+                                <td class="p-2 text-sm border kecamatan_lighthouse">
+                                    {{ $outlet->kecamatan_lighthouse }}
+                                </td>
+                                <td class="p-2 text-sm border hrc_index">
+                                    {{ $outlet->hrc_index }}
+                                </td>
+                                <td class="p-2 text-xs border status"
+                                    status="{{ $outlet->status ? 'Aktif' : 'Tidak Aktif' }}">
+                                    <span
+                                        class="px-2 py-1 font-semibold leading-tight {{ $outlet->status ? 'text-green-700 bg-green-100 ' : 'text-red-700 bg-red-100 ' }} rounded-full whitespace-nowrap ">
+                                        {{ $outlet->status ? 'Aktif' : 'Tidak Aktif' }}
+                                    </span>
+                                </td>
+                                <td class="p-2">
                                     <div class="flex items-center space-x-4 text-base">
-                                        @if ($user->status)
-                                            <a href="{{ route('user.change_status', $user->id) }}" class="text-premier">
-                                                <i class="fa-solid fa-toggle-on"></i>
-                                            </a>
-                                        @else
-                                            <a href="{{ route('user.change_status', $user->id) }}" class="text-premier">
-                                                <i class="fa-solid fa-toggle-off"></i>
-                                            </a>
-                                        @endif
-                                        <a href="{{ route('user.edit', $user->id) }}" class="text-premier">
-                                            <i class="fa-solid fa-pencil"></i>
+                                        <a href="{{ route('outlet.change_status', $outlet->id) }}" class="text-premier">
+                                            <i
+                                                class="fa-solid {{ $outlet->status ? 'fa-toggle-on' : 'fa-toggle-off' }}"></i>
                                         </a>
                                         <button
                                             class="flex items-center justify-between m-0 text-sm font-medium leading-5 rounded-md text-premier focus:outline-none focus:shadow-outline-gray"
@@ -137,9 +194,9 @@
                 </table>
             </div>
             <div
-                class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t bg-gray-50 sm:grid-cols-9 ">
+                class="grid p-2 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t bg-gray-50 sm:grid-cols-9 ">
                 <span class="flex items-center col-span-3">
-                    Showing {{ count($users) }} of {{ count($users) }}
+                    Showing {{ count($outlets) }} of {{ count($outlets) }}
                 </span>
                 <span class="col-span-2"></span>
                 <!-- Pagination -->

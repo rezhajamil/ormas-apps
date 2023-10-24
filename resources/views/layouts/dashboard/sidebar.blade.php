@@ -74,6 +74,18 @@
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
                             <a class="w-full" href="{{ route('outlet.index') }}">List Outlet</a>
                         </li>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                            <a class="w-full" href="{{ route('target.index') }}">Target</a>
+                        </li>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                            <a class="w-full" href="{{ route('result.index') }}">Hasil</a>
+                        </li>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                            <a class="w-full" href="{{ route('fm.index') }}">FM</a>
+                        </li>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800  border-white">
+                            <a class="w-full" href="{{ route('outlet.index') }}">Detail Outlet</a>
+                        </li>
                     </ul>
                 </template>
             </li>
@@ -144,17 +156,6 @@
                     <span class="ml-4">QNS</span>
                 </a>
             </li>
-            <li class="relative px-6 py-3">
-                @if (isset($menu) && $menu == 'outlet')
-                    <span class="absolute inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg bg-tersier"
-                        aria-hidden="true"></span>
-                @endif
-                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-tersier hover:text-gray-800 -200"
-                    href="{{ route('qns.index') }}">
-                    <i class="fa-solid fa-shop"></i>
-                    <span class="ml-4">Outlet</span>
-                </a>
-            </li>
 
             <li class="relative px-6 py-3">
                 @if (isset($menu) && $menu == 'outlet')
@@ -179,6 +180,15 @@
                         aria-label="submenu">
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
                             <a class="w-full" href="{{ route('outlet.index') }}">List Outlet</a>
+                        </li>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                            <a class="w-full" href="{{ route('target.index') }}">Target</a>
+                        </li>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                            <a class="w-full" href="{{ route('result.index') }}">Hasil</a>
+                        </li>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                            <a class="w-full" href="{{ route('fm.index') }}">FM</a>
                         </li>
                     </ul>
                 </template>

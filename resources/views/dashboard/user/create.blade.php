@@ -18,7 +18,8 @@
                     <span class="text-gray-700 ">
                         Nama*
                     </span>
-                    <input type="text" name="name" class="form-input" placeholder="Nama" required />
+                    <input type="text" name="name" class="form-input" placeholder="Nama" value="{{ old('name') }}"
+                        required />
                     @error('name')
                         <span class="text-xs text-red-600 ">
                             {{ $message }}
@@ -29,7 +30,8 @@
                     <span class="text-gray-700 ">
                         Durasi (Menit)*
                     </span>
-                    <input type="number" name="duration" class="form-input" placeholder="Durasi" required />
+                    <input type="number" name="duration" class="form-input" placeholder="Durasi"
+                        value="{{ old('duration') }}" required />
                     @error('duration')
                         <span class="text-xs text-red-600 ">
                             {{ $message }}
@@ -40,7 +42,7 @@
                     <span class="text-gray-700 ">
                         Tanggal Mulai
                     </span>
-                    <input type="date" name="start_date" class="form-input" />
+                    <input type="date" name="start_date" class="form-input" value="{{ old('start_date') }}" />
                     @error('start_date')
                         <span class="text-xs text-red-600 ">
                             {{ $message }}
@@ -51,7 +53,7 @@
                     <span class="text-gray-700 ">
                         Tanggal Selesai
                     </span>
-                    <input type="date" name="end_date" class="form-input" />
+                    <input type="date" name="end_date" class="form-input" value="{{ old('end_date') }}" />
                     @error('end_date')
                         <span class="text-xs text-red-600 ">
                             {{ $message }}
@@ -62,7 +64,7 @@
                     <span class="text-gray-700 ">
                         Deskripsi
                     </span>
-                    <textarea name="description" id="description" cols="30" rows="5" class="form-input"></textarea>
+                    <textarea name="description" id="description" cols="30" rows="5" class="form-input">{{ old('description') }}</textarea>
                     @error('description')
                         <span class="text-xs text-red-600 ">
                             {{ $message }}

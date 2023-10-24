@@ -17,6 +17,7 @@ class CreateTerritoryTable extends Migration
             $table->id();
             $table->string('regional', 50)->nullable();
             $table->string('branch', 50)->nullable();
+            $table->string('sub_branch', 50)->nullable();
             $table->string('cluster', 50)->nullable();
             $table->string('provinsi', 50)->nullable();
             $table->string('kabupaten', 50)->nullable();
