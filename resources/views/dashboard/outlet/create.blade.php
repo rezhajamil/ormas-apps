@@ -74,7 +74,7 @@
                     <span class="text-gray-700 ">
                         Nama Outlet*
                     </span>
-                    <input type="text" name="nama_outlet" class="form-input" placeholder="Nama Outlet"
+                    <input type="text" name="nama_outlet" class="uppercase form-input" placeholder="Nama Outlet"
                         value="{{ old('nama_outlet') }}" required />
                     @error('nama_outlet')
                         <span class="text-xs text-red-600 ">
@@ -98,7 +98,7 @@
                     <span class="text-gray-700 ">
                         Nama SF*
                     </span>
-                    <input type="text" name="nama_sf" class="form-input" placeholder="Nama SF"
+                    <input type="text" name="nama_sf" class="uppercase form-input" placeholder="Nama SF"
                         value="{{ old('nama_sf') }}" required />
                     @error('nama_sf')
                         <span class="text-xs text-red-600 ">
@@ -110,7 +110,7 @@
                     <span class="text-gray-700 ">
                         TAP KCP*
                     </span>
-                    <input type="text" name="tap_kcp" class="form-input" placeholder="TAP KCP"
+                    <input type="text" name="tap_kcp" class="uppercase form-input" placeholder="TAP KCP"
                         value="{{ old('tap_kcp') }}" required />
                     <span class="text-gray-500 underline cursor-pointer hover:text-gray-600" id="btn-search-tap">
                         <i class="mr-1 fa-solid fa-magnifying-glass"></i>
@@ -126,7 +126,7 @@
                     <span class="text-gray-700 ">
                         Side ID Cover*
                     </span>
-                    <input type="text" name="side_id_cover" class="form-input" placeholder="Side ID Cover"
+                    <input type="text" name="side_id_cover" class="uppercase form-input" placeholder="Side ID Cover"
                         value="{{ old('side_id_cover') }}" required />
                     @error('side_id_cover')
                         <span class="text-xs text-red-600 ">
@@ -284,14 +284,35 @@
         <form action="{{ route('outlet.store') }}" method="post" class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md"
             enctype="multipart/form-data">
             @csrf
-            <div class="flex gap-4">
-                <label class="block text-sm">
+            <div class="flex w-full gap-4">
+                <label class="block w-full px-6 text-sm">
                     <span class="font-semibold text-gray-700">
-                        File CSV*
+                        File CSV (max 1000 row)*
                     </span>
-                    <p class="w-full overflow-scroll text-sm text-gray-500 whitespace-normal">
+                    <p class="w-full overflow-scroll text-sm text-gray-700 whitespace-normal">
                         Header
-                        :<br />no_rs;id_outlet;nama_outlet;telp_pemilik;nama_sf;<br />branch;sub_branch;cluster;kabupaten;kecamatan;tap_kcp;side_id_cover;<br />kategori;pareto;frekuensi_kunjungan;hari_kunjungan;remark_fisik;pjp;kecamatan_lighthouse;hrc_index
+                    <ol class="grid w-full grid-cols-4 text-gray-500 list-decimal">
+                        <li>no_rs</li>
+                        <li>id_outlet</li>
+                        <li>nama_outlet</li>
+                        <li>telp_pemilik</li>
+                        <li>nama_sf</li>
+                        <li>branch</li>
+                        <li>sub_branch</li>
+                        <li>cluster</li>
+                        <li>kabupaten</li>
+                        <li>kecamatan</li>
+                        <li>tap_kcp</li>
+                        <li>side_id_cover</li>
+                        <li>kategori</li>
+                        <li>pareto</li>
+                        <li>frekuensi_kunjungan</li>
+                        <li>hari_kunjungan</li>
+                        <li>remark_fisik</li>
+                        <li>pjp</li>
+                        <li>kecamatan_lighthouse</li>
+                        <li>hrc_index</li>
+                    </ol>
                     </p>
                     <input type="file" name="csv" class="mt-2" required />
                     @error('csv')

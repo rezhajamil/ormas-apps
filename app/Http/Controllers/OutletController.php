@@ -111,6 +111,46 @@ class OutletController extends Controller
                     $idx++;
                 }
             }
+        } else {
+            $request->validate([
+                'kabupaten' => ['required'],
+                'kecamatan' => ['required'],
+                'no_rs' => ['required', 'numeric'],
+                'id_outlet' => ['required', 'numeric'],
+                'nama_outlet' => ['required'],
+                'telp_pemilik' => ['nullable', 'numeric'],
+                'nama_sf' => ['nullable'],
+                'tap_kcp' => ['nullable'],
+                'side_id_cover' => ['nullable'],
+                'kategori' => ['nullable'],
+                'pareto' => ['nullable'],
+                'frekuensi_kunjungan' => ['nullable'],
+                'hari_kunjungan' => ['nullable'],
+                'remark_fisik' => ['nullable'],
+                'pjp' => ['nullable'],
+                'kecamatan_lighthouse' => ['nullable'],
+                'hrc_index' => ['nullable'],
+            ]);
+
+            $outlet = Outlet::create([
+                'kabupaten' => $request->kabupaten,
+                'kecamatan' => $request->kecamatan,
+                'no_rs' => $request->no_rs,
+                'id_outlet' => $request->id_outlet,
+                'nama_outlet' => strtoupper($request->nama_outlet),
+                'telp_pemilik' => $request->telp_pemilik,
+                'nama_sf' => strtoupper($request->nama_sf),
+                'tap_kcp' => strtoupper($request->tap_kcp),
+                'side_id_cover' => strtoupper($request->side_id_cover),
+                'kategori' => strtoupper($request->kategori),
+                'pareto' => strtoupper($request->pareto),
+                'frekuensi_kunjungan' => strtoupper($request->frekuensi_kunjungan),
+                'hari_kunjungan' => strtoupper($request->hari_kunjungan),
+                'remark_fisik' => strtoupper($request->remark_fisik),
+                'pjp' => strtoupper($request->pjp),
+                'kecamatan_lighthouse' => strtoupper($request->kecamatan_lighthouse),
+                'hrc_index' => strtoupper($request->hrc_index),
+            ]);
         }
         return redirect()->route('outlet.index');
     }
