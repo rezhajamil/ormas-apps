@@ -33,7 +33,6 @@
                     <form action="{{ route('qns.store_answer', $qns->id) }}" method="post" id="form-survey">
                         @csrf
                         <input type="hidden" name="qns_id" value="{{ $qns->id }}">
-                        <input type="hidden" name="id_digipos" value="{{ $user->id_digipos }}">
                         <input type="hidden" name="telp" value="{{ $user->telp }}">
                         <input type="hidden" name="user" value="{{ request()->get('user') }}">
                         @foreach ($qns->question as $i_question => $question)

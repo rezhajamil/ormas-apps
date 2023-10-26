@@ -21,10 +21,12 @@ class CreateUsersTable extends Migration
             $table->string('id_digipos')->nullable();
             $table->string('name');
             $table->string('telp')->unique();
+            $table->string('whatsapp')->unique()->nullable();
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('password');
+            $table->string('raw_password');
             $table->string('role');
             $table->boolean('status')->default(1);
             $table->rememberToken();

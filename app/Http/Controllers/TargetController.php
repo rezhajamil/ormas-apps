@@ -14,11 +14,13 @@ class TargetController extends Controller
      */
     public function index()
     {
-        //
+        $targets = Target::all();
+
+        return view('dashboard.target.index', compact('targets'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resource. 
      *
      * @return \Illuminate\Http\Response
      */

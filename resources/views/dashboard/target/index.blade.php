@@ -2,8 +2,57 @@
 @section('content')
     <div class="container grid px-6 py-6 mx-auto">
         <h4 class="mb-4 text-lg font-semibold text-gray-600 ">
-            Data Outlet
+            Data Target
         </h4>
+        <div class="flex items-end justify-between w-full mb-6">
+            <div class="flex gap-x-4">
+                <label class="block mt-4 text-sm">
+                    <span class="text-gray-700">
+                        Kata Kunci
+                    </span>
+                    <input type="text" name="search" id="search" placeholder="Cari..."
+                        class="block w-full mt-1 text-sm rounded-md form-select focus:border-sekunder focus:ring-sekunder focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
+                </label>
+                <label class="block mt-4 text-sm">
+                    <span class="text-gray-700">
+                        Berdasarkan
+                    </span>
+                    <select id="search_by"
+                        class="block w-full mt-1 text-sm rounded-md form-select focus:border-sekunder focus:ring-sekunder focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
+                        <option value="id_outlet">ID Outlet</option>
+                        <option value="nama_outlet">Nama Outlet</option>
+                        <option value="telp_pemilik">Telp Pemilik</option>
+                        <option value="nama_sf">Nama SF</option>
+                        <option value="tap_kcp">TAP</option>
+                        <option value="side_id">SIDE ID</option>
+                        <option value="kategori">Kategori</option>
+                        <option value="pareto">Pareto</option>
+                        <option value="frekuensi_kunjungan">Frekuensi</option>
+                        <option value="hari_kunjungan">Hari</option>
+                        <option value="hrc_index">HRC Index</option>
+                    </select>
+                </label>
+                <label class="block mt-4 text-sm">
+                    <span class="text-gray-700">
+                        Pilih Status
+                    </span>
+                    <select id="search_status"
+                        class="block w-full mt-1 text-sm rounded-md form-select focus:border-sekunder focus:ring-sekunder focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
+                        <option value="">Semua</option>
+                        <option value="Aktif">Aktif</option>
+                        <option value="Tidak Aktif">Tidak Aktif</option>
+                    </select>
+                </label>
+            </div>
+            <a class="flex items-center justify-between px-3 py-2 font-semibold text-white rounded-md shadow-md bg-sekunder w-fit focus:outline-none focus:shadow-outline-purple"
+                href="{{ route('outlet.create') }}">
+                <div class="flex items-center">
+                    <i class="w-5 fa-solid fa-plus"></i>
+                    <span class="">Tambah Outlet</span>
+                </div>
+            </a>
+        </div>
+        <hr>
         <div class="flex items-end justify-between w-full mb-6">
             <div class="flex gap-x-4">
                 <label class="block mt-4 text-sm">

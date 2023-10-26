@@ -221,7 +221,6 @@ class QnsController extends Controller
                     $history = QnsResponse::create([
                         'qns_id' => $qns->id,
                         'user_id' => $user->id,
-                        'id_digipos' => $user->id_digipos,
                         'telp_responder' => $user->telp,
                         'telp' => $user->telp,
                         'time_start' => now(),
@@ -250,14 +249,24 @@ class QnsController extends Controller
         }
 
         if ($qns->type == 'survey') {
+
+            $history = QnsResponse::where('qns_id', $id)->where('id_digipos', $request->id_digipos)->count();
+
+            if ($history) {
+                return redirect()->route('qns.answer', $id)->with('error', 'Outlet Ini Sudah Pernah Mengisi Survey');
+            }
+
             $response = QnsResponse::create([
                 'qns_id' => $qns->id,
                 'id_digipos' => $request->id_digipos,
                 'telp_responder' => $request->telp,
                 'telp' => $request->telp,
+                'user_id' => $request->user,
                 'time_start' => now(),
                 'finish' => 1,
             ]);
+
+
 
             foreach ($qns->question as $k_question => $d_question) {
                 $selected_option = "selected_option_$k_question";
@@ -292,6 +301,7 @@ class QnsController extends Controller
                     }
                 }
             }
+
 
             return redirect()->route('qns.answer', $id)->with('success', 'Terimakasih Sudah Mengisi Survey');
         } else if ($qns->type == 'quiz') {
