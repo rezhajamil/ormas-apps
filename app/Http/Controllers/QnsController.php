@@ -261,7 +261,7 @@ class QnsController extends Controller
                 'id_digipos' => $request->id_digipos,
                 'telp_responder' => $request->telp,
                 'telp' => $request->telp,
-                'user_id' => $request->user,
+                'user_id' => $user->id,
                 'time_start' => now(),
                 'finish' => 1,
             ]);
