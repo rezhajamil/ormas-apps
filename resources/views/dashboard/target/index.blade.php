@@ -19,8 +19,8 @@
                     </span>
                     <select id="search_by"
                         class="block w-full mt-1 text-sm rounded-md form-select focus:border-sekunder focus:ring-sekunder focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                        <option value="id_outlet">ID Outlet</option>
-                        <option value="nama_outlet">Nama Outlet</option>
+                        <option value="id_target">ID Target</option>
+                        <option value="nama_target">Nama Target</option>
                         <option value="telp_pemilik">Telp Pemilik</option>
                         <option value="nama_sf">Nama SF</option>
                         <option value="tap_kcp">TAP</option>
@@ -45,10 +45,10 @@
                 </label>
             </div>
             <a class="flex items-center justify-between px-3 py-2 font-semibold text-white rounded-md shadow-md bg-sekunder w-fit focus:outline-none focus:shadow-outline-purple"
-                href="{{ route('outlet.create') }}">
+                href="{{ route('target.create') }}">
                 <div class="flex items-center">
                     <i class="w-5 fa-solid fa-plus"></i>
-                    <span class="">Tambah Outlet</span>
+                    <span class="">Tambah Target</span>
                 </div>
             </a>
         </div>
@@ -68,8 +68,8 @@
                     </span>
                     <select id="search_by"
                         class="block w-full mt-1 text-sm rounded-md form-select focus:border-sekunder focus:ring-sekunder focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                        <option value="id_outlet">ID Outlet</option>
-                        <option value="nama_outlet">Nama Outlet</option>
+                        <option value="id_target">ID Target</option>
+                        <option value="nama_target">Nama Target</option>
                         <option value="telp_pemilik">Telp Pemilik</option>
                         <option value="nama_sf">Nama SF</option>
                         <option value="tap_kcp">TAP</option>
@@ -94,10 +94,10 @@
                 </label>
             </div>
             <a class="flex items-center justify-between px-3 py-2 font-semibold text-white rounded-md shadow-md bg-sekunder w-fit focus:outline-none focus:shadow-outline-purple"
-                href="{{ route('outlet.create') }}">
+                href="{{ route('target.create') }}">
                 <div class="flex items-center">
                     <i class="w-5 fa-solid fa-plus"></i>
-                    <span class="">Tambah Outlet</span>
+                    <span class="">Tambah Target</span>
                 </div>
             </a>
         </div>
@@ -110,8 +110,8 @@
                             <th class="p-2 border-x whitespace-nowrap">No</th>
                             <th class="p-2 border-x whitespace-nowrap">Kabupaten</th>
                             <th class="p-2 border-x whitespace-nowrap">Kecamatan</th>
-                            <th class="p-2 border-x whitespace-nowrap">Nama Outlet</th>
-                            <th class="p-2 border-x whitespace-nowrap">ID Outlet</th>
+                            <th class="p-2 border-x whitespace-nowrap">Nama Target</th>
+                            <th class="p-2 border-x whitespace-nowrap">ID Target</th>
                             <th class="p-2 border-x whitespace-nowrap">Telepon Pemilik</th>
                             <th class="p-2 border-x whitespace-nowrap">Nama SF</th>
                             <th class="p-2 border-x whitespace-nowrap">TAP</th>
@@ -129,62 +129,62 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y">
-                        @foreach ($outlets as $idx => $outlet)
+                        @foreach ($targets as $idx => $target)
                             <tr class="text-gray-700 ">
                                 <td class="p-2 text-sm border">
-                                    {{ $idx + $outlets->firstItem() }}
+                                    {{ $idx + $targets->firstItem() }}
                                 </td>
                                 <td class="p-2 text-sm border kabupaten">
-                                    {{ $outlet->kabupaten }}
+                                    {{ $target->kabupaten }}
                                 </td>
                                 <td class="p-2 text-sm border kecamatan">
-                                    {{ $outlet->kecamatan }}
+                                    {{ $target->kecamatan }}
                                 </td>
-                                <td class="p-2 text-sm border nama_outlet">
-                                    {{ $outlet->nama_outlet }}
+                                <td class="p-2 text-sm border nama_target">
+                                    {{ $target->nama_target }}
                                 </td>
-                                <td class="p-2 text-sm border id_outlet">
-                                    {{ $outlet->id_outlet }}
+                                <td class="p-2 text-sm border id_target">
+                                    {{ $target->id_target }}
                                 </td>
                                 <td class="p-2 text-sm border telp_pemilik">
-                                    {{ $outlet->telp_pemilik }}
+                                    {{ $target->telp_pemilik }}
                                 </td>
                                 <td class="p-2 text-sm border nama_sf">
-                                    {{ $outlet->nama_sf }}
+                                    {{ $target->nama_sf }}
                                 </td>
                                 <td class="p-2 text-sm border tap_kcp">
-                                    {{ $outlet->tap_kcp }}
+                                    {{ $target->tap_kcp }}
                                 </td>
                                 <td class="p-2 text-sm border side_id_cover">
-                                    {{ $outlet->side_id_cover }}
+                                    {{ $target->side_id_cover }}
                                 </td>
                                 <td class="p-2 text-sm border kategori">
-                                    @switch($outlet->kategori)
+                                    @switch($target->kategori)
                                         @case('PLATINUM')
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight inline-block w-full text-center text-white bg-[#dedddb] rounded-full whitespace-nowrap ">
-                                                {{ $outlet->kategori }}
+                                                {{ $target->kategori }}
                                             </span>
                                         @break
 
                                         @case('GOLD')
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight inline-block w-full text-center text-white bg-[#FFD700] rounded-full whitespace-nowrap ">
-                                                {{ $outlet->kategori }}
+                                                {{ $target->kategori }}
                                             </span>
                                         @break
 
                                         @case('SILVER')
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight inline-block w-full text-center text-white bg-[#C0C0C0] rounded-full whitespace-nowrap ">
-                                                {{ $outlet->kategori }}
+                                                {{ $target->kategori }}
                                             </span>
                                         @break
 
                                         @case('BRONZE')
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight inline-block w-full text-center text-white bg-[#CD7F32] rounded-full whitespace-nowrap ">
-                                                {{ $outlet->kategori }}
+                                                {{ $target->kategori }}
                                             </span>
                                         @break
 
@@ -192,40 +192,40 @@
                                     @endswitch
                                 </td>
                                 <td class="p-2 text-sm border pareto">
-                                    {{ $outlet->pareto }}
+                                    {{ $target->pareto }}
                                 </td>
                                 <td class="p-2 text-sm border frekuensi_kunjungan">
-                                    {{ $outlet->frekuensi_kunjungan }}
+                                    {{ $target->frekuensi_kunjungan }}
                                 </td>
                                 <td class="p-2 text-sm border hari_kunjungan">
-                                    {{ $outlet->hari_kunjungan }}
+                                    {{ $target->hari_kunjungan }}
                                 </td>
                                 <td class="p-2 text-sm border remark_fisik">
-                                    {{ $outlet->remark_fisik }}
+                                    {{ $target->remark_fisik }}
                                 </td>
                                 <td class="p-2 text-sm border pjp">
-                                    {{ $outlet->pjp }}
+                                    {{ $target->pjp }}
                                 </td>
                                 <td class="p-2 text-sm border kecamatan_lighthouse">
-                                    {{ $outlet->kecamatan_lighthouse }}
+                                    {{ $target->kecamatan_lighthouse }}
                                 </td>
                                 <td class="p-2 text-sm border hrc_index">
-                                    {{ $outlet->hrc_index }}
+                                    {{ $target->hrc_index }}
                                 </td>
                                 <td class="p-2 text-xs text-center border status"
-                                    status="{{ $outlet->status ? 'Aktif' : 'Tidak Aktif' }}">
+                                    status="{{ $target->status ? 'Aktif' : 'Tidak Aktif' }}">
                                     <span
-                                        class="px-2 py-1 font-semibold leading-tight {{ $outlet->status ? 'text-green-700 bg-green-100 ' : 'text-red-700 bg-red-100 ' }} inline-block w-full rounded-full whitespace-nowrap ">
-                                        {{ $outlet->status ? 'Aktif' : 'Tidak Aktif' }}
+                                        class="px-2 py-1 font-semibold leading-tight {{ $target->status ? 'text-green-700 bg-green-100 ' : 'text-red-700 bg-red-100 ' }} inline-block w-full rounded-full whitespace-nowrap ">
+                                        {{ $target->status ? 'Aktif' : 'Tidak Aktif' }}
                                     </span>
                                 </td>
                                 <td class="p-2">
                                     <div class="flex items-center space-x-4 text-base">
-                                        <a href="{{ route('outlet.change_status', $outlet->id) }}" class="text-premier">
+                                        <a href="{{ route('target.change_status', $target->id) }}" class="text-premier">
                                             <i
-                                                class="fa-solid {{ $outlet->status ? 'fa-toggle-on' : 'fa-toggle-off' }}"></i>
+                                                class="fa-solid {{ $target->status ? 'fa-toggle-on' : 'fa-toggle-off' }}"></i>
                                         </a>
-                                        <a href="{{ route('outlet.edit', $outlet->id) }}" class="text-premier">
+                                        <a href="{{ route('target.edit', $target->id) }}" class="text-premier">
                                             <i class="fa-solid fa-pencil"></i>
                                         </a>
                                         <button
@@ -249,11 +249,11 @@
             <div
                 class="grid p-2 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t bg-gray-50 sm:grid-cols-9 ">
                 <span class="flex items-center col-span-3">
-                    Showing {{ $outlets->firstItem() }} - {{ $outlets->lastItem() }} of {{ $outlets->total() }}
+                    Showing {{ $targets->firstItem() }} - {{ $targets->lastItem() }} of {{ $targets->total() }}
                 </span>
                 <span class="col-span-2"></span>
                 <!-- Pagination -->
-                {{ $outlets->links('components.pagination', ['data' => $outlets]) }}
+                {{ $targets->links('components.pagination', ['data' => $targets]) }}
                 {{-- @include('components.pagination') --}}
             </div>
         </div>

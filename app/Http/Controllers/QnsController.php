@@ -205,7 +205,7 @@ class QnsController extends Controller
     public function answer(Request $request, $id)
     {
         if (isset($request->user)) {
-            $user = User::find($request->user);
+            $user = User::where('username', $request->user)->first();
         } else {
             $user = auth()->user();
         }
@@ -243,7 +243,7 @@ class QnsController extends Controller
     {
         $qns = Qns::with(['creator', 'question.option', 'response'])->find($id);
         if (isset($request->user)) {
-            $user = User::find($request->user);
+            $user = User::where('username', $request->user)->first();
         } else {
             $user = auth()->user();
         }
