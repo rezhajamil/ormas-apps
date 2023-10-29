@@ -250,10 +250,10 @@ class QnsController extends Controller
 
         if ($qns->type == 'survey') {
 
-            $history = QnsResponse::where('qns_id', $id)->where('id_digipos', $request->id_digipos)->count();
+            $history = QnsResponse::where('qns_id', $id)->where('id_digipos', $request->id_digipos)->whereMonth('created_at', date('m'))->count();
 
             if ($history) {
-                return redirect()->route('qns.answer', $id)->with('error', 'Outlet Ini Sudah Pernah Mengisi Survey');
+                return redirect()->route('qns.answer', $id)->with('error', 'Outlet Ini Sudah Pernah Mengisi Survey Bulan Ini');
             }
 
             $response = QnsResponse::create([

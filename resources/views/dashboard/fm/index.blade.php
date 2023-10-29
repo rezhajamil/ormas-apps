@@ -2,10 +2,10 @@
 @section('content')
     <div class="container grid px-6 py-6 mx-auto">
         <h4 class="mb-4 text-lg font-semibold text-gray-600 ">
-            Data Target
+            Data FM
         </h4>
         <div class="flex items-end justify-between w-full mb-6">
-            <form method="GET" action="{{ route('target.index') }}" class="flex items-end gap-x-4">
+            <form method="GET" action="{{ route('fm.index') }}" class="flex items-end gap-x-4">
                 <label class="block mt-4 text-sm">
                     <span class="text-gray-700">
                         Tanggal Mulai
@@ -50,7 +50,7 @@
                     class="flex items-center justify-between px-3 py-2 font-semibold text-white bg-gray-600 rounded-md shadow-md h-fit w-fit focus:outline-none focus:shadow-outline-purple">
                     <div class="flex items-center">
                         <i class="w-5 fa-solid fa-magnifying-glass"></i>
-                        <span class="">Cari Target</span>
+                        <span class="">Cari Fm</span>
                     </div>
                 </button>
             </form>
@@ -71,7 +71,7 @@
                     </span>
                     <select id="search_by"
                         class="block w-full mt-1 text-sm rounded-md form-select focus:border-sekunder focus:ring-sekunder focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                        <option value="id_target">ID Outlet</option>
+                        <option value="id_fm">ID Outlet</option>
                         <option value="nama_outlet">Nama Outlet</option>
                         <option value="jenis">Jenis</option>
                         <option value="produk">Produk</option>
@@ -79,10 +79,10 @@
                 </label>
             </div>
             <a class="flex items-center justify-between px-3 py-2 font-semibold text-white rounded-md shadow-md bg-sekunder w-fit focus:outline-none focus:shadow-outline-purple"
-                href="{{ route('target.create') }}">
+                href="{{ route('fm.create') }}">
                 <div class="flex items-center">
                     <i class="w-5 fa-solid fa-plus"></i>
-                    <span class="">Tambah Target</span>
+                    <span class="">Tambah FM</span>
                 </div>
             </a>
         </div>
@@ -104,38 +104,38 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y">
-                        @foreach ($targets as $idx => $target)
+                        @foreach ($fms as $idx => $fm)
                             <tr class="text-gray-700 ">
                                 <td class="p-2 text-sm border">
-                                    {{ $idx + $targets->firstItem() }}
+                                    {{ $idx + $fms->firstItem() }}
                                 </td>
                                 <td class="p-2 text-sm border id_outlet">
-                                    {{ $target->id_outlet }}
+                                    {{ $fm->id_outlet }}
                                 </td>
                                 <td class="p-2 text-sm border nama_outlet">
-                                    {{ $target->nama_outlet }}
+                                    {{ $fm->nama_outlet }}
                                 </td>
                                 <td class="p-2 text-sm border trx">
-                                    {{ number_format($target->trx, '0', ',', '.') }}
+                                    {{ number_format($fm->trx, '0', ',', '.') }}
                                 </td>
                                 <td class="p-2 text-sm border rev">
-                                    {{ number_format($target->rev, '0', ',', '.') }}
+                                    {{ number_format($fm->rev, '0', ',', '.') }}
                                 </td>
                                 <td class="p-2 text-sm border jenis">
-                                    {{ $target->jenis }}
+                                    {{ $fm->jenis }}
                                 </td>
                                 <td class="p-2 text-sm border produk">
-                                    {{ $target->produk }}
+                                    {{ $fm->produk }}
                                 </td>
                                 <td class="p-2 text-sm border date">
-                                    {{ date('Y-m-d', strtotime($target->date)) }}
+                                    {{ date('Y-m-d', strtotime($fm->date)) }}
                                 </td>
                                 <td class="p-2">
                                     <div class="flex items-center space-x-4 text-base">
-                                        <a href="{{ route('target.edit', $target->id) }}" class="text-premier">
+                                        <a href="{{ route('fm.edit', $fm->id) }}" class="text-premier">
                                             <i class="fa-solid fa-pencil"></i>
                                         </a>
-                                        <form action="{{ route('target.destroy', $target->id) }}" method="post">
+                                        <form action="{{ route('fm.destroy', $fm->id) }}" method="post">
                                             @csrf
                                             @method('delete')
                                             <button
@@ -159,11 +159,11 @@
             <div
                 class="grid p-2 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t bg-gray-50 sm:grid-cols-9 ">
                 <span class="flex items-center col-span-3">
-                    Showing {{ $targets->firstItem() }} - {{ $targets->lastItem() }} of {{ $targets->total() }}
+                    Showing {{ $fms->firstItem() }} - {{ $fms->lastItem() }} of {{ $fms->total() }}
                 </span>
                 <span class="col-span-2"></span>
                 <!-- Pagination -->
-                {{ $targets->links('components.pagination', ['data' => $targets]) }}
+                {{ $fms->links('components.pagination', ['data' => $fms]) }}
                 {{-- @include('components.pagination') --}}
             </div>
         </div>

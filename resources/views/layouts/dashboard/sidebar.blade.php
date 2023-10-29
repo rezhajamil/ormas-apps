@@ -56,7 +56,7 @@
                         aria-hidden="true"></span>
                 @endif
                 <button
-                    class="inline-flex items-center justify-between w-full  text-tersier hover:text-gray-800 text-sm font-semibold transition-colors duration-150 "
+                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-tersier hover:text-gray-800 "
                     @click="togglePagesMenu" aria-haspopup="true">
                     <span class="inline-flex items-center">
                         <i class="fa-solid fa-shop"></i>
@@ -69,22 +69,22 @@
                         x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
                         x-transition:leave="transition-all ease-in-out duration-300"
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
-                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-white hover:text-gray-100 rounded-md shadow-inner bg-red-900 "
+                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-white bg-red-900 rounded-md shadow-inner hover:text-gray-100 "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                        <li class="px-2 py-1 transition-colors duration-150 border-b border-white hover:text-gray-800">
                             <a class="w-full" href="{{ route('outlet.index') }}">List Outlet</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                        <li class="px-2 py-1 transition-colors duration-150 border-b border-white hover:text-gray-800">
                             <a class="w-full" href="{{ route('target.index') }}">Target</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                        <li class="px-2 py-1 transition-colors duration-150 border-b border-white hover:text-gray-800">
                             <a class="w-full" href="{{ route('result.index') }}">Hasil</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                        <li class="px-2 py-1 transition-colors duration-150 border-b border-white hover:text-gray-800">
                             <a class="w-full" href="{{ route('fm.index') }}">FM</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800  border-white">
-                            <a class="w-full" href="{{ route('outlet.index') }}">Detail Outlet</a>
+                        <li class="px-2 py-1 transition-colors duration-150 border-white hover:text-gray-800">
+                            <a class="w-full" href="{{ route('outlet.detail') }}">Detail Outlet</a>
                         </li>
                     </ul>
                 </template>
@@ -163,7 +163,7 @@
                         aria-hidden="true"></span>
                 @endif
                 <button
-                    class="inline-flex items-center justify-between w-full  text-tersier hover:text-gray-800 text-sm font-semibold transition-colors duration-150 "
+                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-tersier hover:text-gray-800 "
                     @click="togglePagesMenu" aria-haspopup="true">
                     <span class="inline-flex items-center">
                         <i class="fa-solid fa-shop"></i>
@@ -176,18 +176,18 @@
                         x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
                         x-transition:leave="transition-all ease-in-out duration-300"
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
-                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-white hover:text-gray-100 rounded-md shadow-inner bg-red-900 "
+                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-white bg-red-900 rounded-md shadow-inner hover:text-gray-100 "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                        <li class="px-2 py-1 transition-colors duration-150 border-b border-white hover:text-gray-800">
                             <a class="w-full" href="{{ route('outlet.index') }}">List Outlet</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                        <li class="px-2 py-1 transition-colors duration-150 border-b border-white hover:text-gray-800">
                             <a class="w-full" href="{{ route('target.index') }}">Target</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                        <li class="px-2 py-1 transition-colors duration-150 border-b border-white hover:text-gray-800">
                             <a class="w-full" href="{{ route('result.index') }}">Hasil</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 border-b border-white">
+                        <li class="px-2 py-1 transition-colors duration-150 border-b border-white hover:text-gray-800">
                             <a class="w-full" href="{{ route('fm.index') }}">FM</a>
                         </li>
                     </ul>

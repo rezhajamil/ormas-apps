@@ -265,4 +265,12 @@ class OutletController extends Controller
 
         return response()->json($outlets);
     }
+
+    public function detail(Request $request, $id_outlet)
+    {
+        $detail = Outlet::with(['target', 'result', 'fm'])->where('id_outlet', $id_outlet)->first();
+
+
+        return view('dashboard.outlet.detail', compact('detail'));
+    }
 }

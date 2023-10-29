@@ -20,7 +20,6 @@ class CreateTargetsTable extends Migration
             $table->integer('rev');
             $table->string('jenis');
             $table->string('produk');
-            $table->string('deskripsi_produk')->nullable();
             $table->date('date')->nullable();
             $table->timestamps();
         });

@@ -2,11 +2,11 @@
 @section('content')
     <section
         class="flex flex-col items-center w-full h-full min-h-screen gap-4 px-4 py-4 bg-gradient-to-tr from-premier to-sekunder">
-        <a href="{{ route('home.index') }}"
+        {{-- <a href="{{ route('home.index') }}"
             class="px-3 py-2 mr-auto text-sm font-semibold text-white transition-all bg-gray-500 rounded-md hover:bg-gray-600"><i
                 class="fa-solid fa-home"></i>
             Home
-        </a>
+        </a> --}}
         <div class="w-full px-4 py-2 bg-white rounded-lg shadow-xl h-fit sm:w-3/4 ">
             <span class="block w-full py-2 mb-2 text-2xl font-bold text-center border-b-2 text-sekunder">
                 {{ ucwords($qns->name) }}
@@ -48,8 +48,8 @@
                             @case('pilgan')
                                 @foreach ($question->option as $i_option => $option)
                                     <label>
-                                        <input type="radio" name="selected_option_{{ $i_question }}"
-                                            value="{{ $option->id }}" class="hidden peer">
+                                        <input type="radio" name="selected_option_{{ $i_question }}" value="{{ $option->id }}"
+                                            class="hidden peer">
                                         <div
                                             class="flex w-full font-semibold border-2 rounded peer-checked:text-white peer-checked:bg-green-600 peer-checked:border-green-800">
                                             <span class="inline-block w-full p-4">{{ $option->text }}</span>
