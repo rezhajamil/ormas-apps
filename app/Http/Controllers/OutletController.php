@@ -284,7 +284,7 @@ class OutletController extends Controller
             })
             ->first();
 
-        // ddd($detail);
+        ddd($detail);
 
         return view('dashboard.outlet.detail', compact('detail', 'start_date', 'end_date'));
     }
