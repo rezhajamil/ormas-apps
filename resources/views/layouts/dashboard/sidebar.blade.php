@@ -83,9 +83,9 @@
                         <li class="px-2 py-1 transition-colors duration-150 border-b border-white hover:text-gray-800">
                             <a class="w-full" href="{{ route('fm.index') }}">FM</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 border-white hover:text-gray-800">
+                        {{-- <li class="px-2 py-1 transition-colors duration-150 border-white hover:text-gray-800">
                             <a class="w-full" href="{{ route('outlet.detail') }}">Detail Outlet</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </template>
             </li>

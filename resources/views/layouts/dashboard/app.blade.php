@@ -33,15 +33,21 @@
 </head>
 
 <body>
-    <div class="flex h-screen bg-gray-50 " :class="{ 'overflow-hidden': isSideMenuOpen }">
-        @include('layouts.dashboard.sidebar')
-        <div class="flex flex-col flex-1 w-full">
-            @include('layouts.dashboard.header')
-            <main class="h-full overflow-y-auto">
-                @yield('content')
-            </main>
+    @isset($plain)
+        <div class="h-screeen">
+            @yield('content')
         </div>
-    </div>
+    @else
+        <div class="flex h-screen bg-gray-50 " :class="{ 'overflow-hidden': isSideMenuOpen }">
+            @include('layouts.dashboard.sidebar')
+            <div class="flex flex-col flex-1 w-full">
+                @include('layouts.dashboard.header')
+                <main class="h-full overflow-y-auto">
+                    @yield('content')
+                </main>
+            </div>
+        </div>
+    @endisset
     @yield('script')
 </body>
 
