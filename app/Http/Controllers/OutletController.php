@@ -271,21 +271,12 @@ class OutletController extends Controller
         $start_date = $request->start_date ?? date('Y-m-01');
         $end_date = $request->end_date ?? date('Y-m-d');
 
-        $detail = Outlet::with(['target', 'result', 'fm'])
-            ->where('id_outlet', $id_outlet)
-            ->whereHas('target', function ($query) use ($start_date, $end_date) {
-                $query->whereBetween('date', [$start_date, $end_date]);
-            })
-            ->whereHas('result', function ($query) use ($start_date, $end_date) {
-                $query->whereBetween('date', [$start_date, $end_date]);
-            })
-            ->whereHas('fm', function ($query) use ($start_date, $end_date) {
-                $query->whereBetween('date', [$start_date, $end_date]);
-            })
-            ->first();
+        $outlet = Outlet::where('id_outlet', $id_outlet)->first();
 
-        // ddd($detail);
+        $detail = Outlet::detail_mobile($id_outlet, $start_date, $end_date);
 
-        return view('dashboard.outlet.detail', compact('detail', 'start_date', 'end_date'));
+        // ddd($detail[0]);
+
+        return view('dashboard.outlet.detail', compact('detail', 'outlet', 'start_date', 'end_date'));
     }
 }

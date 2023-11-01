@@ -1,7 +1,7 @@
 <div class="flex flex-col gap-6 card-list" jenis="info_outlet">
     <div class="w-full overflow-hidden bg-white border-2 rounded-lg card">
         <div class="w-full px-3 py-2 text-base font-semibold text-center text-white bg-gray-500 card-header">
-            {{ $detail->nama_outlet }}
+            {{ $outlet->nama_outlet }}
         </div>
         <div class="w-full card-body">
             <table class="w-full border-0">
@@ -10,7 +10,7 @@
                         No RS
                     </td>
                     <td class="px-2 py-2 text-sm font-semibold text-center uppercase border-b-2 text-slate-700">
-                        {{ $detail->no_rs }}
+                        {{ $outlet->no_rs }}
                     </td>
                 </tr>
                 <tr>
@@ -18,7 +18,7 @@
                         Nama SF
                     </td>
                     <td class="px-2 py-2 text-sm font-semibold text-center uppercase border-b-2 text-slate-700">
-                        {{ $detail->nama_sf }}
+                        {{ $outlet->nama_sf }}
                     </td>
                 </tr>
                 <tr>
@@ -27,7 +27,7 @@
                         TAP KCP
                     </td>
                     <td class="px-2 py-2 text-sm font-semibold text-center uppercase border-b-2 text-slate-700">
-                        {{ $detail->tap_kcp }}
+                        {{ $outlet->tap_kcp }}
                     </td>
                 </tr>
                 <tr>
@@ -36,7 +36,7 @@
                         Cluster
                     </td>
                     <td class="px-2 py-2 text-sm font-semibold text-center uppercase border-b-2 text-slate-700">
-                        {{ $detail->cluster }}
+                        {{ $outlet->cluster }}
                     </td>
                 </tr>
                 <tr>
@@ -45,7 +45,7 @@
                         Kabupaten
                     </td>
                     <td class="px-2 py-2 text-sm font-semibold text-center uppercase border-b-2 text-slate-700">
-                        {{ $detail->kabupaten }}
+                        {{ $outlet->kabupaten }}
                     </td>
                 </tr>
                 <tr>
@@ -54,7 +54,7 @@
                         Kecamatan
                     </td>
                     <td class="px-2 py-2 text-sm font-semibold text-center uppercase border-b-2 text-slate-700">
-                        {{ $detail->kecamatan }}
+                        {{ $outlet->kecamatan }}
                     </td>
                 </tr>
                 <tr>
@@ -63,7 +63,7 @@
                         PJP NON PJP
                     </td>
                     <td class="px-2 py-2 text-sm font-semibold text-center uppercase border-b-2 text-slate-700">
-                        {{ $detail->pjp }}
+                        {{ $outlet->pjp }}
                     </td>
                 </tr>
                 <tr>
@@ -72,7 +72,7 @@
                         Kecamatan Lighthouse
                     </td>
                     <td class="px-2 py-2 text-sm font-semibold text-center uppercase border-b-2 text-slate-700">
-                        {{ $detail->kecamatan_lighthouse }}
+                        {{ $outlet->kecamatan_lighthouse }}
                     </td>
                 </tr>
                 <tr>
@@ -80,7 +80,7 @@
                         HRC Index
                     </td>
                     <td class="px-2 py-2 text-sm font-semibold text-center uppercase text-slate-700">
-                        {{ $detail->hrc_index }}
+                        {{ $outlet->hrc_index }}
                     </td>
                 </tr>
             </table>
