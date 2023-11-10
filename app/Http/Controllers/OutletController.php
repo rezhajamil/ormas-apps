@@ -274,7 +274,7 @@ class OutletController extends Controller
 
         $outlet = DetailOutlet::where('id_outlet', $id_outlet)->first();
 
-        $detail = Outlet::detail_mobile($id_outlet, '2023-10-15');
+        $detail = Outlet::detail_mobile($id_outlet, $end_date);
 
         // ddd($detail[0]);
 
