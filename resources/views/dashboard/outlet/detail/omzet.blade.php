@@ -28,25 +28,25 @@
                     <span class="font-bold">OMZET NGRS</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_productive_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_omset, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_productive_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_omset, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_productive_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_omset, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->trx_productive_mtd, $detail[0]->trx_productive_m1) < 0)
+                    @if ($detail[0]->mom_omset <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span
-                        class="">{{ mom($detail[0]->trx_productive_mtd, $detail[0]->trx_productive_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_omset }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ gap($detail[0]->trx_productive_mtd, $detail[0]->trx_productive_m1) }}</span>
+                    <span
+                        class="">{{ $detail[0]->gap_omset >= 0 ? $detail[0]->gap_omset : '(' . $detail[0]->gap_omset . ')' }}</span>
                 </td>
             </tr>
         </tbody>

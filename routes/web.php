@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
 require __DIR__ . '/user.php';
 require __DIR__ . '/qns.php';
 require __DIR__ . '/outlet.php';
+require __DIR__ . '/detail_outlet.php';
 require __DIR__ . '/target.php';
 require __DIR__ . '/result.php';
 require __DIR__ . '/fm.php';

@@ -64,6 +64,15 @@
             </div>
             @include('dashboard.outlet.detail.aggressivity')
         </div>
+        <div class="flex flex-col gap-2 jenis-container">
+            <div class="flex border-b-2 ">
+                <span class="inline-block w-full font-semibold text-center text-slate-600">
+                    OMZET
+                </span>
+                <i class="ml-auto text-lg cursor-pointer fa-solid fa-square-minus btn-toggle-list" jenis="omzet"></i>
+            </div>
+            @include('dashboard.outlet.detail.omzet')
+        </div>
     </div>
 @endsection
 @section('script')

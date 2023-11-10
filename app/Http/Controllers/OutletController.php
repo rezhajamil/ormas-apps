@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DetailOutlet;
 use App\Models\Outlet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -271,9 +272,9 @@ class OutletController extends Controller
         $start_date = $request->start_date ?? date('Y-m-01');
         $end_date = $request->end_date ?? date('Y-m-d');
 
-        $outlet = Outlet::where('id_outlet', $id_outlet)->first();
+        $outlet = DetailOutlet::where('id_outlet', $id_outlet)->first();
 
-        $detail = Outlet::detail_mobile($id_outlet, $start_date, $end_date);
+        $detail = Outlet::detail_mobile($id_outlet, '2023-10-15');
 
         // ddd($detail[0]);
 

@@ -20,6 +20,7 @@ class SuperAdminUserSeeder extends Seeder
                 "telp" => '081234567890',
                 "username" => 'superadmin',
                 "password" => bcrypt('sumatera2023'),
+                'raw_password' => '',
                 "role" => "superadmin",
             ]
         ];

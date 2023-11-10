@@ -28,25 +28,25 @@
                     <span class="font-bold">TRX PRODUCTIVE (5)</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_productive_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_productive_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_productive_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_productive_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_productive_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_productive_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->trx_productive_mtd, $detail[0]->trx_productive_m1) < 0)
+                    @if ($detail[0]->mom_productive_trx <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span
-                        class="">{{ mom($detail[0]->trx_productive_mtd, $detail[0]->trx_productive_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_productive_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ gap($detail[0]->trx_productive_mtd, $detail[0]->trx_productive_m1) }}</span>
+                    <span
+                        class="">{{ $detail[0]->gap_productive_trx >= 0 ? $detail[0]->gap_productive_trx : '(' . $detail[0]->gap_productive_trx . ')' }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -54,25 +54,25 @@
                     <span class="font-bold">REVENUE</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_productive_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_productive_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_productive_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_productive_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_productive_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_productive_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->rev_productive_mtd, $detail[0]->rev_productive_m1) < 0)
+                    @if ($detail[0]->mom_productive_rev <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span
-                        class="">{{ mom($detail[0]->rev_productive_mtd, $detail[0]->rev_productive_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_productive_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ gap($detail[0]->rev_productive_mtd, $detail[0]->rev_productive_m1) }}</span>
+                    <span
+                        class="">{{ $detail[0]->gap_productive_rev >= 0 ? $detail[0]->gap_productive_rev : '(' . $detail[0]->gap_productive_rev . ')' }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -80,24 +80,25 @@
                     <span class="font-bold">TRX CVM (5)</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_cvm_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_cvm_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_cvm_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_cvm_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_cvm_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_cvm_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->trx_cvm_mtd, $detail[0]->trx_cvm_m1) < 0)
+                    @if ($detail[0]->mom_cvm_trx <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span class="">{{ mom($detail[0]->trx_cvm_mtd, $detail[0]->trx_cvm_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_cvm_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ gap($detail[0]->trx_cvm_mtd, $detail[0]->trx_cvm_m1) }}</span>
+                    <span
+                        class="">{{ $detail[0]->gap_cvm_trx >= 0 ? $detail[0]->gap_cvm_trx : '(' . $detail[0]->gap_cvm_trx . ')' }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -105,24 +106,25 @@
                     <span class="font-bold">REVENUE CVM (5)</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_cvm_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_cvm_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_cvm_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_cvm_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_cvm_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_cvm_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->rev_cvm_mtd, $detail[0]->rev_cvm_m1) < 0)
+                    @if ($detail[0]->mom_cvm_rev <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span class="">{{ mom($detail[0]->rev_cvm_mtd, $detail[0]->rev_cvm_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_cvm_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ gap($detail[0]->rev_cvm_mtd, $detail[0]->rev_cvm_m1) }}</span>
+                    <span
+                        class="">{{ $detail[0]->gap_cvm_rev >= 0 ? $detail[0]->gap_cvm_rev : '(' . $detail[0]->gap_cvm_rev . ')' }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -130,26 +132,25 @@
                     <span class="font-bold">TRX SUPER SERU (1)</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_super_seru_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_super_seru_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_super_seru_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_super_seru_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_super_seru_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_super_seru_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->trx_super_seru_mtd, $detail[0]->trx_super_seru_m1) < 0)
+                    @if ($detail[0]->mom_super_seru_trx <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span
-                        class="">{{ mom($detail[0]->trx_super_seru_mtd, $detail[0]->trx_super_seru_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_super_seru_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ gap($detail[0]->trx_super_seru_mtd, $detail[0]->trx_super_seru_m1) }}</span>
+                        class="">{{ $detail[0]->gap_super_seru_trx >= 0 ? $detail[0]->gap_super_seru_trx : '(' . $detail[0]->gap_super_seru_trx . ')' }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -157,26 +158,25 @@
                     <span class="font-bold">REVENUE SUPER SERU (1)</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_super_seru_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_super_seru_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_super_seru_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_super_seru_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_super_seru_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_super_seru_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->rev_super_seru_mtd, $detail[0]->rev_super_seru_m1) < 0)
+                    @if ($detail[0]->mom_super_seru_rev <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span
-                        class="">{{ mom($detail[0]->rev_super_seru_mtd, $detail[0]->rev_super_seru_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_super_seru_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ gap($detail[0]->rev_super_seru_mtd, $detail[0]->rev_super_seru_m1) }}</span>
+                        class="">{{ $detail[0]->gap_super_seru_rev >= 0 ? $detail[0]->gap_super_seru_rev : '(' . $detail[0]->gap_super_seru_rev . ')' }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -184,26 +184,25 @@
                     <span class="font-bold">TRX COMBO SAKTI (5)</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_combo_sakti_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_combo_sakti_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_combo_sakti_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_combo_sakti_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_combo_sakti_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_combo_sakti_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->trx_combo_sakti_mtd, $detail[0]->trx_combo_sakti_m1) < 0)
+                    @if ($detail[0]->mom_combo_sakti_trx <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span
-                        class="">{{ mom($detail[0]->trx_combo_sakti_mtd, $detail[0]->trx_combo_sakti_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_combo_sakti_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ gap($detail[0]->trx_combo_sakti_mtd, $detail[0]->trx_combo_sakti_m1) }}</span>
+                        class="">{{ $detail[0]->gap_combo_sakti_trx >= 0 ? $detail[0]->gap_combo_sakti_trx : '(' . $detail[0]->gap_combo_sakti_trx . ')' }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -211,26 +210,25 @@
                     <span class="font-bold">REVENUE COMBO SAKTI (5)</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_combo_sakti_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_combo_sakti_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_combo_sakti_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_combo_sakti_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_combo_sakti_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_combo_sakti_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->rev_combo_sakti_mtd, $detail[0]->rev_combo_sakti_m1) < 0)
+                    @if ($detail[0]->mom_combo_sakti_rev <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span
-                        class="">{{ mom($detail[0]->rev_combo_sakti_mtd, $detail[0]->rev_combo_sakti_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_combo_sakti_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ gap($detail[0]->rev_combo_sakti_mtd, $detail[0]->rev_combo_sakti_m1) }}</span>
+                        class="">{{ $detail[0]->gap_combo_sakti_rev >= 0 ? $detail[0]->gap_combo_sakti_rev : '(' . $detail[0]->gap_combo_sakti_rev . ')' }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -238,25 +236,25 @@
                     <span class="font-bold">TRX HOT PROMO (5)</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_hot_promo_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_hot_promo_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_hot_promo_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_hot_promo_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_hot_promo_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_hot_promo_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->trx_hot_promo_mtd, $detail[0]->trx_hot_promo_m1) < 0)
+                    @if ($detail[0]->mom_hot_promo_trx <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span
-                        class="">{{ mom($detail[0]->trx_hot_promo_mtd, $detail[0]->trx_hot_promo_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_hot_promo_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ gap($detail[0]->trx_hot_promo_mtd, $detail[0]->trx_hot_promo_m1) }}</span>
+                    <span
+                        class="">{{ $detail[0]->gap_hot_promo_trx >= 0 ? $detail[0]->gap_hot_promo_trx : '(' . $detail[0]->gap_hot_promo_trx . ')' }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -264,25 +262,25 @@
                     <span class="font-bold">REVENUE HOT PROMO (5)</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_hot_promo_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_hot_promo_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_hot_promo_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_hot_promo_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_hot_promo_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_hot_promo_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->rev_hot_promo_mtd, $detail[0]->rev_hot_promo_m1) < 0)
+                    @if ($detail[0]->mom_hot_promo_rev <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span
-                        class="">{{ mom($detail[0]->rev_hot_promo_mtd, $detail[0]->rev_hot_promo_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_hot_promo_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ gap($detail[0]->rev_hot_promo_mtd, $detail[0]->rev_hot_promo_m1) }}</span>
+                    <span
+                        class="">{{ $detail[0]->gap_hot_promo_rev >= 0 ? $detail[0]->gap_hot_promo_rev : '(' . $detail[0]->gap_hot_promo_rev . ')' }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -290,27 +288,25 @@
                     <span class="font-bold">TRX INTERNET SAKTI (5)</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->trx_internet_sakti_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_internet_sakti_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_internet_sakti_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_internet_sakti_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_internet_sakti_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_internet_sakti_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->trx_internet_sakti_mtd, $detail[0]->trx_internet_sakti_m1) < 0)
+                    @if ($detail[0]->mom_internet_sakti_trx <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span
-                        class="">{{ mom($detail[0]->trx_internet_sakti_mtd, $detail[0]->trx_internet_sakti_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_internet_sakti_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ gap($detail[0]->trx_internet_sakti_mtd, $detail[0]->trx_internet_sakti_m1) }}</span>
+                        class="">{{ $detail[0]->gap_internet_sakti_trx >= 0 ? $detail[0]->gap_internet_sakti_trx : '(' . $detail[0]->gap_internet_sakti_trx . ')' }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -318,27 +314,25 @@
                     <span class="font-bold">REVENUE INTERNET SAKTI (5)</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->rev_internet_sakti_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_internet_sakti_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_internet_sakti_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_internet_sakti_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_internet_sakti_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_internet_sakti_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->rev_internet_sakti_mtd, $detail[0]->rev_internet_sakti_m1) < 0)
+                    @if ($detail[0]->mom_internet_sakti_rev <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span
-                        class="">{{ mom($detail[0]->rev_internet_sakti_mtd, $detail[0]->rev_internet_sakti_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_internet_sakti_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ gap($detail[0]->rev_internet_sakti_mtd, $detail[0]->rev_internet_sakti_m1) }}</span>
+                        class="">{{ $detail[0]->gap_internet_sakti_rev >= 0 ? $detail[0]->gap_internet_sakti_rev : '(' . $detail[0]->gap_internet_sakti_rev . ')' }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -346,24 +340,25 @@
                     <span class="font-bold">TRX DIGITAL (2)</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_digital_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_digital_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_digital_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_digital_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_digital_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_digital_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->trx_digital_mtd, $detail[0]->trx_digital_m1) < 0)
+                    @if ($detail[0]->mom_digital_trx <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span class="">{{ mom($detail[0]->trx_digital_mtd, $detail[0]->trx_digital_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_digital_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ gap($detail[0]->trx_digital_mtd, $detail[0]->trx_digital_m1) }}</span>
+                    <span
+                        class="">{{ $detail[0]->gap_digital_trx >= 0 ? $detail[0]->gap_digital_trx : '(' . $detail[0]->gap_digital_trx . ')' }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -371,24 +366,25 @@
                     <span class="font-bold">REVENUE DIGITAL</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_digital_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_digital_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_digital_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_digital_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_digital_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_digital_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->rev_digital_mtd, $detail[0]->rev_digital_m1) < 0)
+                    @if ($detail[0]->mom_digital_rev <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span class="">{{ mom($detail[0]->rev_digital_mtd, $detail[0]->rev_digital_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_digital_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ gap($detail[0]->rev_digital_mtd, $detail[0]->rev_digital_m1) }}</span>
+                    <span
+                        class="">{{ $detail[0]->gap_digital_rev >= 0 ? $detail[0]->gap_digital_rev : '(' . $detail[0]->gap_digital_rev . ')' }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -396,24 +392,25 @@
                     <span class="font-bold">TRX VOICE (2)</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_voice_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_voice_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_voice_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_voice_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->trx_voice_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_voice_trx, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->trx_voice_mtd, $detail[0]->trx_voice_m1) < 0)
+                    @if ($detail[0]->mom_voice_trx <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span class="">{{ mom($detail[0]->trx_voice_mtd, $detail[0]->trx_voice_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_voice_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ gap($detail[0]->trx_voice_mtd, $detail[0]->trx_voice_m1) }}</span>
+                    <span
+                        class="">{{ $detail[0]->gap_voice_trx >= 0 ? $detail[0]->gap_voice_trx : '(' . $detail[0]->gap_voice_trx . ')' }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -421,24 +418,25 @@
                     <span class="font-bold">REVENUE VOICE (2)</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_voice_full_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->fm_voice_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_voice_m1, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->m1_voice_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ number_format($detail[0]->rev_voice_mtd, 0, ',', '.') }}</span>
+                    <span class="">{{ number_format($detail[0]->mtd_voice_rev, 0, ',', '.') }}</span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
-                    @if (mom($detail[0]->rev_voice_mtd, $detail[0]->rev_voice_m1) < 0)
+                    @if ($detail[0]->mom_voice_rev <= 0)
                         <i class="mr-auto text-red-700 fa-solid fa-square-caret-down"></i>
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span class="">{{ mom($detail[0]->rev_voice_mtd, $detail[0]->rev_voice_m1) }}%</span>
+                    <span class="">{{ $detail[0]->mom_voice_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="">{{ gap($detail[0]->rev_voice_mtd, $detail[0]->rev_voice_m1) }}</span>
+                    <span
+                        class="">{{ $detail[0]->gap_voice_rev >= 0 ? $detail[0]->gap_voice_rev : '(' . $detail[0]->gap_voice_rev . ')' }}</span>
                 </td>
             </tr>
         </tbody>
