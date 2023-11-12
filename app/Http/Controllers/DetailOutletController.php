@@ -12,11 +12,25 @@ class DetailOutletController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = [];
+        $details = [];
+        $mtd = '';
+        $m1 = '';
+        $month_m1 = '';
+        $month_mtd = '';
 
-        return view('dashboard.detail_outlet.index', compact('data'));
+        if ($request->date) {
+            $details = DetailOutlet::getDetailList($request->date);
+            $mtd = date('d F', strtotime($request->date));
+            $m1 = date('d F', strtotime($request->date . '-1 Months'));
+            $month_m1 = date('F', strtotime($request->date));
+            $month_mtd = date('F', strtotime($request->date . '-1 Months'));
+        }
+
+        // ddd($details[0]);
+
+        return view('dashboard.detail_outlet.index', compact('details', 'mtd', 'm1', 'month_mtd', 'month_m1'));
     }
 
     /**

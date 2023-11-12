@@ -1,6 +1,6 @@
 @extends('layouts.dashboard.app')
 @section('content')
-    <div class="container grid px-6 mx-auto">
+    <div class="container grid px-6 ">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 ">
             Dashboard
         </h2>
