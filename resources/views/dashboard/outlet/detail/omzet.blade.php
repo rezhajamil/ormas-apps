@@ -25,7 +25,7 @@
         <tbody class="text-xs gap-y-1">
             <tr class="bg-sky-100">
                 <td class="px-3 py-1 whitespace-nowrap">
-                    <span class="font-bold">OMZET NGRS</span>
+                    <span class="font-bold">SALDO LA DIGIPOS/ NGRS</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span class="">{{ number_format($detail[0]->fm_omset, 0, ',', '.') }}</span>

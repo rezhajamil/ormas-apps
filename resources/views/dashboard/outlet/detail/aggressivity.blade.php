@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-6 card-list" jenis="aggressivity">
+<div class="flex flex-col min-w-[40%] gap-6 card-list w-fit" jenis="aggressivity">
     <table class="">
         <thead class="text-xs bg-slate-800">
             <tr class="">
@@ -199,7 +199,7 @@
             </tr>
             <tr class="bg-gray-100">
                 <td class="px-3 py-1 whitespace-nowrap">
-                    <span class="font-bold text-red-600">%OUTER PAIRING</span>
+                    <span class="font-bold text-red-600 whitespace-nowrap">%OUTER PAIRING</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                 </td>
@@ -216,4 +216,40 @@
             </tr>
         </tbody>
     </table>
+    <div class="flex justify-between mt-4 gap-x-4">
+        <div class="flex flex-col min-w-[40%]">
+            <span class="font-bold text-red-600 whitespace-nowrap">HISTORI ORDER VF</span>
+            <table class="bg-lime-500/60">
+                <tr>
+                    <td><span class="px-2 font-bold">W-3</span></td>
+                    <td class="text-right"><span class="px-2 font-bold">-</span></td>
+                </tr>
+                <tr>
+                    <td><span class="px-2 font-bold">W-2</span></td>
+                    <td class="text-right"><span class="px-2 font-bold">-</span></td>
+                </tr>
+                <tr>
+                    <td><span class="px-2 font-bold">W-1</span></td>
+                    <td class="text-right"><span class="px-2 font-bold">-</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="flex flex-col min-w-[40%]">
+            <span class="font-bold text-red-600 whitespace-nowrap">TARGET DIST VF WEEKLY VALIDITY</span>
+            <table class="bg-lime-500/60">
+                <tr>
+                    <td><span class="px-2 font-bold">3D</span></td>
+                    <td class="text-right"><span class="px-2 font-bold">-</span></td>
+                </tr>
+                <tr>
+                    <td><span class="px-2 font-bold">5D</span></td>
+                    <td class="text-right"><span class="px-2 font-bold">-</span></td>
+                </tr>
+                <tr>
+                    <td><span class="px-2 font-bold">7D</span></td>
+                    <td class="text-right"><span class="px-2 font-bold">-</span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>

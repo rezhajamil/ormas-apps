@@ -26,20 +26,23 @@
         <span class="uppercase">PERFORMANCE RS <br> PRODUCTIVITY & AGGRESSIVITY</span>
     </div>
     <div class="flex w-full px-2 my-2 gap-x-2">
-        <div class="flex w-1/2 p-1 text-sm text-white bg-gray-500 rounded-sm">
-            <span class="inline-block w-1/2 text-center uppercase border-r border-x-white">ID Outlet</span>
-            <span class="inline-block w-1/2 text-center uppercase border-l border-x-white">{{ $outlet->id_outlet }}</span>
+        <div class="flex p-2 text-sm text-white bg-gray-500 rounded-sm gap-x-2 w-fit">
+            <span class="inline-block w-full text-center uppercase whitespace-nowrap ">ID
+                Outlet</span>
+            <span class="inline-block w-full text-center uppercase whitespace-nowrap ">|</span>
+            <span class="inline-block w-full text-center uppercase whitespace-nowrap ">{{ $outlet->id_outlet }}</span>
         </div>
-        <div class="flex w-1/2 p-1 text-sm text-white bg-gray-500 rounded-sm">
-            <span class="inline-block w-1/2 text-center uppercase border-r border-x-white">Date</span>
+        <div class="flex p-2 text-sm text-white bg-gray-500 rounded-sm gap-x-2 w-fit">
+            <span class="inline-block w-full text-center uppercase whitespace-nowrap ">Date</span>
+            <span class="inline-block w-full text-center uppercase whitespace-nowrap ">|</span>
             <span
-                class="inline-block w-1/2 text-center uppercase border-l border-x-white">{{ date('d M', strtotime($end_date)) }}</span>
+                class="inline-block w-full text-center uppercase whitespace-nowrap ">{{ date('d M', strtotime($end_date)) }}</span>
         </div>
     </div>
     <div class="flex flex-col w-full p-4 gap-y-8">
         <div class="flex flex-col gap-2 jenis-container">
             <div class="flex border-b-2 ">
-                <span class="inline-block w-full font-semibold text-center text-slate-600">
+                <span class="inline-block pr-4 font-semibold text-center w-fit whitespace-nowrap text-slate-600">
                     INFO OUTLET
                 </span>
                 <i class="ml-auto text-lg cursor-pointer fa-solid fa-square-minus btn-toggle-list" jenis="info_outlet"></i>
@@ -48,7 +51,7 @@
         </div>
         <div class="flex flex-col gap-2 jenis-container">
             <div class="flex border-b-2 ">
-                <span class="inline-block w-full font-semibold text-center text-slate-600">
+                <span class="inline-block pr-4 font-semibold text-center w-fit whitespace-nowrap text-slate-600">
                     RS PRODUCTIVITY
                 </span>
                 <i class="ml-auto text-lg cursor-pointer fa-solid fa-square-minus btn-toggle-list" jenis="productivity"></i>
@@ -57,7 +60,7 @@
         </div>
         <div class="flex flex-col gap-2 jenis-container">
             <div class="flex border-b-2 ">
-                <span class="inline-block w-full font-semibold text-center text-slate-600">
+                <span class="inline-block pr-4 font-semibold text-center w-fit whitespace-nowrap text-slate-600">
                     RS AGGRESSIVITY
                 </span>
                 <i class="ml-auto text-lg cursor-pointer fa-solid fa-square-minus btn-toggle-list" jenis="aggressivity"></i>
@@ -66,12 +69,21 @@
         </div>
         <div class="flex flex-col gap-2 jenis-container">
             <div class="flex border-b-2 ">
-                <span class="inline-block w-full font-semibold text-center text-slate-600">
+                <span class="inline-block pr-4 font-semibold text-center w-fit whitespace-nowrap text-slate-600">
                     OMZET
                 </span>
                 <i class="ml-auto text-lg cursor-pointer fa-solid fa-square-minus btn-toggle-list" jenis="omzet"></i>
             </div>
             @include('dashboard.outlet.detail.omzet')
+        </div>
+        <div class="flex flex-col gap-2 jenis-container">
+            <div class="flex border-b-2 ">
+                <span class="inline-block pr-4 font-semibold text-center w-fit whitespace-nowrap text-slate-600">
+                    PROGRAM TERDAFTAR (WHITELISTED)
+                </span>
+                <i class="ml-auto text-lg cursor-pointer fa-solid fa-square-minus btn-toggle-list" jenis="whitelist"></i>
+            </div>
+            @include('dashboard.outlet.detail.whitelist')
         </div>
     </div>
 @endsection
