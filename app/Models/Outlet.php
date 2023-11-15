@@ -169,9 +169,30 @@ class Outlet extends Model
             SUM(CASE WHEN `date` BETWEEN '$first_m1' AND '$m1' THEN omset ELSE 0 END) m1_omset,
             SUM(CASE WHEN `date` BETWEEN '$first_mtd' AND '$mtd' THEN omset ELSE 0 END) mtd_omset,
             COALESCE(ROUND(((SUM(CASE WHEN `date` BETWEEN '$first_mtd' AND '$mtd' THEN omset ELSE 0 END)/SUM(CASE WHEN `date` BETWEEN '$first_m1' AND '$m1' THEN omset ELSE 0 END)-1)*100),2),0) mom_omset,
-            (SUM(CASE WHEN `date` BETWEEN '$first_mtd' AND '$mtd' THEN omset ELSE 0 END)-SUM(CASE WHEN `date` BETWEEN '$first_m1' AND '$m1' THEN omset ELSE 0 END)) gap_omset
+            (SUM(CASE WHEN `date` BETWEEN '$first_mtd' AND '$mtd' THEN omset ELSE 0 END)-SUM(CASE WHEN `date` BETWEEN '$first_m1' AND '$m1' THEN omset ELSE 0 END)) gap_omset,
+
+            MAX(CASE WHEN `date` = '$mtd' THEN pn_lh_banjir_cuan END) pn_lh_banjir_cuan,
+            MAX(CASE WHEN `date` = '$mtd' THEN pn_lh_cvm_hd END) pn_lh_cvm_hd,
+            MAX(CASE WHEN `date` = '$mtd' THEN pn_lh_so_double_cuan END) pn_lh_so_double_cuan,
+            MAX(CASE WHEN `date` = '$mtd' THEN pn_lh_paket_sakti END) pn_lh_paket_sakti,
+            MAX(CASE WHEN `date` = '$mtd' THEN pn_so_reguler END) pn_so_reguler,
+            MAX(CASE WHEN `date` = '$mtd' THEN pn_super_seru END) pn_super_seru,
+            MAX(CASE WHEN `date` = '$mtd' THEN pn_prodi_hq END) pn_prodi_hq,
+            MAX(CASE WHEN `date` = '$mtd' THEN pl_andalan_comsak END) pl_andalan_comsak,
+            MAX(CASE WHEN `date` = '$mtd' THEN pl_andalan_hot_promo END) pl_andalan_hot_promo,
+            MAX(CASE WHEN `date` = '$mtd' THEN pl_tambuah END) pl_tambuah,
+            MAX(CASE WHEN `date` = '$mtd' THEN pl_lapau_sa END) pl_lapau_sa,
+            MAX(CASE WHEN `date` = '$mtd' THEN pl_andalan_digital END) pl_andalan_digital,
+            MAX(CASE WHEN `date` = '$mtd' THEN pl_all_prodi_lokal END) pl_all_prodi_lokal,
+
+            SUM(CASE WHEN `date` = '$mtd' THEN histori_order_w_3 ELSE 0 END) histori_order_w_3,
+            SUM(CASE WHEN `date` = '$mtd' THEN histori_order_w_2 ELSE 0 END) histori_order_w_2,
+            SUM(CASE WHEN `date` = '$mtd' THEN histori_order_w_1 ELSE 0 END) histori_order_w_1,
+            SUM(CASE WHEN `date` = '$mtd' THEN target_weekly_validity_3d ELSE 0 END) target_weekly_validity_3d,
+            SUM(CASE WHEN `date` = '$mtd' THEN target_weekly_validity_5d ELSE 0 END) target_weekly_validity_5d,
+            SUM(CASE WHEN `date` = '$mtd' THEN target_weekly_validity_7d ELSE 0 END) target_weekly_validity_7d
             FROM detail_outlets
-            WHERE id_outlet='$id_outlet';";
+            WHERE date BETWEEN '$first_m1' AND '$last_mtd' AND id_outlet='$id_outlet';";
 
         // die($query);
 

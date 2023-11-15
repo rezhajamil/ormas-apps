@@ -221,16 +221,22 @@
             <span class="font-bold text-red-600 whitespace-nowrap">HISTORI ORDER VF</span>
             <table class="bg-lime-500/60">
                 <tr>
-                    <td><span class="px-2 font-bold">W-3</span></td>
-                    <td class="text-right"><span class="px-2 font-bold">-</span></td>
+                    <td><span class="px-2 text-xs font-bold">W-3</span></td>
+                    <td class="text-right"><span
+                            class="px-2 text-xs font-bold">{{ $detail[0]->histori_order_w_3 }}</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td><span class="px-2 font-bold">W-2</span></td>
-                    <td class="text-right"><span class="px-2 font-bold">-</span></td>
+                    <td><span class="px-2 text-xs font-bold">W-2</span></td>
+                    <td class="text-right"><span
+                            class="px-2 text-xs font-bold">{{ $detail[0]->histori_order_w_2 }}</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td><span class="px-2 font-bold">W-1</span></td>
-                    <td class="text-right"><span class="px-2 font-bold">-</span></td>
+                    <td><span class="px-2 text-xs font-bold">W-1</span></td>
+                    <td class="text-right"><span
+                            class="px-2 text-xs font-bold">{{ $detail[0]->histori_order_w_1 }}</span>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -238,16 +244,22 @@
             <span class="font-bold text-red-600 whitespace-nowrap">TARGET DIST VF WEEKLY VALIDITY</span>
             <table class="bg-lime-500/60">
                 <tr>
-                    <td><span class="px-2 font-bold">3D</span></td>
-                    <td class="text-right"><span class="px-2 font-bold">-</span></td>
+                    <td><span class="px-2 text-xs font-bold">3D</span></td>
+                    <td class="text-right">
+                        <span class="px-2 text-xs font-bold">{{ $detail[0]->target_weekly_validity_3d }}</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td><span class="px-2 font-bold">5D</span></td>
-                    <td class="text-right"><span class="px-2 font-bold">-</span></td>
+                    <td><span class="px-2 text-xs font-bold">5D</span></td>
+                    <td class="text-right">
+                        <span class="px-2 text-xs font-bold">{{ $detail[0]->target_weekly_validity_5d }}</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td><span class="px-2 font-bold">7D</span></td>
-                    <td class="text-right"><span class="px-2 font-bold">-</span></td>
+                    <td><span class="px-2 text-xs font-bold">7D</span></td>
+                    <td class="text-right">
+                        <span class="px-2 text-xs font-bold">{{ $detail[0]->target_weekly_validity_7d }}</span>
+                    </td>
                 </tr>
             </table>
         </div>
