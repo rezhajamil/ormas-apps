@@ -219,6 +219,8 @@ class DetailOutlet extends Model
                 SUM(CASE WHEN `date` = '$m1' THEN digital_trx ELSE 0 END) digital_m1_trx,
                 SUM(CASE WHEN `date` = '$m1' THEN digital_rev ELSE 0 END) digital_m1_rev,
 
+                MAX(CASE WHEN `date` = '$mtd' THEN p1_legacy_trx_1 END) p1_legacy_trx_1,
+                MAX(CASE WHEN `date` = '$mtd' THEN p1_legacy_trx_1_4 END) p1_legacy_trx_1_4,
                 SUM(CASE WHEN `date` = '$last_m1' THEN voice_trx ELSE 0 END) voice_fm_trx,
                 SUM(CASE WHEN `date` = '$last_m1' THEN voice_rev ELSE 0 END) voice_fm_rev,
                 SUM(CASE WHEN `date` = '$mtd' THEN voice_target_trx ELSE 0 END) voice_target_trx,
@@ -294,7 +296,28 @@ class DetailOutlet extends Model
                 SUM(CASE WHEN `date` = '$mtd' THEN super_seru_trx ELSE 0 END) super_seru_mtd_trx,
                 SUM(CASE WHEN `date` = '$mtd' THEN super_seru_rev ELSE 0 END) super_seru_mtd_rev,
                 SUM(CASE WHEN `date` = '$m1' THEN super_seru_trx ELSE 0 END) super_seru_m1_trx,
-                SUM(CASE WHEN `date` = '$m1' THEN super_seru_rev ELSE 0 END) super_seru_m1_rev")
+                SUM(CASE WHEN `date` = '$m1' THEN super_seru_rev ELSE 0 END) super_seru_m1_rev,
+                
+                MAX(CASE WHEN `date` = '$mtd' THEN pn_lh_banjir_cuan END) pn_lh_banjir_cuan,
+                MAX(CASE WHEN `date` = '$mtd' THEN pn_lh_cvm_hd END) pn_lh_cvm_hd,
+                MAX(CASE WHEN `date` = '$mtd' THEN pn_lh_so_double_cuan END) pn_lh_so_double_cuan,
+                MAX(CASE WHEN `date` = '$mtd' THEN pn_lh_paket_sakti END) pn_lh_paket_sakti,
+                MAX(CASE WHEN `date` = '$mtd' THEN pn_so_reguler END) pn_so_reguler,
+                MAX(CASE WHEN `date` = '$mtd' THEN pn_super_seru END) pn_super_seru,
+                MAX(CASE WHEN `date` = '$mtd' THEN pn_prodi_hq END) pn_prodi_hq,
+                MAX(CASE WHEN `date` = '$mtd' THEN pl_andalan_comsak END) pl_andalan_comsak,
+                MAX(CASE WHEN `date` = '$mtd' THEN pl_andalan_hot_promo END) pl_andalan_hot_promo,
+                MAX(CASE WHEN `date` = '$mtd' THEN pl_tambuah END) pl_tambuah,
+                MAX(CASE WHEN `date` = '$mtd' THEN pl_lapau_sa END) pl_lapau_sa,
+                MAX(CASE WHEN `date` = '$mtd' THEN pl_andalan_digital END) pl_andalan_digital,
+                MAX(CASE WHEN `date` = '$mtd' THEN pl_all_prodi_lokal END) pl_all_prodi_lokal,
+
+                SUM(CASE WHEN `date` = '$mtd' THEN histori_order_w_3 ELSE 0 END) histori_order_w_3,
+                SUM(CASE WHEN `date` = '$mtd' THEN histori_order_w_2 ELSE 0 END) histori_order_w_2,
+                SUM(CASE WHEN `date` = '$mtd' THEN histori_order_w_1 ELSE 0 END) histori_order_w_1,
+                SUM(CASE WHEN `date` = '$mtd' THEN target_weekly_validity_3d ELSE 0 END) target_weekly_validity_3d,
+                SUM(CASE WHEN `date` = '$mtd' THEN target_weekly_validity_5d ELSE 0 END) target_weekly_validity_5d,
+                SUM(CASE WHEN `date` = '$mtd' THEN target_weekly_validity_7d ELSE 0 END) target_weekly_validity_7d")
             ->whereBetween('date', [$first_m1, $mtd])
             ->groupBy('id_outlet', 'no_rs', 'nama_outlet', 'sf', 'telp_pemilik', 'sub_branch', 'cluster', 'tap_kcp', 'side_id_cover', 'kategori', 'pareto', 'frekuensi_kunjungan', 'hari_kunjungan', 'remark_fisik', 'pjp', 'kecamatan', 'kabupaten', 'kecamatan_lighthouse', 'hrc_index')
             ->orderBy('id_outlet')

@@ -109,6 +109,10 @@
                             <th colspan="8" class="p-2 bg-red-700 whitespace-nowrap">SUPER SERU</th>
                             <th rowspan="2" class="p-2 bg-gray-500 whitespace-nowrap">Kecamatan Lighthouse</th>
                             <th rowspan="2" class="p-2 bg-gray-500 whitespace-nowrap">HRC Index</th>
+                            <th colspan="7" class="p-2 bg-red-600 whitespace-nowrap">PROGRAM NASIONAL</th>
+                            <th colspan="6" class="p-2 bg-blue-900 whitespace-nowrap">PROGRAM LOKAL</th>
+                            <th colspan="3" class="p-2 bg-orange-600 whitespace-nowrap">HISTORI ORDER</th>
+                            <th colspan="3" class="p-2 bg-yellow-400 whitespace-nowrap">TARGET WEEKLY VALIDITY</th>
                         </tr>
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-white uppercase border-b divide-x divide-white divide-solid bg-gray-50 ">
@@ -274,6 +278,33 @@
                             <th class="p-1 text-center bg-green-700 whitespace-nowrap">TRX {{ $mtd }}</th>
                             <th class="p-1 text-center bg-green-700 whitespace-nowrap">Rev {{ $m1 }}</th>
                             <th class="p-1 text-center bg-green-700 whitespace-nowrap">Rev {{ $mtd }}</th>
+
+                            {{-- PROGRAM NASIONAL --}}
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">LH - BANJIR CUAN</th>
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">LH - CVM HD</th>
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">LH - SO DOUBLE CUAN</th>
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">LH - PAKET SAKTI</th>
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">SO REGULER</th>
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">SUPER SERU</th>
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">PRODI HQ</th>
+
+                            {{-- PROGRAM LOKAL --}}
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">ANDALAN COMSAK</th>
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">ANDALAN HOT PROMO</th>
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">TAMBUAH</th>
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">LAPAU SA</th>
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">ANDALAN DIGITAL</th>
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">ALL - PRODI LOKAL</th>
+
+                            {{-- HISTORI ORDER --}}
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">W-3</th>
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">W-2</th>
+                            <th class="p-1 text-center bg-gray-500 whitespace-nowrap">W-1</th>
+
+                            {{-- TARGET WEEKLY VALIDITY --}}
+                            <th class="p-1 text-center bg-green-700 whitespace-nowrap">3D</th>
+                            <th class="p-1 text-center bg-green-700 whitespace-nowrap">5D</th>
+                            <th class="p-1 text-center bg-green-700 whitespace-nowrap">7D</th>
                         </tr>
                         <tr
                             class="text-xs font-semibold tracking-wide text-center text-white uppercase border-b divide-x divide-white divide-solid bg-gray-50 ">
@@ -409,6 +440,25 @@
                             <th class="p-1 text-center bg-red-400 whitespace-nowrap">130</th>
                             <th class="p-1 text-center bg-red-400 whitespace-nowrap">131</th>
                             <th class="p-1 text-center bg-red-400 whitespace-nowrap">132</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">133</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">134</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">135</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">136</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">137</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">138</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">139</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">140</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">141</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">142</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">143</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">144</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">145</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">146</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">147</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">148</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">149</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">150</th>
+                            <th class="p-1 text-center bg-red-400 whitespace-nowrap">151</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y">
@@ -597,10 +647,10 @@
                             </td>
                             {{-- Voice --}}
                             <td class="p-1 text-sm text-center border">
-                                {{ '' }}
+                                {{ $detail->p1_legacy_trx_1_4 }}
                             </td>
                             <td class="p-1 text-sm text-center border">
-                                {{ '' }}
+                                {{ $detail->p1_legacy_trx_1 }}
                             </td>
                             <td class="p-1 text-sm text-center border">
                                 {{ convertBil($detail->voice_fm_trx) }}
@@ -822,12 +872,68 @@
                             <td class="p-1 text-sm text-center border">
                                 {{ convertBil($detail->super_seru_mtd_rev) }}
                             </td>
-
                             <td class="p-1 text-sm text-center border">
                                 {{ $detail->kecamatan_lighthouse }}
                             </td>
                             <td class="p-1 text-sm text-center border">
                                 {{ $detail->hrc_index }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ $detail->pn_lh_banjir_cuan }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ $detail->pn_lh_cvm_hd }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ $detail->pn_lh_so_double_cuan }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ $detail->pn_lh_paket_sakti }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ $detail->pn_so_reguler }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ $detail->pn_super_seru }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ $detail->pn_prodi_hq }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ $detail->pl_andalan_comsak }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ $detail->pl_andalan_hot_promo }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ $detail->pl_tambuah }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ $detail->pl_lapau_sa }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ $detail->pl_andalan_digital }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ $detail->pl_all_prodi_lokal }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ convertBil($detail->history_order_w_3) }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ convertBil($detail->history_order_w_2) }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ convertBil($detail->history_order_w_1) }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ convertBil($detail->target_weekly_validity_3d) }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ convertBil($detail->target_weekly_validity_5d) }}
+                            </td>
+                            <td class="p-1 text-sm text-center border">
+                                {{ convertBil($detail->target_weekly_validity_7d) }}
                             </td>
                         @endforeach
                     </tbody>
