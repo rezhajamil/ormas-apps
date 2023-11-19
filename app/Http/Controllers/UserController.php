@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Rules\TelkomselNumber;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -15,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $menu = 'user';
-        $users = User::whereNotIn('role', ['superadmin'])->orderBy('regional', 'DESC')->orderBy('branch')->orderBy('cluster')->orderBy('name')->get();
+        $users = User::whereNotIn('role', ['superadmin'])->orderBy('cluster')->orderBy('name')->get();
 
         return view('dashboard.user.index', compact('menu', 'users'));
     }
@@ -27,7 +29,15 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('dashboard.user.create');
+        $cluster = DB::table('territory')->select('cluster')->where('branch', 'PADANG')->orderBy('cluster')->distinct()->get();
+
+        if (auth()->user()->role == 'superadmin') {
+            $role = ['admin', 'sf'];
+        } else if (auth()->user()->role == 'admin') {
+            $role = ['sf'];
+        }
+
+        return view('dashboard.user.create', compact('cluster', 'role'));
     }
 
     /**
@@ -38,7 +48,30 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'cluster' => ['required'],
+            'id_digipos' => ['required', 'numeric'],
+            'name' => ['required'],
+            'telp' => ['required', 'numeric', 'unique:users,telp', new TelkomselNumber],
+            'email' => ['required', 'email', 'unique:users,email'],
+            'username' => ['required', 'unique:users,email'],
+            'password' => ['required'],
+            'role' => ['required'],
+        ]);
+
+        $user = User::create([
+            'cluster' => $request->cluster,
+            'id_digipos' => $request->id_digipos,
+            'name' => ucwords(strtolower($request->name)),
+            'telp' => $request->telp,
+            'email' => $request->email,
+            'username' => $request->username,
+            'password' => bcrypt($request->password),
+            'raw_password' => $request->password,
+            'role' => $request->role
+        ]);
+
+        return redirect()->route('user.index');
     }
 
     /**
@@ -60,7 +93,14 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $cluster = DB::table('territory')->select('cluster')->where('branch', 'PADANG')->orderBy('cluster')->distinct()->get();
+
+        if (auth()->user()->role == 'superadmin') {
+            $role = ['admin', 'sf'];
+        } else if (auth()->user()->role == 'admin') {
+            $role = ['sf'];
+        }
+        return view('dashboard.user.edit', compact('role', 'cluster', 'user'));
     }
 
     /**
@@ -72,7 +112,30 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'cluster' => ['required'],
+            'id_digipos' => ['required', 'numeric'],
+            'name' => ['required'],
+            'telp' => ['required', 'numeric', new TelkomselNumber],
+            'email' => ['required', 'email'],
+            'username' => ['required'],
+            'password' => ['required'],
+            'role' => ['required'],
+        ]);
+
+        $user->cluster = $request->cluster;
+        $user->id_digipos = $request->id_digipos;
+        $user->name = ucwords(strtolower($request->name));
+        $user->telp = $request->telp;
+        $user->email = $request->email;
+        $user->username = $request->username;
+        $user->password = bcrypt($request->password);
+        $user->raw_password = $request->password;
+        $user->role = $request->role;
+
+        $user->save();
+
+        return redirect()->route('user.index');
     }
 
     /**

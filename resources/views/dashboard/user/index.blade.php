@@ -19,8 +19,6 @@
                     </span>
                     <select id="search_by"
                         class="block w-full mt-1 text-sm rounded-md form-select focus:border-sekunder focus:ring-sekunder focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                        <option value="regional">Regional</option>
-                        <option value="branch">Branch</option>
                         <option value="cluster">Cluster</option>
                         <option value="digipos">Digipos</option>
                         <option value="nama">Nama</option>
@@ -54,8 +52,6 @@
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50 ">
                             <th class="px-4 py-3">No</th>
-                            <th class="px-4 py-3">Regional</th>
-                            <th class="px-4 py-3">Branch</th>
                             <th class="px-4 py-3">Cluster</th>
                             <th class="px-4 py-3">ID Digipos</th>
                             <th class="px-4 py-3">Username</th>
@@ -70,12 +66,6 @@
                             <tr class="text-gray-700 ">
                                 <td class="px-4 py-3 text-sm">
                                     {{ $idx + 1 }}
-                                </td>
-                                <td class="px-4 py-3 text-sm regional">
-                                    {{ $user->regional }}
-                                </td>
-                                <td class="px-4 py-3 text-sm branch">
-                                    {{ $user->branch }}
                                 </td>
                                 <td class="px-4 py-3 text-sm cluster">
                                     {{ $user->cluster }}
@@ -119,7 +109,7 @@
                                         <a href="{{ route('user.edit', $user->id) }}" class="text-premier">
                                             <i class="fa-solid fa-pencil"></i>
                                         </a>
-                                        <button
+                                        {{-- <button
                                             class="flex items-center justify-between m-0 text-sm font-medium leading-5 rounded-md text-premier focus:outline-none focus:shadow-outline-gray"
                                             aria-label="Delete">
                                             <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -127,7 +117,7 @@
                                                     d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
                                                     clip-rule="evenodd"></path>
                                             </svg>
-                                        </button>
+                                        </button> --}}
                                     </div>
                                 </td>
                             </tr>

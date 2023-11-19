@@ -942,11 +942,15 @@
             <div
                 class="grid p-2 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t bg-gray-50 sm:grid-cols-9 ">
                 <span class="flex items-center col-span-3">
-                    {{-- Showing {{ $outlets->firstItem() }} - {{ $outlets->lastItem() }} of {{ $outlets->total() }} --}}
+                    @if ($details)
+                        Showing {{ $details->firstItem() }} - {{ $details->lastItem() }} of {{ $details->total() }}
+                    @endif
                 </span>
                 <span class="col-span-2"></span>
                 <!-- Pagination -->
-                {{-- {{ $outlets->links('components.pagination', ['data' => $outlets]) }} --}}
+                @if ($details)
+                    {{ $details->links('components.pagination', ['data' => $details]) }}
+                @endif
                 {{-- @include('components.pagination') --}}
             </div>
         </div>

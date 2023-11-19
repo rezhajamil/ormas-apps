@@ -15,8 +15,6 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('regional')->nullable();
-            $table->string('branch')->nullable();
             $table->string('cluster')->nullable();
             $table->string('id_digipos')->nullable();
             $table->string('name');

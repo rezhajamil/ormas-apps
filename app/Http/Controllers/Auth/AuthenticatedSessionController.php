@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -28,7 +30,21 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        $request->authenticate();
+        $user = User::where('username', $request->username)->first();
+
+        if ($user) {
+            if ($user->status == 0) {
+                throw ValidationException::withMessages([
+                    'username' => 'Akun anda tidak aktif. Hubungi administrator untuk mengaktifkan.',
+                ]);
+            }
+        } else {
+            throw ValidationException::withMessages([
+                'username' => 'Akun tidak ditemukan / Username Salah',
+            ]);
+        }
+
+        $request->authenticate($request);
 
         $request->session()->regenerate();
 

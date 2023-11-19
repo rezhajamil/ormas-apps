@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use App\Rules\TelkomselNumber;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
@@ -20,7 +22,9 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        $cluster = DB::table('territory')->select('cluster')->where('branch', 'PADANG')->orderBy('cluster')->distinct()->get();
+
+        return view('auth.register', compact('cluster'));
     }
 
     /**
@@ -33,21 +37,33 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'cluster' => ['required'],
+            'id_digipos' => ['required', 'numeric'],
+            'name' => ['required'],
+            'telp' => ['required', 'numeric', 'unique:users,telp', new TelkomselNumber],
+            'email' => ['required', 'email', 'unique:users,email'],
+            'username' => ['required', 'unique:users,username'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
-            'name' => $request->name,
+            'cluster' => $request->cluster,
+            'id_digipos' => $request->id_digipos,
+            'name' => ucwords(strtolower($request->name)),
+            'telp' => $request->telp,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'username' => $request->username,
+            'password' => bcrypt($request->password),
+            'raw_password' => $request->password,
+            'role' => 'admin',
+            'status' => 0,
         ]);
 
-        event(new Registered($user));
+        // event(new Registered($user));
 
-        Auth::login($user);
+        // Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
     }

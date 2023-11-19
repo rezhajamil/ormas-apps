@@ -36,7 +36,7 @@
             <span class="inline-block w-full text-center uppercase whitespace-nowrap ">Date</span>
             <span class="inline-block w-full text-center uppercase whitespace-nowrap ">|</span>
             <span
-                class="inline-block w-full text-center uppercase whitespace-nowrap ">{{ date('d M', strtotime($end_date)) }}</span>
+                class="inline-block w-full text-center uppercase whitespace-nowrap ">{{ date('d M', strtotime($date)) }}</span>
         </div>
     </div>
     <div class="flex flex-col w-full p-4 gap-y-8">

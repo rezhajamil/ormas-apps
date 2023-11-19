@@ -270,14 +270,14 @@ class OutletController extends Controller
     public function detail(Request $request, $id_outlet)
     {
         $start_date = $request->start_date ?? date('Y-m-01');
-        $end_date = $request->end_date ?? date('Y-m-d');
+        $date = $request->date ?? date('Y-m-d');
 
         $outlet = DetailOutlet::where('id_outlet', $id_outlet)->first();
 
-        $detail = Outlet::detail_mobile($id_outlet, $end_date);
+        $detail = Outlet::detail_mobile($id_outlet, $date);
 
         // ddd($detail[0]);
 
-        return view('dashboard.outlet.detail', compact('detail', 'outlet', 'start_date', 'end_date'));
+        return view('dashboard.outlet.detail', compact('detail', 'outlet', 'start_date', 'date'));
     }
 }
