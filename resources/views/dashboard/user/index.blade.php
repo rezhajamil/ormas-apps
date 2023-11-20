@@ -22,6 +22,7 @@
                         <option value="cluster">Cluster</option>
                         <option value="digipos">Digipos</option>
                         <option value="nama">Nama</option>
+                        <option value="role">Role</option>
                         <option value="telp">Telp</option>
                     </select>
                 </label>
@@ -56,6 +57,7 @@
                             <th class="px-4 py-3">ID Digipos</th>
                             <th class="px-4 py-3">Username</th>
                             <th class="px-4 py-3">Nama</th>
+                            <th class="px-4 py-3">Role</th>
                             <th class="px-4 py-3">Telepon</th>
                             <th class="px-4 py-3">Status</th>
                             <th class="px-4 py-3">Actions</th>
@@ -78,6 +80,9 @@
                                 </td>
                                 <td class="px-4 py-3 text-sm nama">
                                     {{ $user->name }}
+                                </td>
+                                <td class="px-4 py-3 text-sm role">
+                                    {{ strtoupper($user->role) }}
                                 </td>
                                 <td class="px-4 py-3 text-sm telp">
                                     {{ $user->telp }}
