@@ -17,7 +17,7 @@
             <div class="flex w-full gap-4">
                 <label class="block w-full px-6 text-sm">
                     <span class="font-semibold text-gray-700">
-                        File CSV (max 1000 row)*
+                        File CSV (max 20000 row)*
                     </span>
                     <a href="{{ asset('example.csv') }}" target="_blank"
                         class="inline-block px-2 py-2 ml-3 font-bold text-white transition-all bg-green-800 rounded hover:bg-green-900"><i

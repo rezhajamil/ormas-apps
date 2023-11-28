@@ -59,7 +59,7 @@ class OutletController extends Controller
 
                 $idx = 0;
 
-                $get_row = fgetcsv($file, 10000, ";");
+                $get_row = fgetcsv($file, 20000, ";");
                 // ddd($get_row);
                 if (count($get_row) <= 20) {
                     $header = str_split($get_row[0]);
@@ -74,7 +74,7 @@ class OutletController extends Controller
                     }
                 }
 
-                while (($row = fgetcsv($file, 10000, ";")) !== FALSE) {
+                while (($row = fgetcsv($file, 20000, ";")) !== FALSE) {
 
                     $data = [
                         'no_rs' => $row[0],
@@ -102,11 +102,11 @@ class OutletController extends Controller
 
 
                     // ddd($row);
-                    if ($idx < 1001) {
+                    if ($idx < 20001) {
                         // echo '<pre>' . $idx . var_export($data, true) . '</pre>';
                         $outlet = Outlet::create($data);
                         // ddd($outlet);
-                    } else if ($idx > 1001) {
+                    } else if ($idx > 20001) {
                         break;
                     }
                     $idx++;
