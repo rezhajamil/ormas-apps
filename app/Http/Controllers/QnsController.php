@@ -330,7 +330,7 @@ class QnsController extends Controller
     {
         $qns = Qns::with(['creator', 'question.option.correct_option', 'question.option.selected_option', 'response.responder', 'response.selected_option.question', 'response.selected_option.option.correct_option'])->find($id);
 
-        $resume = QnsResponse::select('cluster', DB::raw('count(user_id) as count'))->join('users', 'qns_responses.user_id', '=', 'users.id')->where('qns_id', $id)->groupBy('branch')->groupBy('cluster')->orderBy('cluster')->orderBy('users.name')->get();
+        $resume = QnsResponse::select('cluster', DB::raw('count(user_id) as count'))->join('users', 'qns_responses.user_id', '=', 'users.id')->where('qns_id', $id)->groupBy('cluster')->orderBy('cluster')->orderBy('users.name')->get();
 
 
         if ($qns->type == 'survey') {
@@ -342,7 +342,6 @@ class QnsController extends Controller
                 ->join('users', 'qns_responses.user_id', '=', 'users.id')
                 ->join('qns', 'qns.id', '=', 'qns_responses.qns_id')
                 ->where('qns_responses.qns_id', $id)
-                ->groupBy('branch')
                 ->groupBy('cluster')
                 ->groupBy('users.name')
                 ->orderBy('cluster')
