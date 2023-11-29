@@ -248,7 +248,9 @@ class OutletController extends Controller
      */
     public function destroy(Outlet $outlet)
     {
-        //
+        $outlet->delete();
+
+        return back();
     }
 
     public function change_status($id)
