@@ -96,6 +96,8 @@ class DetailOutletController extends Controller
                 $idx++;
             }
         }
+
+        return redirect()->route('detail_outlet.index')->with('success');
     }
 
     /**
