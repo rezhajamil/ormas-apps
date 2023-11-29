@@ -16,7 +16,7 @@ class OutletController extends Controller
      */
     public function index()
     {
-        $outlets = Outlet::orderBy('kabupaten')->orderBy('kecamatan')->orderBy('nama_outlet')->paginate(2);
+        $outlets = Outlet::orderBy('kabupaten')->orderBy('kecamatan')->orderBy('nama_outlet')->paginate(500);
 
         return view('dashboard.outlet.index', compact('outlets'));
     }
