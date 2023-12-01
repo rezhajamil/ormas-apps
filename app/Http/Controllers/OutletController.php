@@ -81,18 +81,18 @@ class OutletController extends Controller
                 rewind($file);
 
                 // ddd($get_row);
-                if (count($get_row) <= 20) {
-                    $header = str_split($get_row[0]);
-                    $correct = ['no_rs', 'id_outlet', 'nama_outlet', 'telp_pemilik', 'nama_sf', 'branch', 'sub_branch', 'cluster', 'kabupaten', 'kecamatan', 'tap_kcp', 'side_id_cover', 'kategori', 'pareto', 'frekuensi_kunjungan', 'hari_kunjungan', 'remark_fisik', 'pjp', 'kecamatan_lighthouse', 'hrc_index'];
-                    foreach ($get_row as $key => $col) {
-                        // ddd($header);
-                        if ($col != $correct[$key]) {
-                            $col_num = $key + 1;
-                            $col_correct = $correct[$key];
-                            return back()->withErrors(['csv' => "Header kolom ke $col_num seharusnya $col_correct bukan $col"])->withInput();
-                        }
-                    }
-                }
+                // if (count($get_row) <= 20) {
+                //     $header = str_split($get_row[0]);
+                //     $correct = ['no_rs', 'id_outlet', 'nama_outlet', 'telp_pemilik', 'nama_sf', 'branch', 'sub_branch', 'cluster', 'kabupaten', 'kecamatan', 'tap_kcp', 'side_id_cover', 'kategori', 'pareto', 'frekuensi_kunjungan', 'hari_kunjungan', 'remark_fisik', 'pjp', 'kecamatan_lighthouse', 'hrc_index'];
+                //     foreach ($get_row as $key => $col) {
+                //         // ddd($header);
+                //         if ($col != $correct[$key]) {
+                //             $col_num = $key + 1;
+                //             $col_correct = $correct[$key];
+                //             return back()->withErrors(['csv' => "Header kolom ke $col_num seharusnya $col_correct bukan $col"])->withInput();
+                //         }
+                //     }
+                // }
 
                 while (($row = fgetcsv($file, 20000, $detected_delimiter)) !== FALSE) {
 
