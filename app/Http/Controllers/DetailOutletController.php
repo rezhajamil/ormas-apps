@@ -70,7 +70,7 @@ class DetailOutletController extends Controller
             $detected_delimiter = null;
 
             foreach ($possible_delimiters as $delimiter) {
-                if (count(str_getcsv($get_row[0], $delimiter)) > 1) {
+                if (count(str_getcsv($get_row[0], $delimiter)) >= 1) {
                     $detected_delimiter = $delimiter;
                     break;
                 }
