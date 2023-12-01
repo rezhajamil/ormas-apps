@@ -72,10 +72,10 @@ class OutletController extends Controller
                     }
                 }
 
-                if (!$detected_delimiter) {
-                    fclose($file);
-                    return back()->withErrors(['csv' => 'Unable to detect the delimiter.'])->withInput();
-                }
+                // if (!$detected_delimiter) {
+                //     fclose($file);
+                //     return back()->withErrors(['csv' => 'Unable to detect the delimiter.'])->withInput();
+                // }
 
                 // Use the detected delimiter for further processing
                 rewind($file);
