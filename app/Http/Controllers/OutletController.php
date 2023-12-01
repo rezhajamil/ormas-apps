@@ -59,7 +59,27 @@ class OutletController extends Controller
 
                 $idx = 0;
 
-                $get_row = fgetcsv($file, 20000, ";");
+                $get_row = fgetcsv($file, 20000);
+
+                $possible_delimiters = [';', ',', '|'];
+
+                $detected_delimiter = null;
+
+                foreach ($possible_delimiters as $delimiter) {
+                    if (count(str_getcsv($get_row[0], $delimiter)) > 1) {
+                        $detected_delimiter = $delimiter;
+                        break;
+                    }
+                }
+
+                if (!$detected_delimiter) {
+                    fclose($file);
+                    return back()->withErrors(['csv' => 'Unable to detect the delimiter.'])->withInput();
+                }
+
+                // Use the detected delimiter for further processing
+                rewind($file);
+
                 // ddd($get_row);
                 if (count($get_row) <= 20) {
                     $header = str_split($get_row[0]);
@@ -74,7 +94,7 @@ class OutletController extends Controller
                     }
                 }
 
-                while (($row = fgetcsv($file, 20000, ";")) !== FALSE) {
+                while (($row = fgetcsv($file, 20000, $detected_delimiter)) !== FALSE) {
 
                     $data = [
                         'no_rs' => $row[0],
