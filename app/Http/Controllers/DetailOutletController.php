@@ -105,11 +105,14 @@ class DetailOutletController extends Controller
                     $data[$correct[$i]] = $row[$i];
                 }
                 $data['created_by'] = auth()->user()->id;
+                $data['date'] = date('Y-m-d', strtotime($data['date']));
 
                 // ddd($row);
                 if ($idx < 20001) {
                     // echo '<pre>' . $idx . var_export($data, true) . '</pre>';
-                    $detail_outlet = DetailOutlet::create($data);
+                    if ($idx > 0) {
+                        $detail_outlet = DetailOutlet::create($data);
+                    }
                     // ddd($detail_outlet);
                 } else if ($idx > 20001) {
                     break;
