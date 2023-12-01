@@ -463,478 +463,483 @@
                     </thead>
                     <tbody class="bg-white divide-y">
                         @foreach ($details as $idx => $detail)
-                            <td class="p-1 text-sm text-center border">
-                                {{ $idx + $details->firstItem() }}
-                            </td>
-                            <td class="p-1 text-sm text-center border id_outlet">
-                                {{ $detail->id_outlet }}
-                            </td>
-                            <td class="p-1 text-sm text-center border no_rs">
-                                {{ $detail->no_rs }}
-                            </td>
-                            <td class="p-1 text-sm text-center border nama_outlet">
-                                {{ $detail->nama_outlet }}
-                            </td>
-                            <td class="p-1 text-sm text-center border sf">
-                                {{ $detail->sf }}
-                            </td>
-                            <td class="p-1 text-sm text-center border telp_pemilik">
-                                {{ $detail->telp_pemilik }}
-                            </td>
-                            <td class="p-1 text-sm text-center border sub_branch">
-                                {{ $detail->sub_branch }}
-                            </td>
-                            <td class="p-1 text-sm text-center border cluster">
-                                {{ $detail->cluster }}
-                            </td>
-                            <td class="p-1 text-sm text-center border tap_kcp">
-                                {{ $detail->tap_kcp }}
-                            </td>
-                            <td class="p-1 text-sm text-center border side_id_cover">
-                                {{ $detail->side_id_cover }}
-                            </td>
-                            <td class="p-1 text-sm text-center border kategori">
-                                {{ $detail->kategori }}
-                            </td>
-                            <td class="p-1 text-sm text-center border pareto">
-                                {{ $detail->pareto }}
-                            </td>
-                            <td class="p-1 text-sm text-center border frekuensi_kunjungan">
-                                {{ $detail->frekuensi_kunjungan }}
-                            </td>
-                            <td class="p-1 text-sm text-center border hari_kunjungan">
-                                {{ $detail->hari_kunjungan }}
-                            </td>
-                            <td class="p-1 text-sm text-center border remark_fisik">
-                                {{ $detail->remark_fisik }}
-                            </td>
-                            <td class="p-1 text-sm text-center border pjp">
-                                {{ $detail->pjp }}
-                            </td>
-                            <td class="p-1 text-sm text-center border kecamatan">
-                                {{ $detail->kecamatan }}
-                            </td>
-                            <td class="p-1 text-sm text-center border kabupaten">
-                                {{ $detail->kabupaten }}
-                            </td>
-                            {{-- CVM --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->cvm_fm_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->cvm_fm_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->cvm_target_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->cvm_target_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->cvm_m1_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->cvm_m1_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->cvm_mtd_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->cvm_mtd_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border remark_trx">
-                                {{ $detail->cvm_remark_trx }}
-                            </td>
-                            {{-- COMBO_SAKTI --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->combo_sakti_fm_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->combo_sakti_fm_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->combo_sakti_target_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->combo_sakti_target_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->combo_sakti_m1_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->combo_sakti_mtd_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->combo_sakti_m1_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->combo_sakti_mtd_rev) }}
-                            </td>
-                            {{-- Internet Sakti --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->internet_sakti_fm_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->internet_sakti_fm_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->internet_sakti_target_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->internet_sakti_target_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->internet_sakti_m1_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->internet_sakti_mtd_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->internet_sakti_m1_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->internet_sakti_mtd_rev) }}
-                            </td>
-                            {{-- Hot Promo --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->hot_promo_fm_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->hot_promo_fm_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->hot_promo_target_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->hot_promo_target_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->hot_promo_m1_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->hot_promo_mtd_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->hot_promo_m1_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->hot_promo_mtd_rev) }}
-                            </td>
-                            {{-- Digital --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->digital_fm_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->digital_fm_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->digital_target_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->digital_target_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->digital_m1_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->digital_mtd_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->digital_m1_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->digital_mtd_rev) }}
-                            </td>
-                            {{-- Voice --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->p1_legacy_trx_1_4 }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->p1_legacy_trx_1 }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->voice_fm_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->voice_fm_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->voice_target_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->voice_target_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->voice_m1_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->voice_mtd_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->voice_m1_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->voice_mtd_rev) }}
-                            </td>
-                            {{-- VAS --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->vas_fm_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->vas_fm_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->vas_target_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->vas_target_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->vas_m1_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->vas_mtd_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->vas_m1_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->vas_mtd_rev) }}
-                            </td>
-                            {{-- PRODUCTIVE --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->productive_fm_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->productive_fm_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->productive_m1_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->productive_mtd_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->productive_m1_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->productive_mtd_rev) }}
-                            </td>
-                            {{-- ST SP --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->st_sp_fm) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->st_sp_target) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->st_sp_m1) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->st_sp_mtd) }}
-                            </td>
-                            {{-- ST VF --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->st_vf_fm) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->st_vf_target) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->st_vf_m1) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->st_vf_mtd) }}
-                            </td>
-                            {{-- SO PAIR FM --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_so_sp_fm) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_rev_so_fm) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_pair_vf_fm) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_rev_pair_fm) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ '' }}
-                            </td>
-                            {{-- SO PAIR M1 --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_so_sp_m1) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_rev_so_m1) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_pair_vf_m1) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_rev_pair_m1) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ '' }}
-                            </td>
-                            {{-- SO PAIR MTD --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_so_sp_mtd) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_rev_so_mtd) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_so_in_mtd) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_so_out_mtd) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_pair_vf_mtd) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_rev_pair_mtd) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_pair_in_mtd) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->so_pair_pair_out_mtd) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil(($detail->so_pair_pair_in_mtd / $detail->so_pair_pair_vf_mtd) * 100) }} %
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil(($detail->so_pair_pair_out_mtd / $detail->so_pair_pair_vf_mtd) * 100) }} %
-                            </td>
-                            {{-- Renewal Akuisisi --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->renewal_akuisisi_fm_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->renewal_akuisisi_fm_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->renewal_akuisisi_target_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->renewal_akuisisi_target_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->renewal_akuisisi_m1_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->renewal_akuisisi_m1_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->renewal_akuisisi_mtd_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->renewal_akuisisi_mtd_rev) }}
-                            </td>
-                            {{-- OMSET --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->omset_fm) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->omset_target) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->omset_m1) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->omset_mtd) }}
-                            </td>
-                            {{-- Super Seru --}}
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->super_seru_fm_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->super_seru_fm_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->super_seru_target_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->super_seru_target_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->super_seru_m1_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->super_seru_mtd_trx) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->super_seru_m1_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->super_seru_mtd_rev) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->kecamatan_lighthouse }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->hrc_index }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->pn_lh_banjir_cuan }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->pn_lh_cvm_hd }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->pn_lh_so_double_cuan }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->pn_lh_paket_sakti }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->pn_so_reguler }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->pn_super_seru }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->pn_prodi_hq }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->pl_andalan_comsak }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->pl_andalan_hot_promo }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->pl_tambuah }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->pl_lapau_sa }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->pl_andalan_digital }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ $detail->pl_all_prodi_lokal }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->history_order_w_3) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->history_order_w_2) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->history_order_w_1) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->target_weekly_validity_3d) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->target_weekly_validity_5d) }}
-                            </td>
-                            <td class="p-1 text-sm text-center border">
-                                {{ convertBil($detail->target_weekly_validity_7d) }}
-                            </td>
+                            <tr>
+
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $idx + $details->firstItem() }}
+                                </td>
+                                <td class="p-1 text-sm text-center border id_outlet">
+                                    {{ $detail->id_outlet }}
+                                </td>
+                                <td class="p-1 text-sm text-center border no_rs">
+                                    {{ $detail->no_rs }}
+                                </td>
+                                <td class="p-1 text-sm text-center border nama_outlet">
+                                    {{ $detail->nama_outlet }}
+                                </td>
+                                <td class="p-1 text-sm text-center border sf">
+                                    {{ $detail->sf }}
+                                </td>
+                                <td class="p-1 text-sm text-center border telp_pemilik">
+                                    {{ $detail->telp_pemilik }}
+                                </td>
+                                <td class="p-1 text-sm text-center border sub_branch">
+                                    {{ $detail->sub_branch }}
+                                </td>
+                                <td class="p-1 text-sm text-center border cluster">
+                                    {{ $detail->cluster }}
+                                </td>
+                                <td class="p-1 text-sm text-center border tap_kcp">
+                                    {{ $detail->tap_kcp }}
+                                </td>
+                                <td class="p-1 text-sm text-center border side_id_cover">
+                                    {{ $detail->side_id_cover }}
+                                </td>
+                                <td class="p-1 text-sm text-center border kategori">
+                                    {{ $detail->kategori }}
+                                </td>
+                                <td class="p-1 text-sm text-center border pareto">
+                                    {{ $detail->pareto }}
+                                </td>
+                                <td class="p-1 text-sm text-center border frekuensi_kunjungan">
+                                    {{ $detail->frekuensi_kunjungan }}
+                                </td>
+                                <td class="p-1 text-sm text-center border hari_kunjungan">
+                                    {{ $detail->hari_kunjungan }}
+                                </td>
+                                <td class="p-1 text-sm text-center border remark_fisik">
+                                    {{ $detail->remark_fisik }}
+                                </td>
+                                <td class="p-1 text-sm text-center border pjp">
+                                    {{ $detail->pjp }}
+                                </td>
+                                <td class="p-1 text-sm text-center border kecamatan">
+                                    {{ $detail->kecamatan }}
+                                </td>
+                                <td class="p-1 text-sm text-center border kabupaten">
+                                    {{ $detail->kabupaten }}
+                                </td>
+                                {{-- CVM --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->cvm_fm_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->cvm_fm_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->cvm_target_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->cvm_target_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->cvm_m1_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->cvm_m1_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->cvm_mtd_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->cvm_mtd_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border remark_trx">
+                                    {{ $detail->cvm_remark_trx }}
+                                </td>
+                                {{-- COMBO_SAKTI --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->combo_sakti_fm_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->combo_sakti_fm_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->combo_sakti_target_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->combo_sakti_target_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->combo_sakti_m1_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->combo_sakti_mtd_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->combo_sakti_m1_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->combo_sakti_mtd_rev) }}
+                                </td>
+                                {{-- Internet Sakti --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->internet_sakti_fm_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->internet_sakti_fm_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->internet_sakti_target_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->internet_sakti_target_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->internet_sakti_m1_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->internet_sakti_mtd_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->internet_sakti_m1_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->internet_sakti_mtd_rev) }}
+                                </td>
+                                {{-- Hot Promo --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->hot_promo_fm_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->hot_promo_fm_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->hot_promo_target_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->hot_promo_target_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->hot_promo_m1_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->hot_promo_mtd_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->hot_promo_m1_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->hot_promo_mtd_rev) }}
+                                </td>
+                                {{-- Digital --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->digital_fm_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->digital_fm_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->digital_target_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->digital_target_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->digital_m1_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->digital_mtd_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->digital_m1_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->digital_mtd_rev) }}
+                                </td>
+                                {{-- Voice --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->p1_legacy_trx_1_4 }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->p1_legacy_trx_1 }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->voice_fm_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->voice_fm_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->voice_target_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->voice_target_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->voice_m1_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->voice_mtd_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->voice_m1_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->voice_mtd_rev) }}
+                                </td>
+                                {{-- VAS --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->vas_fm_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->vas_fm_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->vas_target_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->vas_target_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->vas_m1_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->vas_mtd_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->vas_m1_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->vas_mtd_rev) }}
+                                </td>
+                                {{-- PRODUCTIVE --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->productive_fm_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->productive_fm_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->productive_m1_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->productive_mtd_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->productive_m1_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->productive_mtd_rev) }}
+                                </td>
+                                {{-- ST SP --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->st_sp_fm) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->st_sp_target) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->st_sp_m1) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->st_sp_mtd) }}
+                                </td>
+                                {{-- ST VF --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->st_vf_fm) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->st_vf_target) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->st_vf_m1) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->st_vf_mtd) }}
+                                </td>
+                                {{-- SO PAIR FM --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_so_sp_fm) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_rev_so_fm) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_pair_vf_fm) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_rev_pair_fm) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ '' }}
+                                </td>
+                                {{-- SO PAIR M1 --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_so_sp_m1) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_rev_so_m1) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_pair_vf_m1) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_rev_pair_m1) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ '' }}
+                                </td>
+                                {{-- SO PAIR MTD --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_so_sp_mtd) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_rev_so_mtd) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_so_in_mtd) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_so_out_mtd) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_pair_vf_mtd) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_rev_pair_mtd) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_pair_in_mtd) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->so_pair_pair_out_mtd) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil(($detail->so_pair_pair_in_mtd / ($detail->so_pair_pair_vf_mtd != 0 ? $detail->so_pair_pair_vf_mtd : 1)) * 100) }}
+                                    %
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil(($detail->so_pair_pair_out_mtd / ($detail->so_pair_pair_vf_mtd != 0 ? $detail->so_pair_pair_vf_mtd : 1)) * 100) }}
+                                    %
+                                </td>
+                                {{-- Renewal Akuisisi --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->renewal_akuisisi_fm_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->renewal_akuisisi_fm_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->renewal_akuisisi_target_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->renewal_akuisisi_target_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->renewal_akuisisi_m1_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->renewal_akuisisi_m1_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->renewal_akuisisi_mtd_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->renewal_akuisisi_mtd_rev) }}
+                                </td>
+                                {{-- OMSET --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->omset_fm) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->omset_target) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->omset_m1) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->omset_mtd) }}
+                                </td>
+                                {{-- Super Seru --}}
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->super_seru_fm_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->super_seru_fm_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->super_seru_target_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->super_seru_target_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->super_seru_m1_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->super_seru_mtd_trx) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->super_seru_m1_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->super_seru_mtd_rev) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->kecamatan_lighthouse }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->hrc_index }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->pn_lh_banjir_cuan }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->pn_lh_cvm_hd }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->pn_lh_so_double_cuan }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->pn_lh_paket_sakti }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->pn_so_reguler }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->pn_super_seru }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->pn_prodi_hq }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->pl_andalan_comsak }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->pl_andalan_hot_promo }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->pl_tambuah }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->pl_lapau_sa }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->pl_andalan_digital }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ $detail->pl_all_prodi_lokal }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->history_order_w_3) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->history_order_w_2) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->history_order_w_1) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->target_weekly_validity_3d) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->target_weekly_validity_5d) }}
+                                </td>
+                                <td class="p-1 text-sm text-center border">
+                                    {{ convertBil($detail->target_weekly_validity_7d) }}
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

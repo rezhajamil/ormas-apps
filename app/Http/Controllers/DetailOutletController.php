@@ -101,7 +101,7 @@ class DetailOutletController extends Controller
 
                 $data = [];
 
-                for ($i = 0; $i < 75; $i++) {
+                for ($i = 0; $i < 95; $i++) {
                     $data[$correct[$i]] = $row[$i];
                 }
                 $data['created_by'] = auth()->user()->id;
