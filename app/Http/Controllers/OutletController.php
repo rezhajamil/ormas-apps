@@ -49,6 +49,8 @@ class OutletController extends Controller
      */
     public function store(Request $request)
     {
+        ini_set('memory_limit', -1);
+        ini_set('max_execution_time', '0');
         if ($request->hasFile('csv')) {
             $request->validate([
                 'csv' => ['required', 'file']
@@ -59,23 +61,24 @@ class OutletController extends Controller
 
                 $idx = 0;
 
-                $get_row = fgetcsv($file, 20000);
+                $get_row = fgetcsv($file, 200000);
 
-                $possible_delimiters = [';', ',', '|'];
+                $possible_delimiters = [',', ';', '|'];
 
                 $detected_delimiter = null;
 
                 foreach ($possible_delimiters as $delimiter) {
-                    if (count(str_getcsv($get_row[0], $delimiter)) > 1) {
+                    if (count(str_getcsv($get_row[0], $delimiter)) >= 1) {
+                        // die($delimiter);
                         $detected_delimiter = $delimiter;
                         break;
                     }
                 }
 
-                // if (!$detected_delimiter) {
-                //     fclose($file);
-                //     return back()->withErrors(['csv' => 'Unable to detect the delimiter.'])->withInput();
-                // }
+                if (!$detected_delimiter) {
+                    fclose($file);
+                    return back()->withErrors(['csv' => 'Unable to detect the delimiter.'])->withInput();
+                }
 
                 // Use the detected delimiter for further processing
                 rewind($file);
@@ -94,7 +97,7 @@ class OutletController extends Controller
                 //     }
                 // }
 
-                while (($row = fgetcsv($file, 20000, $detected_delimiter)) !== FALSE) {
+                while (($row = fgetcsv($file, 200000, $detected_delimiter)) !== FALSE) {
 
                     $data = [
                         'no_rs' => $row[0],
@@ -124,7 +127,9 @@ class OutletController extends Controller
                     // ddd($row);
                     if ($idx < 20001) {
                         // echo '<pre>' . $idx . var_export($data, true) . '</pre>';
-                        $outlet = Outlet::create($data);
+                        if ($idx > 0) {
+                            $outlet = Outlet::create($data);
+                        }
                         // ddd($outlet);
                     } else if ($idx > 20001) {
                         break;
