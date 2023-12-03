@@ -40,6 +40,19 @@
                             class="mr-2 fa-solid fa-magnifying-glass"></i>Cari
                         Outlet</span>
                 </label>
+                <div class="grid w-full grid-cols-2 text-[8px] p-1 gap-2 mt-1 border-2 border-gray-500 rounded">
+                    <div class="flex items-center font-semibold gap-x-1"><span
+                            class="pr-1 border-r-2 border-slate-600">Outlet</span><span id="nama_outlet"></span>
+                    </div>
+                    <div class="flex items-center font-semibold gap-x-1"><span
+                            class="pr-1 border-r-2 border-slate-600">SF</span><span id="sf"></span>
+                    </div>
+                    <div class="flex items-center font-semibold gap-x-1"><span class="pr-1 border-r-2 border-slate-600">No
+                            RS</span><span id="no_rs"></span>
+                    </div>
+                    <div class="flex items-center font-semibold gap-x-1"><span
+                            class="pr-1 border-r-2 border-slate-600">Kecamatan</span><span id="kecamatan"></span></div>
+                </div>
                 <hr class="my-2">
                 @foreach ($qns->question as $i_question => $question)
                     <div class="flex flex-col py-4 border-b-4 gap-y-3">
@@ -167,6 +180,10 @@
 
             $(document).on('click', ".outlet-item", function() {
                 $("input[name='id_digipos']").val($(this).attr('id_digipos'));
+                $("#nama_outlet").html($(this).attr('nama_outlet'));
+                $("#sf").html($(this).attr('sf'));
+                $("#no_rs").html($(this).attr('no_rs'));
+                $("#kecamatan").html($(this).attr('kecamatan'));
                 $("#search-outlet").hide();
             })
 
@@ -182,8 +199,9 @@
                         $("#outlet-list").html(
                             data.map(d => {
                                 return (
-                                    `<div class="w-full p-2 transition-all border-b-2 rounded cursor-pointer hover:bg-gray-200 outlet-item"
-                                    id_digipos="${d.id_outlet}">
+                                    `<div class="flex flex-col w-full p-2 transition-all border-b-2 rounded cursor-pointer hover:bg-gray-200 outlet-item"
+                                    id_digipos="${d.id_outlet}" nama_outlet="${d.nama_outlet}" sf="${d.nama_sf}" no_rs="${d.no_rs}" kecamatan="${d.kecamatan}">
+                                    <span class="text-xs font-semibold text-gray-600">${d.id_outlet}</span>
                                     <span class="font-semibold text-slate-600">${d.nama_outlet}</span>
                                 </div>`
                                 )
