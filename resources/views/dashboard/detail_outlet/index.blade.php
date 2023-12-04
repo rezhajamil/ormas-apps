@@ -21,6 +21,9 @@
                         class="block w-full mt-1 text-sm rounded-md form-select focus:border-sekunder focus:ring-sekunder focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                         required>
                 </label>
+                <input type="number" name="id_outlet" id="id_outlet" value="{{ $id_outlet }}"
+                    placeholder="ID Outlet (Optional)"
+                    class="block w-full mt-1 text-sm rounded-md form-select focus:border-sekunder focus:ring-sekunder focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
                 <button
                     class="flex items-center justify-between px-3 py-2 font-semibold text-white bg-gray-600 rounded-md shadow-md h-fit w-fit focus:outline-none focus:shadow-outline-purple">
                     <div class="flex items-center">
@@ -975,9 +978,6 @@
             find();
         });
 
-        $("#btn-excel").click(function() {
-            exportTableToExcel('table-container', `Data DS`);
-        });
 
         const find = () => {
             let search = $("#search").val();

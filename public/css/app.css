@@ -1328,16 +1328,16 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(167 49 33 / var(--tw-border-opacity));
 }
+.border-slate-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(71 85 105 / var(--tw-border-opacity));
+}
 .border-transparent {
   border-color: transparent;
 }
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
-}
-.border-slate-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(71 85 105 / var(--tw-border-opacity));
 }
 .border-x-white {
   --tw-border-opacity: 1;
@@ -1662,6 +1662,9 @@ select {
 .pl-3 {
   padding-left: 0.75rem;
 }
+.pr-1 {
+  padding-right: 0.25rem;
+}
 .pr-10 {
   padding-right: 2.5rem;
 }
@@ -1686,9 +1689,6 @@ select {
 .pt-8 {
   padding-top: 2rem;
 }
-.pr-1 {
-  padding-right: 0.25rem;
-}
 .text-left {
   text-align: left;
 }
@@ -1712,8 +1712,8 @@ select {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
-.text-\[10px\] {
-  font-size: 10px;
+.text-\[8px\] {
+  font-size: 8px;
 }
 .text-base {
   font-size: 1rem;
@@ -1734,9 +1734,6 @@ select {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-\[8px\] {
-  font-size: 8px;
 }
 .font-bold {
   font-weight: 700;
@@ -2007,6 +2004,11 @@ select {
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.hover\:bg-emerald-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(6 95 70 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-gray-100:hover {

@@ -12,7 +12,7 @@ class DetailOutlet extends Model
 
     protected $guarded = [];
 
-    public function getDetailList($mtd)
+    public function getDetailList($mtd, $id_outlet)
     {
         $first_mtd = date('Y-m-01', strtotime($mtd));
         $last_mtd = date('Y-m-t', strtotime($mtd));
@@ -318,10 +318,15 @@ class DetailOutlet extends Model
                 SUM(CASE WHEN `date` = '$mtd' THEN target_weekly_validity_3d ELSE 0 END) target_weekly_validity_3d,
                 SUM(CASE WHEN `date` = '$mtd' THEN target_weekly_validity_5d ELSE 0 END) target_weekly_validity_5d,
                 SUM(CASE WHEN `date` = '$mtd' THEN target_weekly_validity_7d ELSE 0 END) target_weekly_validity_7d")
-            ->whereBetween('date', [$first_m1, $mtd])
-            ->groupBy('id_outlet', 'no_rs', 'nama_outlet', 'sf', 'telp_pemilik', 'sub_branch', 'cluster', 'tap_kcp', 'side_id_cover', 'kategori', 'pareto', 'frekuensi_kunjungan', 'hari_kunjungan', 'remark_fisik', 'pjp', 'kecamatan', 'kabupaten', 'kecamatan_lighthouse', 'hrc_index')
+            ->whereBetween('date', [$first_m1, $mtd]);
+
+        if ($id_outlet) {
+            $data = $data->where('id_outlet', $id_outlet);
+        }
+
+        $data = $data->groupBy('id_outlet', 'no_rs', 'nama_outlet', 'sf', 'telp_pemilik', 'sub_branch', 'cluster', 'tap_kcp', 'side_id_cover', 'kategori', 'pareto', 'frekuensi_kunjungan', 'hari_kunjungan', 'remark_fisik', 'pjp', 'kecamatan', 'kabupaten', 'kecamatan_lighthouse', 'hrc_index')
             ->orderBy('id_outlet')
-            ->paginate(500);
+            ->paginate(100);
 
         return $data;
     }

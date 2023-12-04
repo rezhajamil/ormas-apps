@@ -11,17 +11,22 @@
             </a>
 
         </div>
-        <h4 class="my-4 text-lg font-semibold text-gray-600 ">
-            Hasil Detail {{ ucwords($qns->name) }}
-        </h4>
+        <div class="flex items-center gap-x-2">
+            <h4 class="my-4 text-lg font-semibold text-gray-600 ">
+                Hasil Detail {{ ucwords($qns->name) }}
+            </h4>
+            <button id="btn-excel"
+                class="px-3 py-2 font-semibold text-white bg-green-800 rounded h-fit hover:bg-emerald-800"><i
+                    class="mr-2 fa-solid fa-file-arrow-down"></i>Excel
+            </button>
+        </div>
         <div class="mb-6 overflow-hidden border rounded-md shadow-xs w-fit">
-            <div class="overflow-x-auto w-fit">
+            <div class="overflow-x-auto w-fit" id="table-container">
                 <table class="whitespace-no-wrap w-fit">
                     <thead>
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-white uppercase bg-gray-500 border-b ">
                             <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">No</th>
-                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Branch</th>
                             <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Cluster</th>
                             <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Nama</th>
                             <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">ID Digipos</th>
@@ -40,9 +45,6 @@
                             <tr class="text-gray-700">
                                 <td class="px-4 py-3 text-sm border-r w-fit">
                                     {{ $i_response + 1 }}
-                                </td>
-                                <td class="px-4 py-3 text-sm border-r w-fit">
-                                    {{ $response->responder->branch }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
                                     {{ $response->responder->cluster }}
@@ -107,5 +109,43 @@
     </div>
 @endsection
 @section('script')
-    <script></script>
+    <script>
+        $(document).ready(function() {
+
+            $("#btn-excel").click(function() {
+                exportTableToExcel('table-container', `Hasil Survey`);
+            });
+
+            function exportTableToExcel(tableID, filename = '') {
+                var downloadLink;
+                var dataType = 'application/vnd.ms-excel';
+                var tableSelect = document.getElementById(tableID);
+                var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+                // Specify file name
+                filename = filename ? filename + '.xls' : 'excel_data.xls';
+
+                // Create download link element
+                downloadLink = document.createElement("a");
+
+                document.body.appendChild(downloadLink);
+
+                if (navigator.msSaveOrOpenBlob) {
+                    var blob = new Blob(['\ufeff', tableHTML], {
+                        type: dataType
+                    });
+                    navigator.msSaveOrOpenBlob(blob, filename);
+                } else {
+                    // Create a link to the file
+                    downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+                    // Setting the file name
+                    downloadLink.download = filename;
+
+                    //triggering the function
+                    downloadLink.click();
+                }
+            }
+        })
+    </script>
 @endsection

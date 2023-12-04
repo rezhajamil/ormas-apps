@@ -21,16 +21,17 @@ class DetailOutletController extends Controller
         $month_mtd = '';
 
         if ($request->date) {
-            $details = DetailOutlet::getDetailList($request->date);
+            $details = DetailOutlet::getDetailList($request->date, $request->id_outlet);
             $mtd = date('d F', strtotime($request->date));
             $m1 = date('d F', strtotime($request->date . '-1 Months'));
             $month_m1 = date('F', strtotime($request->date));
             $month_mtd = date('F', strtotime($request->date . '-1 Months'));
+            $id_outlet = $request->id_outlet;
         }
 
         // ddd($details[0]);
 
-        return view('dashboard.detail_outlet.index', compact('details', 'mtd', 'm1', 'month_mtd', 'month_m1'));
+        return view('dashboard.detail_outlet.index', compact('details', 'mtd', 'm1', 'month_mtd', 'month_m1', 'id_outlet'));
     }
 
     /**
