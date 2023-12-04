@@ -10,6 +10,7 @@ use App\Models\QnsSelectedOption;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\VarDumper\Caster\DsPairStub;
 
 class QnsController extends Controller
 {
@@ -303,6 +304,7 @@ class QnsController extends Controller
                 }
             }
 
+            ddd($user);
 
             return redirect()->route('qns.answer', ['id' => $id, 'user' => $user->username])->with('success', 'Terimakasih Sudah Mengisi Survey');
         } else if ($qns->type == 'quiz') {
