@@ -33,6 +33,7 @@
                 </button>
             </form>
         </div>
+        <hr class="border border-gray-600">
         <div class="flex items-end justify-between w-full mb-6">
             <div class="flex gap-x-4">
                 <label class="block mt-4 text-sm">
