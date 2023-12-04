@@ -209,6 +209,7 @@ class QnsController extends Controller
         } else {
             $user = auth()->user();
         }
+        // ddd($request->user);
 
         $qns = Qns::with(['creator', 'question.option', 'response'])->find($id);
         $history = QnsResponse::where('qns_id', $id)->where('id_digipos', $user->id_digipos)->first();
@@ -303,7 +304,7 @@ class QnsController extends Controller
             }
 
 
-            return redirect()->route('qns.answer', $id)->with('success', 'Terimakasih Sudah Mengisi Survey');
+            return redirect()->route('qns.answer', ['id' => $id, 'user' => $user->username])->with('success', 'Terimakasih Sudah Mengisi Survey');
         } else if ($qns->type == 'quiz') {
             $response = QnsResponse::where('qns_id', $qns->id)->where('user_id', $user->id)->first();
             $response->update([
@@ -322,7 +323,7 @@ class QnsController extends Controller
                 ]);
             }
 
-            return redirect()->route('qns.answer', $id)->with('success', 'Terimakasih Sudah Mengerjakan Quiz');
+            return redirect()->route('qns.answer', ['id' => $id, 'user' => $user->username])->with('success', 'Terimakasih Sudah Mengerjakan Quiz');
         }
     }
 
