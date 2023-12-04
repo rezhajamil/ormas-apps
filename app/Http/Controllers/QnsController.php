@@ -213,11 +213,13 @@ class QnsController extends Controller
         // ddd($request->user);
 
         $qns = Qns::with(['creator', 'question.option', 'response'])->find($id);
-        $history = QnsResponse::where('qns_id', $id)->where('id_digipos', $user->id_digipos)->first();
 
         if ($qns->type == 'survey') {
+            $history = QnsResponse::where('qns_id', $id)->where('id_digipos', $user->id_digipos)->first();
             return view('home.qns.answer_survey', compact('user', 'qns', 'history'));
         } else if ($qns->type == 'quiz') {
+
+            $history = QnsResponse::where('qns_id', $id)->where('user_id', $user->id)->first();
             if ($request->start) {
                 if (!$history) {
                     $history = QnsResponse::create([

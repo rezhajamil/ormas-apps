@@ -27,7 +27,6 @@
                     <thead>
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50 ">
-                            <th class="px-4 py-3 w-fit">Branch</th>
                             <th class="px-4 py-3 w-fit">Cluster</th>
                             <th class="px-4 py-3 w-fit">Jumlah Responden</th>
                         </tr>
@@ -35,9 +34,6 @@
                     <tbody class="bg-white divide-y ">
                         @foreach ($resume as $data)
                             <tr class="text-gray-700 ">
-                                <td class="px-4 py-3 text-sm w-fit">
-                                    {{ $data->branch }}
-                                </td>
                                 <td class="px-4 py-3 text-sm w-fit">
                                     {{ $data->cluster }}
                                 </td>
