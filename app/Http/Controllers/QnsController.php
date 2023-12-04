@@ -250,7 +250,7 @@ class QnsController extends Controller
             $user = auth()->user();
         }
 
-        ddd($request->user);
+        // ddd($request->user);
 
         if ($qns->type == 'survey') {
 
