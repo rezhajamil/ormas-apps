@@ -19,6 +19,7 @@ class DetailOutletController extends Controller
         $m1 = '';
         $month_m1 = '';
         $month_mtd = '';
+        $id_outlet = '';
 
         if ($request->date) {
             $details = DetailOutlet::getDetailList($request->date, $request->id_outlet);
