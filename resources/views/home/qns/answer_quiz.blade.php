@@ -66,7 +66,7 @@
                     <span class="font-bold text-gray-500"><i
                             class="mr-2 fa-solid fa-hourglass-end"></i>{{ $qns->duration }}
                         Menit</span>
-                    <a href="{{ route('qns.answer', $qns->id) }}?start=1"
+                    <a href="{{ route('qns.answer', ['id' => $qns->id, 'start' => 1, 'user' => request()->get('user')]) }}"
                         class="inline-block px-4 py-2 mx-auto font-bold text-white bg-gray-800 rounded-md">Mulai
                         Quiz
                     </a>
