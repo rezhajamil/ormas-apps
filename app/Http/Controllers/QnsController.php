@@ -250,6 +250,8 @@ class QnsController extends Controller
             $user = auth()->user();
         }
 
+        ddd($request->user);
+
         if ($qns->type == 'survey') {
 
             $history = QnsResponse::where('qns_id', $id)->where('id_digipos', $request->id_digipos)->whereMonth('created_at', date('m'))->count();
@@ -304,7 +306,7 @@ class QnsController extends Controller
                 }
             }
 
-            ddd($user);
+            // ddd($user);
 
             return redirect()->route('qns.answer', ['id' => $id, 'user' => $user->username])->with('success', 'Terimakasih Sudah Mengisi Survey');
         } else if ($qns->type == 'quiz') {
