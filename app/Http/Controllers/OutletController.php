@@ -289,7 +289,7 @@ class OutletController extends Controller
 
     public function get_outlet(Request $request)
     {
-        $outlets = Outlet::where('nama_outlet', 'like', '%' . $request->nama_outlet . '%')->orderBy('nama_outlet')->limit(10)->get();
+        $outlets = Outlet::where('nama_outlet', 'like', '%' . $request->search . '%')->orWhere('id_outlet', 'like', '%' . $request->search . '%')->orderBy('nama_outlet')->limit(10)->get();
 
         return response()->json($outlets);
     }

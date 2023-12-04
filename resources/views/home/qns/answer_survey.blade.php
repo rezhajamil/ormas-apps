@@ -193,7 +193,7 @@
                     url: '{{ route('outlet.get_outlet') }}',
                     method: 'GET',
                     data: {
-                        nama_outlet: $(this).val()
+                        search: $(this).val()
                     },
                     success: (data) => {
                         $("#outlet-list").html(
