@@ -294,6 +294,13 @@ class OutletController extends Controller
         return response()->json($outlets);
     }
 
+    public function get_outlet_by_digipos(Request $request)
+    {
+        $outlet = Outlet::where('id_outlet', $request->search)->first();
+
+        return response()->json($outlet);
+    }
+
     public function detail(Request $request, $id_outlet)
     {
         $start_date = $request->start_date ?? date('Y-m-01');

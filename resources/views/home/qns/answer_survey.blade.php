@@ -218,6 +218,29 @@
                     }
                 })
             })
+
+            $("input[name='id_digipos']").on('input', function() {
+                $.ajax({
+                    url: '{{ route('outlet.get_outlet_by_digipos') }}',
+                    method: 'GET',
+                    data: {
+                        search: $(this).val()
+                    },
+                    success: (data) => {
+                        $("#nama_outlet").html(`${data.nama_outlet}`);
+                        $("#sf").html(`${data.nama_sf}`);
+                        $("#no_rs").html(`${data.no_rs}`);
+                        $("#kecamatan").html(`${data.kecamatan}`);
+
+                        if (Object.keys(data).length === 0) {
+                            $("#nama_outlet").html(``);
+                            $("#sf").html(``);
+                            $("#no_rs").html(``);
+                            $("#kecamatan").html(``);
+                        }
+                    }
+                })
+            })
         })
     </script>
 @endsection
