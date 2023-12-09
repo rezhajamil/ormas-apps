@@ -46,7 +46,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_productive_trx >= 0 ? $detail[0]->gap_productive_trx : '(' . $detail[0]->gap_productive_trx . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_productive_trx >= 0 ? $detail[0]->gap_productive_trx : '(' . $detail[0]->gap_productive_trx . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -72,7 +72,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_productive_rev >= 0 ? $detail[0]->gap_productive_rev : '(' . $detail[0]->gap_productive_rev . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_productive_rev >= 0 ? $detail[0]->gap_productive_rev : '(' . $detail[0]->gap_productive_rev . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -98,7 +98,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_cvm_trx >= 0 ? $detail[0]->gap_cvm_trx : '(' . $detail[0]->gap_cvm_trx . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_cvm_trx >= 0 ? $detail[0]->gap_cvm_trx : '(' . $detail[0]->gap_cvm_trx . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -124,7 +124,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_cvm_rev >= 0 ? $detail[0]->gap_cvm_rev : '(' . $detail[0]->gap_cvm_rev . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_cvm_rev >= 0 ? $detail[0]->gap_cvm_rev : '(' . $detail[0]->gap_cvm_rev . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -150,7 +150,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_super_seru_trx >= 0 ? $detail[0]->gap_super_seru_trx : '(' . $detail[0]->gap_super_seru_trx . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_super_seru_trx >= 0 ? $detail[0]->gap_super_seru_trx : '(' . $detail[0]->gap_super_seru_trx . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -176,7 +176,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_super_seru_rev >= 0 ? $detail[0]->gap_super_seru_rev : '(' . $detail[0]->gap_super_seru_rev . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_super_seru_rev >= 0 ? $detail[0]->gap_super_seru_rev : '(' . $detail[0]->gap_super_seru_rev . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -202,7 +202,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_combo_sakti_trx >= 0 ? $detail[0]->gap_combo_sakti_trx : '(' . $detail[0]->gap_combo_sakti_trx . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_combo_sakti_trx >= 0 ? $detail[0]->gap_combo_sakti_trx : '(' . $detail[0]->gap_combo_sakti_trx . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -228,7 +228,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_combo_sakti_rev >= 0 ? $detail[0]->gap_combo_sakti_rev : '(' . $detail[0]->gap_combo_sakti_rev . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_combo_sakti_rev >= 0 ? $detail[0]->gap_combo_sakti_rev : '(' . $detail[0]->gap_combo_sakti_rev . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -254,7 +254,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_hot_promo_trx >= 0 ? $detail[0]->gap_hot_promo_trx : '(' . $detail[0]->gap_hot_promo_trx . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_hot_promo_trx >= 0 ? $detail[0]->gap_hot_promo_trx : '(' . $detail[0]->gap_hot_promo_trx . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -280,7 +280,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_hot_promo_rev >= 0 ? $detail[0]->gap_hot_promo_rev : '(' . $detail[0]->gap_hot_promo_rev . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_hot_promo_rev >= 0 ? $detail[0]->gap_hot_promo_rev : '(' . $detail[0]->gap_hot_promo_rev . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -306,7 +306,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_internet_sakti_trx >= 0 ? $detail[0]->gap_internet_sakti_trx : '(' . $detail[0]->gap_internet_sakti_trx . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_internet_sakti_trx >= 0 ? $detail[0]->gap_internet_sakti_trx : '(' . $detail[0]->gap_internet_sakti_trx . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -332,7 +332,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_internet_sakti_rev >= 0 ? $detail[0]->gap_internet_sakti_rev : '(' . $detail[0]->gap_internet_sakti_rev . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_internet_sakti_rev >= 0 ? $detail[0]->gap_internet_sakti_rev : '(' . $detail[0]->gap_internet_sakti_rev . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -358,7 +358,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_digital_trx >= 0 ? $detail[0]->gap_digital_trx : '(' . $detail[0]->gap_digital_trx . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_digital_trx >= 0 ? $detail[0]->gap_digital_trx : '(' . $detail[0]->gap_digital_trx . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -384,7 +384,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_digital_rev >= 0 ? $detail[0]->gap_digital_rev : '(' . $detail[0]->gap_digital_rev . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_digital_rev >= 0 ? $detail[0]->gap_digital_rev : '(' . $detail[0]->gap_digital_rev . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -410,7 +410,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_voice_trx >= 0 ? $detail[0]->gap_voice_trx : '(' . $detail[0]->gap_voice_trx . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_voice_trx >= 0 ? $detail[0]->gap_voice_trx : '(' . $detail[0]->gap_voice_trx . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -436,7 +436,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_voice_rev >= 0 ? $detail[0]->gap_voice_rev : '(' . $detail[0]->gap_voice_rev . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_voice_rev >= 0 ? $detail[0]->gap_voice_rev : '(' . $detail[0]->gap_voice_rev . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
         </tbody>
