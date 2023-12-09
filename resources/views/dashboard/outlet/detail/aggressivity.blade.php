@@ -46,7 +46,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_st_sp_trx >= 0 ? $detail[0]->gap_st_sp_trx : '(' . $detail[0]->gap_st_sp_trx . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_st_sp_trx >= 0 ? $detail[0]->gap_st_sp_trx : '(' . $detail[0]->gap_st_sp_trx . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -72,7 +72,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_so_pair_so_sp_trx >= 0 ? $detail[0]->gap_so_pair_so_sp_trx : '(' . $detail[0]->gap_so_pair_so_sp_trx . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_so_pair_so_sp_trx >= 0 ? $detail[0]->gap_so_pair_so_sp_trx : '(' . $detail[0]->gap_so_pair_so_sp_trx . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -98,7 +98,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_so_pair_rev_so >= 0 ? $detail[0]->gap_so_pair_rev_so : '(' . $detail[0]->gap_so_pair_rev_so . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_so_pair_rev_so >= 0 ? $detail[0]->gap_so_pair_rev_so : '(' . $detail[0]->gap_so_pair_rev_so . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
 
@@ -125,7 +125,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_st_vf_trx >= 0 ? $detail[0]->gap_st_vf_trx : '(' . $detail[0]->gap_st_vf_trx . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_st_vf_trx >= 0 ? $detail[0]->gap_st_vf_trx : '(' . $detail[0]->gap_st_vf_trx . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -151,7 +151,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_so_pair_pair_vf_trx >= 0 ? $detail[0]->gap_so_pair_pair_vf_trx : '(' . $detail[0]->gap_so_pair_pair_vf_trx . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_so_pair_pair_vf_trx >= 0 ? $detail[0]->gap_so_pair_pair_vf_trx : '(' . $detail[0]->gap_so_pair_pair_vf_trx . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -177,7 +177,7 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_so_pair_rev_pair >= 0 ? $detail[0]->gap_st_sp_trx : '(' . $detail[0]->gap_st_sp_trx . ')' }}</span>
+                        class="">{{ number_format($detail[0]->gap_so_pair_rev_pair >= 0 ? $detail[0]->gap_st_sp_trx : '(' . $detail[0]->gap_st_sp_trx . ')', 0, ',', '.') }}</span>
                 </td>
             </tr>
             <tr class="bg-gray-100">
