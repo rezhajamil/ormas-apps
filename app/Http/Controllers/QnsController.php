@@ -345,7 +345,7 @@ class QnsController extends Controller
             return view('dashboard.qns.result_survey', compact('qns', 'resume'));
         } else if ($qns->type == 'quiz') {
             $resume = QnsResponse::select('cluster', DB::raw('count(user_id) as count'))->join('users', 'qns_responses.user_id', '=', 'users.id')->where('qns_id', $id)->groupBy('cluster')->orderBy('cluster')->orderBy('users.name')->get();
-            $result = QnsResponse::select('cluster', 'users.name', DB::raw('count(correct_option) as correct'))
+            $result = QnsResponse::select('cluster', 'users.name', 'users.telp', DB::raw('count(correct_option) as correct'))
                 ->join('qns_selected_options', 'qns_selected_options.response_id', '=', 'qns_responses.id')
                 ->join('qns_questions', 'qns_selected_options.option_id', '=', 'qns_questions.correct_option')
                 ->join('users', 'qns_responses.user_id', '=', 'users.id')
@@ -353,6 +353,7 @@ class QnsController extends Controller
                 ->where('qns_responses.qns_id', $id)
                 ->groupBy('cluster')
                 ->groupBy('users.name')
+                ->groupBy('users.telp')
                 ->orderBy('cluster')
                 ->orderBy('users.name')
                 ->get();

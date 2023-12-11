@@ -45,6 +45,7 @@
                             <th class="px-4 py-3 border-l-0 border-x w-fit">No</th>
                             <th class="px-4 py-3 border-l-0 border-x w-fit">Cluster</th>
                             <th class="px-4 py-3 border-l-0 border-x w-fit">Nama</th>
+                            <th class="px-4 py-3 border-l-0 border-x w-fit">Telp</th>
                             <th class="px-4 py-3 border-r-0 border-x w-fit">Jumlah Benar</th>
                             <th class="px-4 py-3 border-r-0 border-x w-fit">Skor</th>
                         </tr>
@@ -60,6 +61,9 @@
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
                                     {{ $res->name }}
+                                </td>
+                                <td class="px-4 py-3 text-sm border-r w-fit">
+                                    {{ $res->telp }}
                                 </td>
                                 <td class="px-4 py-3 text-sm text-center border-r w-fit">
                                     {{ $res->correct }}
