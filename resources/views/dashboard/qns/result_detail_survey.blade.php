@@ -57,7 +57,7 @@
                                     {{ $response->responder->outlet->kecamatan ?? '' }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
-                                    {{ ucwords($response->responder->outlet->nama_sf) }}
+                                    {{ ucwords($response->responder->outlet->nama_sf ?? '') }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
                                     {{ ucwords($response->responder->id_digipos) }}
