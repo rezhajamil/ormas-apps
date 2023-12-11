@@ -28,8 +28,12 @@
                             class="text-xs font-semibold tracking-wide text-left text-white uppercase bg-gray-500 border-b ">
                             <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">No</th>
                             <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Cluster</th>
-                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Nama</th>
+                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Kecamatan</th>
+                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Nama SF</th>
                             <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">ID Digipos</th>
+                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Nama Outlet</th>
+                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">No RS</th>
+                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">TAP KCP</th>
                             <th colspan="{{ count($qns->question) }}"
                                 class="px-4 py-3 text-center bg-gray-600 border-x-white border-x w-fit">Pertanyaan</th>
 
@@ -47,13 +51,25 @@
                                     {{ $i_response + 1 }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
-                                    {{ $response->responder->cluster }}
+                                    {{ $response->responder->outlet->cluster }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
-                                    {{ ucwords($response->responder->name) }}
+                                    {{ $response->responder->outlet->kecamatan }}
+                                </td>
+                                <td class="px-4 py-3 text-sm border-r w-fit">
+                                    {{ ucwords($response->responder->outlet->nama_sf) }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
                                     {{ ucwords($response->responder->id_digipos) }}
+                                </td>
+                                <td class="px-4 py-3 text-sm border-r w-fit">
+                                    {{ ucwords($response->responder->outlet->nama_outlet) }}
+                                </td>
+                                <td class="px-4 py-3 text-sm border-r w-fit">
+                                    {{ ucwords($response->responder->outlet->no_rs) }}
+                                </td>
+                                <td class="px-4 py-3 text-sm border-r w-fit">
+                                    {{ ucwords($response->responder->outlet->tap_kcp) }}
                                 </td>
                                 {{-- {{ ddd($response->selected_option) }} --}}
                                 @foreach ($qns->question as $i_question => $question)

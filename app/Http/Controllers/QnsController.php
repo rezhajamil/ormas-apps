@@ -365,7 +365,7 @@ class QnsController extends Controller
 
     public function result_detail(Request $request, $id)
     {
-        $qns = Qns::with(['creator', 'question.option.correct_option', 'question.option.selected_option', 'response.responder', 'response.selected_option.option'])->where('id', $id)->first();
+        $qns = Qns::with(['creator', 'question.option.correct_option', 'question.option.selected_option', 'response.responder', 'response.responder.outlet', 'response.selected_option.option'])->where('id', $id)->first();
 
         // ddd($qns);
 

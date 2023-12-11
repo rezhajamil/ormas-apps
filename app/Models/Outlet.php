@@ -26,6 +26,11 @@ class Outlet extends Model
         return $this->hasMany(FM::class, 'id_outlet', 'id_outlet');
     }
 
+    public function user()
+    {
+        return $this->hasMany(User::class, 'id_digipos', 'id_outlet');
+    }
+
     public function detail_mobile($id_outlet, $mtd)
     {
         $first_mtd = date('Y-m-01', strtotime($mtd));
