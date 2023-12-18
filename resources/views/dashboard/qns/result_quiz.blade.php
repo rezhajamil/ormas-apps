@@ -43,6 +43,7 @@
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50 ">
                             <th class="px-4 py-3 border-l-0 border-x w-fit">No</th>
+                            <th class="px-4 py-3 border-l-0 border-x w-fit">Waktu Menjawab</th>
                             <th class="px-4 py-3 border-l-0 border-x w-fit">Cluster</th>
                             <th class="px-4 py-3 border-l-0 border-x w-fit">Nama</th>
                             <th class="px-4 py-3 border-l-0 border-x w-fit">Telp</th>
@@ -55,6 +56,9 @@
                             <tr class="text-gray-700">
                                 <td class="px-4 py-3 text-sm border-r w-fit">
                                     {{ $idx + 1 }}
+                                </td>
+                                <td class="px-4 py-3 text-sm border-r w-fit">
+                                    {{ $res->time_star }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
                                     {{ $res->cluster }}

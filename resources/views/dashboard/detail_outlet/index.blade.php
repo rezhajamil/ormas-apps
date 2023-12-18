@@ -958,7 +958,7 @@
                 <span class="col-span-2"></span>
                 <!-- Pagination -->
                 @if ($details)
-                    {{ $details->links('components.pagination', ['data' => $details]) }}
+                    {{ $details->appends(request()->except('page'))->links('components.pagination', ['data' => $details]) }}
                 @endif
                 {{-- @include('components.pagination') --}}
             </div>
