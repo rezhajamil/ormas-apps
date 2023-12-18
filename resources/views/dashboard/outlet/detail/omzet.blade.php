@@ -42,11 +42,11 @@
                     @else
                         <i class="mr-auto text-green-700 fa-solid fa-square-caret-up"></i>
                     @endif
-                    <span class="">{{ $detail[0]->mom_omset }}%</span>
+                    <span class="">{{ number_format($detail[0]->mom_omset, 2, ',', '.') }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span
-                        class="">{{ $detail[0]->gap_omset >= 0 ? $detail[0]->gap_omset : '(' . $detail[0]->gap_omset . ')' }}</span>
+                        class="">{{ $detail[0]->gap_omset >= 0 ? number_format($detail[0]->gap_omset, 0, ',', '.') : '(' . number_format($detail[0]->gap_omset * -1, 0, ',', '.') . ')' }}</span>
                 </td>
             </tr>
         </tbody>

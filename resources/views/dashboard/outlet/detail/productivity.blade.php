@@ -45,8 +45,15 @@
                     <span class="">{{ $detail[0]->mom_productive_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_productive_trx >= 0 ? $detail[0]->gap_productive_trx : '(' . $detail[0]->gap_productive_trx . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_productive_trx >= 0)
+                            {{ number_format($detail[0]->gap_productive_trx, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_productive_trx * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -71,8 +78,15 @@
                     <span class="">{{ $detail[0]->mom_productive_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_productive_rev >= 0 ? $detail[0]->gap_productive_rev : '(' . $detail[0]->gap_productive_rev . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_productive_rev >= 0)
+                            {{ number_format($detail[0]->gap_productive_rev, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_productive_rev * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -97,8 +111,15 @@
                     <span class="">{{ $detail[0]->mom_cvm_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_cvm_trx >= 0 ? $detail[0]->gap_cvm_trx : '(' . $detail[0]->gap_cvm_trx . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_cvm_trx >= 0)
+                            {{ number_format($detail[0]->gap_cvm_trx, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_cvm_trx * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -123,8 +144,15 @@
                     <span class="">{{ $detail[0]->mom_cvm_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_cvm_rev >= 0 ? $detail[0]->gap_cvm_rev : '(' . $detail[0]->gap_cvm_rev . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_cvm_rev >= 0)
+                            {{ number_format($detail[0]->gap_cvm_rev, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_cvm_rev * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -149,8 +177,15 @@
                     <span class="">{{ $detail[0]->mom_super_seru_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_super_seru_trx >= 0 ? $detail[0]->gap_super_seru_trx : '(' . $detail[0]->gap_super_seru_trx . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_super_seru_trx >= 0)
+                            {{ number_format($detail[0]->gap_super_seru_trx, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_super_seru_trx * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -175,8 +210,15 @@
                     <span class="">{{ $detail[0]->mom_super_seru_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_super_seru_rev >= 0 ? $detail[0]->gap_super_seru_rev : '(' . $detail[0]->gap_super_seru_rev . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_super_seru_rev >= 0)
+                            {{ number_format($detail[0]->gap_super_seru_rev, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_super_seru_rev * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -201,8 +243,15 @@
                     <span class="">{{ $detail[0]->mom_combo_sakti_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_combo_sakti_trx >= 0 ? $detail[0]->gap_combo_sakti_trx : '(' . $detail[0]->gap_combo_sakti_trx . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_combo_sakti_trx >= 0)
+                            {{ number_format($detail[0]->gap_combo_sakti_trx, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_combo_sakti_trx * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -227,8 +276,15 @@
                     <span class="">{{ $detail[0]->mom_combo_sakti_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_combo_sakti_rev >= 0 ? $detail[0]->gap_combo_sakti_rev : '(' . $detail[0]->gap_combo_sakti_rev . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_combo_sakti_rev >= 0)
+                            {{ number_format($detail[0]->gap_combo_sakti_rev, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_combo_sakti_rev * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -253,8 +309,15 @@
                     <span class="">{{ $detail[0]->mom_hot_promo_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_hot_promo_trx >= 0 ? $detail[0]->gap_hot_promo_trx : '(' . $detail[0]->gap_hot_promo_trx . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_hot_promo_trx >= 0)
+                            {{ number_format($detail[0]->gap_hot_promo_trx, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_hot_promo_trx * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -279,8 +342,15 @@
                     <span class="">{{ $detail[0]->mom_hot_promo_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_hot_promo_rev >= 0 ? $detail[0]->gap_hot_promo_rev : '(' . $detail[0]->gap_hot_promo_rev . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_hot_promo_rev >= 0)
+                            {{ number_format($detail[0]->gap_hot_promo_rev, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_hot_promo_rev * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -305,8 +375,15 @@
                     <span class="">{{ $detail[0]->mom_internet_sakti_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_internet_sakti_trx >= 0 ? $detail[0]->gap_internet_sakti_trx : '(' . $detail[0]->gap_internet_sakti_trx . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_internet_sakti_trx >= 0)
+                            {{ number_format($detail[0]->gap_internet_sakti_trx, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_internet_sakti_trx * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -331,8 +408,15 @@
                     <span class="">{{ $detail[0]->mom_internet_sakti_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_internet_sakti_rev >= 0 ? $detail[0]->gap_internet_sakti_rev : '(' . $detail[0]->gap_internet_sakti_rev . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_internet_sakti_rev >= 0)
+                            {{ number_format($detail[0]->gap_internet_sakti_rev, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_internet_sakti_rev * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -357,8 +441,15 @@
                     <span class="">{{ $detail[0]->mom_digital_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_digital_trx >= 0 ? $detail[0]->gap_digital_trx : '(' . $detail[0]->gap_digital_trx . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_digital_trx >= 0)
+                            {{ number_format($detail[0]->gap_digital_trx, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_digital_trx * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
             <tr class="bg-gray-100">
@@ -383,8 +474,15 @@
                     <span class="">{{ $detail[0]->mom_digital_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_digital_rev >= 0 ? $detail[0]->gap_digital_rev : '(' . $detail[0]->gap_digital_rev . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_digital_rev >= 0)
+                            {{ number_format($detail[0]->gap_digital_rev, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_digital_rev * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -409,8 +507,15 @@
                     <span class="">{{ $detail[0]->mom_voice_trx }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_voice_trx >= 0 ? $detail[0]->gap_voice_trx : '(' . $detail[0]->gap_voice_trx . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_voice_trx >= 0)
+                            {{ number_format($detail[0]->gap_voice_trx, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_voice_trx * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
             <tr class="bg-sky-100">
@@ -435,8 +540,15 @@
                     <span class="">{{ $detail[0]->mom_voice_rev }}%</span>
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span
-                        class="">{{ number_format($detail[0]->gap_voice_rev >= 0 ? $detail[0]->gap_voice_rev : '(' . $detail[0]->gap_voice_rev . ')', 0, ',', '.') }}</span>
+                    <span class="">
+                        @if ($detail[0]->gap_voice_rev >= 0)
+                            {{ number_format($detail[0]->gap_voice_rev, 0, ',', '.') }}
+                    </span>
+                @else
+                    (
+                    {{ number_format($detail[0]->gap_voice_rev * -1, 0, ',', '.') }}</span>
+                    )
+                    @endif
                 </td>
             </tr>
         </tbody>

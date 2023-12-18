@@ -27,6 +27,7 @@
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-white uppercase bg-gray-500 border-b ">
                             <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">No</th>
+                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Tanggal Pengisian</th>
                             <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Cluster</th>
                             <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Kecamatan</th>
                             <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Nama SF</th>
@@ -49,6 +50,9 @@
                             <tr class="text-gray-700">
                                 <td class="px-4 py-3 text-sm border-r w-fit">
                                     {{ $i_response + 1 }}
+                                </td>
+                                <td class="px-4 py-3 text-sm border-r w-fit whitespace-nowrap">
+                                    {{ date('Y-m-d', strtotime($response->created_at)) }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
                                     {{ $response->responder->outlet->cluster ?? '' }}
