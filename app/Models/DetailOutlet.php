@@ -16,8 +16,8 @@ class DetailOutlet extends Model
     {
         $first_mtd = date('Y-m-01', strtotime($mtd));
         $last_mtd = date('Y-m-t', strtotime($mtd));
-        $m1 = date('Y-m-d', strtotime($mtd . '-1 Months'));
-        $last_m1 = DetailOutlet::convDate($mtd);
+        $m1 = DetailOutlet::convDate($mtd);
+        $last_m1 = date('Y-m-t', strtotime($m1));
         $first_m1 = date('Y-m-01', strtotime($last_m1));
 
         // $query =
