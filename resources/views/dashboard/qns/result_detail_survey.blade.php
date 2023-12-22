@@ -26,20 +26,15 @@
                     <thead>
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-white uppercase bg-gray-500 border-b ">
-                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">No</th>
-                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Tanggal Pengisian</th>
-                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Cluster</th>
-                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Kecamatan</th>
-                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Nama SF</th>
-                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">ID Digipos</th>
-                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">Nama Outlet</th>
-                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">No RS</th>
-                            <th rowspan="2" class="px-4 py-3 border-x-white border-x w-fit">TAP KCP</th>
-                            <th colspan="{{ count($qns->question) }}"
-                                class="px-4 py-3 text-center bg-gray-600 border-x-white border-x w-fit">Pertanyaan</th>
-
-                        </tr>
-                        <tr class="text-xs font-semibold tracking-wide text-left text-white uppercase border-b ">
+                            <th class="px-4 py-3 border-x-white border-x w-fit">No</th>
+                            <th class="px-4 py-3 border-x-white border-x w-fit">Tanggal Pengisian</th>
+                            <th class="px-4 py-3 border-x-white border-x w-fit">Cluster</th>
+                            <th class="px-4 py-3 border-x-white border-x w-fit">Kecamatan</th>
+                            <th class="px-4 py-3 border-x-white border-x w-fit">Nama SF</th>
+                            <th class="px-4 py-3 border-x-white border-x w-fit">ID Digipos</th>
+                            <th class="px-4 py-3 border-x-white border-x w-fit">Nama Outlet</th>
+                            <th class="px-4 py-3 border-x-white border-x w-fit">No RS</th>
+                            <th class="px-4 py-3 border-x-white border-x w-fit">TAP KCP</th>
                             @foreach ($qns->question as $question)
                                 <th class="px-4 py-3 bg-gray-800 border-x-white border-x w-fit">{{ $question->text }}</th>
                             @endforeach

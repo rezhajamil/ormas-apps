@@ -1,3 +1,11 @@
+@php
+    function convertBil($num, $decimal = 0)
+    {
+        $num = (int) $num;
+        return number_format($num, $decimal, ',', '.');
+    }
+@endphp
+
 <div class="flex flex-col min-w-[40%] gap-6 card-list w-fit" jenis="aggressivity">
     <table class="">
         <thead class="text-xs bg-slate-800">
@@ -231,7 +239,9 @@
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="text-green-600">{{ number_format($detail[0]->per_pair_in, 2, ',', '.') }}%</span>
+                    <span class="text-green-600">
+                        {{ convertBil(($detail[0]->pair_in / ($detail[0]->pair_vf != 0 ? $detail[0]->pair_vf : 1)) * 100) }}%
+                    </span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
                 </td>
@@ -248,7 +258,9 @@
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
-                    <span class="text-red-600">{{ number_format($detail[0]->per_pair_out, 2, ',', '.') }}%</span>
+                    <span class="text-red-600">
+                        {{ convertBil(($detail[0]->pair_out / ($detail[0]->pair_vf != 0 ? $detail[0]->pair_vf : 1)) * 100) }}%
+                    </span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
                 </td>

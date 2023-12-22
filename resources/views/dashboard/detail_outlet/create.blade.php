@@ -2,7 +2,7 @@
 @section('content')
     <div class="container grid px-6 py-6 mx-auto">
         <a class="flex items-center justify-between px-3 py-2 font-semibold text-white bg-gray-800 rounded-md shadow-md w-fit focus:outline-none focus:shadow-outline-purple"
-            href="{{ route('outlet.index') }}">
+            href="{{ route('detail_outlet.index') }}">
             <div class="flex items-center">
                 <i class="w-5 fa-solid fa-arrow-left"></i>
                 <span class="">Kembali</span>
@@ -30,6 +30,14 @@
                             {{ $message }}
                         </span>
                     @enderror
+                    <div class="flex flex-col gap-1 mt-6 mb-2">
+                        <span class="font-semibold">*Ketentuan*</span>
+                        <span class="">- Bilangan Desimal menggunakan tanda titik (.)</span>
+                        <span class="">- Bilangan Ribuan / Jutaan hanya berupa angka, tidak menggunakan pemisah titik
+                            (.) maupun koma (,)</span>
+                        <span class="">- Persentase hanya berupa angka. Tidak menggunakan simbol persen
+                            (%). Bila berupa desimal, maka menggunakan tanda titik (.)</span>
+                    </div>
                 </label>
             </div>
             <button type="submit"

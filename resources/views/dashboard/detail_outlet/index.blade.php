@@ -8,7 +8,13 @@
         }
     @endphp
     <div class="container grid px-6 py-6 mx-auto">
-        <h4 class="mb-4 text-lg font-semibold text-gray-600 ">
+        @if (session('success-delete'))
+            <div class="w-full px-4 py-3 text-center text-white bg-gray-400 rounded-md">
+                <i class=" fa-solid fa-trash"></i>
+                {{ session('success-delete') }}
+            </div>
+        @endif
+        <h4 class="mb-4 font-semibold text-gray-600 ">
             Detail Outlet
         </h4>
         <div class="flex items-end justify-between w-full mb-6">
@@ -52,7 +58,7 @@
                         <option value="id_outlet">ID Outlet</option>
                         <option value="nama_outlet">Nama Outlet</option>
                         <option value="telp_pemilik">Telp Pemilik</option>
-                        <option value="nama_sf">Nama SF</option>
+                        <option value="sf">Nama SF</option>
                         <option value="tap_kcp">TAP</option>
                         <option value="side_id">SIDE ID</option>
                         <option value="kategori">Kategori</option>
@@ -74,13 +80,22 @@
                     </select>
                 </label>
             </div>
-            <a class="flex items-center justify-between px-3 py-2 font-semibold text-white rounded-md shadow-md bg-sekunder w-fit focus:outline-none focus:shadow-outline-purple"
-                href="{{ route('detail_outlet.create') }}">
-                <div class="flex items-center">
-                    <i class="w-5 fa-solid fa-plus"></i>
-                    <span class="">Tambah Detail Outlet</span>
+            <div class="flex gap-x-2">
+                <a class="flex items-center justify-between px-3 py-2 font-semibold text-white rounded-md shadow-md bg-sekunder w-fit focus:outline-none focus:shadow-outline-purple"
+                    href="{{ route('detail_outlet.create') }}">
+                    <div class="flex items-center">
+                        <i class="w-5 fa-solid fa-plus"></i>
+                        <span class="">Tambah Detail Outlet</span>
+                    </div>
+                </a>
+                <div class="items-center justify-between px-3 py-2 font-semibold text-white bg-gray-400 rounded-md shadow-md cursor-pointer lex w-fit focus:outline-none focus:shadow-outline-purple"
+                    id="delete-date-btn">
+                    <div class="flex items-center">
+                        <i class="w-5 fa-solid fa-trash"></i>
+                        <span class="">Hapus By Tanggal</span>
+                    </div>
                 </div>
-            </a>
+            </div>
         </div>
         <div class="w-full overflow-hidden border rounded-md shadow-xs">
             <div class="w-full overflow-x-auto">
@@ -964,6 +979,39 @@
             </div>
         </div>
     </div>
+    <div id="delete-modal" class="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-black/70 "
+        style="display: none">
+        <div class="px-8 py-4 bg-white rounded-lg shadow-xl">
+            <p class="font-semibold text-center text-slate-800">Hapus Data Berdasarkan Tanggal</p>
+            <hr class="h-1 border-2 border-slate-600">
+            <form method="POST" action="{{ route('detail_outlet.destroy_by_date') }}" class="flex flex-col gap-y-4">
+                @csrf
+                @method('DELETE')
+                <label class="block mt-4 text-sm">
+                    <span class="text-gray-700">
+                        Tanggal
+                    </span>
+                    <input type="date" name="delete_date" id="delete-date"
+                        class="block w-full mt-1 text-sm rounded-md form-select focus:border-sekunder focus:ring-sekunder focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                        required>
+                </label>
+                <button
+                    class="flex items-center justify-between w-full px-3 py-2 font-semibold text-white bg-red-600 rounded-md shadow-md h-fit focus:outline-none focus:shadow-outline-purple">
+                    <div class="flex items-center justify-center w-full text-center gap-x-2">
+                        <i class="w-5 fa-solid fa-trash"></i>
+                        <span class="">Hapus</span>
+                    </div>
+                </button>
+                <div id="close-delete-modal"
+                    class="flex items-center justify-between w-full px-3 py-2 font-semibold text-white bg-gray-600 rounded-md shadow-md cursor-pointer h-fit focus:outline-none focus:shadow-outline-purple">
+                    <div class="flex items-center justify-center w-full text-center gap-x-2">
+                        <i class="w-5 fa-solid fa-xmark"></i>
+                        <span class="">Batal</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection
 @section('script')
     <script>
@@ -979,6 +1027,13 @@
             find();
         });
 
+        $("#delete-date-btn").click(() => {
+            $("#delete-modal").show()
+        })
+
+        $("#close-delete-modal").click(() => {
+            $("#delete-modal").hide()
+        })
 
         const find = () => {
             let search = $("#search").val();
