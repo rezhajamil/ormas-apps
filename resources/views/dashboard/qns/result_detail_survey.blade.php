@@ -124,43 +124,56 @@
     </div>
 @endsection
 @section('script')
-    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+    {{-- <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script> --}}
+    <script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
     <script>
         $(document).ready(function() {
 
             $("#btn-excel").click(function() {
-                exportTableToExcel('table-container', `Hasil Survey`);
+                // exportTableToExcel('table-container', `Hasil Survey`);
+                exportCSVExcel('table-container', `Hasil Survey`);
             });
 
-            function exportTableToExcel(tableID, filename = '') {
-                var downloadLink;
-                var dataType = 'application/vnd.ms-excel';
-                var tableSelect = document.getElementById(tableID);
-                var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+            // function exportTableToExcel(tableID, filename = '') {
+            //     var downloadLink;
+            //     var dataType = 'application/vnd.ms-excel';
+            //     var tableSelect = document.getElementById(tableID);
+            //     var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
 
-                // Specify file name
-                filename = filename ? filename + '.xls' : 'excel_data.xls';
+            //     // Specify file name
+            //     filename = filename ? filename + '.xls' : 'excel_data.xls';
 
-                // Create download link element
-                downloadLink = document.createElement("a");
+            //     // Create download link element
+            //     downloadLink = document.createElement("a");
 
-                document.body.appendChild(downloadLink);
+            //     document.body.appendChild(downloadLink);
 
-                if (navigator.msSaveOrOpenBlob) {
-                    var blob = new Blob(['\ufeff', tableHTML], {
-                        type: dataType
-                    });
-                    navigator.msSaveOrOpenBlob(blob, filename);
-                } else {
-                    // Create a link to the file
-                    downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+            //     if (navigator.msSaveOrOpenBlob) {
+            //         var blob = new Blob(['\ufeff', tableHTML], {
+            //             type: dataType
+            //         });
+            //         navigator.msSaveOrOpenBlob(blob, filename);
+            //     } else {
+            //         // Create a link to the file
+            //         downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
 
-                    // Setting the file name
-                    downloadLink.download = filename;
+            //         // Setting the file name
+            //         downloadLink.download = filename;
 
-                    //triggering the function
-                    downloadLink.click();
-                }
+            //         //triggering the function
+            //         downloadLink.click();
+            //     }
+            // }
+
+            function exportCSVExcel(tableId, fileName) {
+                $(`#${tableId}`).table2excel({
+                    exclude: ".no-export",
+                    filename: "download.xls",
+                    fileext: ".xls",
+                    filename: fileName + ".xls",
+                    exclude_links: true,
+                    exclude_inputs: true
+                });
             }
         })
     </script>
