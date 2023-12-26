@@ -1,5 +1,5 @@
-<div class="flex flex-col gap-6 card-list" jenis="productivity">
-    <table class="">
+<div class="flex flex-col w-full gap-6 card-list" jenis="productivity">
+    <table class="w-full">
         <thead class="text-xs bg-slate-800">
             <tr class="">
                 <th class="px-3 py-1 whitespace-nowrap">

@@ -1,10 +1,10 @@
 <div class="flex flex-col gap-6 card-list" jenis="info_outlet">
-    <div class="w-full overflow-hidden bg-white border-2 rounded-lg card">
+    <div class="overflow-hidden bg-white border-2 rounded-lg w-fit card">
         <div class="w-full px-3 py-2 text-base font-semibold text-center text-white bg-gray-500 card-header">
             {{ $outlet->nama_outlet }}
         </div>
-        <div class="w-full card-body">
-            <table class="w-full border-0">
+        <div class="w-fit card-body">
+            <table class="border-0 w-fit">
                 <tr>
                     <td class="px-2 py-2 text-sm font-semibold text-left uppercase border-b-2 border-r-2 text-slate-700">
                         No RS

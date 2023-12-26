@@ -122,7 +122,7 @@
                                 {{ $month_m1 }}
                             </th>
                             <th colspan="10" class="p-2 text-white bg-black whitespace-nowrap">SO & PAIR
-                                SEPTEMBER</th>
+                                {{ $month_mtd }}</th>
                             <th colspan="8" class="p-2 bg-lime-600 whitespace-nowrap">RENEWAL AKUISISI</th>
                             <th colspan="4" class="p-2 bg-sky-600 whitespace-nowrap">OMSET</th>
                             <th colspan="8" class="p-2 bg-red-700 whitespace-nowrap">SUPER SERU</th>

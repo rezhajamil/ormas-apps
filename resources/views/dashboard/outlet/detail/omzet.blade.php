@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-6 card-list" jenis="omzet">
+<div class="flex flex-col w-full gap-6 card-list" jenis="omzet">
     <table class="">
         <thead class="text-xs bg-slate-800">
             <tr class="">

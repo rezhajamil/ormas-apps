@@ -306,7 +306,7 @@ class OutletController extends Controller
         $start_date = $request->start_date ?? date('Y-m-01');
         $date = $request->date ?? date('Y-m-d');
 
-        $outlet = DetailOutlet::where('id_outlet', $id_outlet)->first();
+        $outlet = DetailOutlet::where('id_outlet', $id_outlet)->orderBy('date', 'DESC')->first();
 
         $detail = Outlet::detail_mobile($id_outlet, $date);
 

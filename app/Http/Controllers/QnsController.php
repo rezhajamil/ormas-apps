@@ -198,9 +198,14 @@ class QnsController extends Controller
      * @param  \App\Models\Qns  $qns
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Qns $qns)
+    public function destroy($id)
     {
-        //
+        // ddd([$qns, $request]);
+        $response = QnsResponse::where('qns_id', $id)->delete();
+        $question = QnsQuestion::where('qns_id', $id)->delete();
+        $qns = Qns::where('id', $id)->delete();
+
+        return back();
     }
 
     public function answer(Request $request, $id)

@@ -40,7 +40,7 @@
                     class="inline-block w-full text-center uppercase whitespace-nowrap ">{{ date('d M', strtotime($date)) }}</span>
             </div>
         </div>
-        <div class="flex flex-col w-full p-4 gap-y-8">
+        <div class="flex flex-col flex-grow p-4 w-fit gap-y-8">
             <div class="flex flex-col gap-2 jenis-container">
                 <div class="flex border-b-2 ">
                     <span class="inline-block pr-4 font-semibold text-center w-fit whitespace-nowrap text-slate-600">
@@ -50,6 +50,13 @@
                         jenis="info_outlet"></i>
                 </div>
                 @include('dashboard.outlet.detail.info')
+            </div>
+            <div class="flex w-full -my-4 ">
+                <div class="flex p-2 text-sm text-gray-500 bg-gray-200 rounded-sm gap-x-2 w-fit">
+                    <span class="inline-block w-full text-center uppercase whitespace-nowrap ">Last Update</span>
+                    <span class="inline-block w-full text-center uppercase whitespace-nowrap ">:</span>
+                    <span class="inline-block w-full text-center uppercase whitespace-nowrap ">{{ $outlet->date }}</span>
+                </div>
             </div>
             <div class="flex flex-col gap-2 jenis-container">
                 <div class="flex border-b-2 ">

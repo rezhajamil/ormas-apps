@@ -6,8 +6,8 @@
     }
 @endphp
 
-<div class="flex flex-col min-w-[40%] gap-6 card-list w-fit" jenis="aggressivity">
-    <table class="">
+<div class="flex flex-col min-w-[40%] gap-6 card-list w-full" jenis="aggressivity">
+    <table class="w-full">
         <thead class="text-xs bg-slate-800">
             <tr class="">
                 <th class="px-3 py-1 whitespace-nowrap">
@@ -221,11 +221,11 @@
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span class="">
                         @if ($detail[0]->gap_so_pair_rev_pair >= 0)
-                            {{ number_format($detail[0]->gap_st_sp_trx, 0, ',', '.') }}
+                            {{ number_format($detail[0]->gap_so_pair_rev_pair, 0, ',', '.') }}
                     </span>
                 @else
                     (
-                    {{ number_format($detail[0]->gap_st_sp_trx * -1, 0, ',', '.') }}</span>
+                    {{ number_format($detail[0]->gap_so_pair_rev_pair * -1, 0, ',', '.') }}</span>
                     )
                     @endif
                 </td>
@@ -271,7 +271,7 @@
         </tbody>
     </table>
     <div class="flex justify-between mt-4 gap-x-4">
-        <div class="flex flex-col min-w-[40%]">
+        <div class="flex flex-col min-w-[45%]">
             <span class="font-bold text-red-600 whitespace-nowrap">HISTORI ORDER VF</span>
             <table class="bg-lime-500/60">
                 <tr>
@@ -294,7 +294,7 @@
                 </tr>
             </table>
         </div>
-        <div class="flex flex-col min-w-[40%]">
+        <div class="flex flex-col min-w-[45%]">
             <span class="font-bold text-red-600 whitespace-nowrap">TARGET DIST VF WEEKLY VALIDITY</span>
             <table class="bg-lime-500/60">
                 <tr>
