@@ -14,6 +14,12 @@
                 {{ session('success-delete') }}
             </div>
         @endif
+        @if (session('success'))
+            <div class="w-full px-4 py-3 text-center text-green-800 bg-green-400 rounded-md">
+                {{-- <i class=" fa-solid fa-trash"></i> --}}
+                {{ session('success') }}
+            </div>
+        @endif
         <h4 class="mb-4 font-semibold text-gray-600 ">
             Detail Outlet
         </h4>

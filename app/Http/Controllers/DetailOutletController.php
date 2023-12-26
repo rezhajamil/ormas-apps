@@ -138,7 +138,7 @@ class DetailOutletController extends Controller
             }
         }
 
-        return redirect()->route('detail_outlet.index')->with('success');
+        return redirect()->route('detail_outlet.index')->with('success', 'Berhasil Upload Data');
     }
 
     /**
