@@ -21,6 +21,11 @@ class QnsResponse extends Model
         return $this->hasOne(User::class, 'id', 'user_id');
     }
 
+    public function outlet()
+    {
+        return $this->hasOne(Outlet::class, 'id_outlet', 'id_digipos');
+    }
+
     public function selected_option()
     {
         return $this->hasMany(QnsSelectedOption::class, 'response_id', 'id');

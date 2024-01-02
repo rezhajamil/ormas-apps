@@ -50,25 +50,25 @@
                                     {{ date('Y-m-d', strtotime($response->created_at)) }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
-                                    {{ $response->responder->outlet->cluster ?? '' }}
+                                    {{ $response->outlet->cluster ?? '' }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
-                                    {{ $response->responder->outlet->kecamatan ?? '' }}
+                                    {{ $response->outlet->kecamatan ?? '' }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
-                                    {{ ucwords($response->responder->outlet->nama_sf ?? '') }}
+                                    {{ ucwords($response->outlet->nama_sf ?? '') }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
                                     {{ ucwords($response->responder->id_digipos) }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
-                                    {{ ucwords($response->responder->outlet->nama_outlet ?? '') }}
+                                    {{ ucwords($response->outlet->nama_outlet ?? '') }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
-                                    {{ ucwords($response->responder->outlet->no_rs ?? '') }}
+                                    {{ ucwords($response->outlet->no_rs ?? '') }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
-                                    {{ ucwords($response->responder->outlet->tap_kcp ?? '') }}
+                                    {{ ucwords($response->outlet->tap_kcp ?? '') }}
                                 </td>
                                 {{-- {{ ddd($response->selected_option) }} --}}
                                 @foreach ($qns->question as $i_question => $question)
