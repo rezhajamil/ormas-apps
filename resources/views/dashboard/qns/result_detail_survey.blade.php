@@ -59,7 +59,7 @@
                                     {{ ucwords($response->outlet->nama_sf ?? '') }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
-                                    {{ ucwords($response->responder->id_digipos) }}
+                                    {{ ucwords($response->id_digipos) }}
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit">
                                     {{ ucwords($response->outlet->nama_outlet ?? '') }}
