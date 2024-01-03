@@ -153,25 +153,25 @@ class DetailOutlet extends Model
         // $data = DB::select($query);
 
         $data = DetailOutlet::selectRaw("
-                id_outlet,
-                no_rs,
-                nama_outlet,
-                sf,
-                telp_pemilik,
-                sub_branch,
-                `cluster`,
-                tap_kcp,
-                side_id_cover,
-                kategori,
-                pareto,
-                frekuensi_kunjungan,
-                hari_kunjungan,
-                remark_fisik,
-                pjp,
-                kecamatan,
-                kabupaten,
-                kecamatan_lighthouse,
-                hrc_index,
+                outlets.id_outlet,
+                outlets.no_rs,
+                outlets.nama_outlet,
+                outlets.nama_sf,
+                outlets.telp_pemilik,
+                outlets.sub_branch,
+                outlets.`cluster`,
+                outlets.tap_kcp,
+                outlets.side_id_cover,
+                outlets.kategori,
+                outlets.pareto,
+                outlets.frekuensi_kunjungan,
+                outlets.hari_kunjungan,
+                outlets.remark_fisik,
+                outlets.pjp,
+                outlets.kecamatan,
+                outlets.kabupaten,
+                outlets.kecamatan_lighthouse,
+                outlets.hrc_index,
 
                 SUM(CASE WHEN `date` = '$last_m1' THEN cvm_trx ELSE 0 END) cvm_fm_trx,
                 SUM(CASE WHEN `date` = '$last_m1' THEN cvm_rev ELSE 0 END) cvm_fm_rev,
@@ -318,13 +318,15 @@ class DetailOutlet extends Model
                 SUM(CASE WHEN `date` = '$mtd' THEN target_weekly_validity_3d ELSE 0 END) target_weekly_validity_3d,
                 SUM(CASE WHEN `date` = '$mtd' THEN target_weekly_validity_5d ELSE 0 END) target_weekly_validity_5d,
                 SUM(CASE WHEN `date` = '$mtd' THEN target_weekly_validity_7d ELSE 0 END) target_weekly_validity_7d")
-            ->whereBetween('date', [$first_m1, $mtd]);
+            ->whereBetween('date', [$first_m1, $mtd])
+            ->join('outlets', 'detail_outlets.id_outlet', '=', 'outlets.id_outlet')
+            ->where('outlets.status', 1);
 
         if ($id_outlet) {
-            $data = $data->where('id_outlet', $id_outlet);
+            $data = $data->where('detail_outlets.id_outlet', $id_outlet);
         }
 
-        $data = $data->groupBy('id_outlet', 'no_rs', 'nama_outlet', 'sf', 'telp_pemilik', 'sub_branch', 'cluster', 'tap_kcp', 'side_id_cover', 'kategori', 'pareto', 'frekuensi_kunjungan', 'hari_kunjungan', 'remark_fisik', 'pjp', 'kecamatan', 'kabupaten', 'kecamatan_lighthouse', 'hrc_index')
+        $data = $data->groupBy('outlets.id_outlet', 'outlets.no_rs', 'outlets.nama_outlet', 'outlets.nama_sf', 'outlets.telp_pemilik', 'outlets.sub_branch', 'outlets.cluster', 'outlets.tap_kcp', 'outlets.side_id_cover', 'outlets.kategori', 'outlets.pareto', 'outlets.frekuensi_kunjungan', 'outlets.hari_kunjungan', 'outlets.remark_fisik', 'outlets.pjp', 'outlets.kecamatan', 'outlets.kabupaten', 'outlets.kecamatan_lighthouse', 'outlets.hrc_index')
             ->orderBy('id_outlet')
             ->paginate(100);
 

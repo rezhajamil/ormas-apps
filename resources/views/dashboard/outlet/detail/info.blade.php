@@ -18,7 +18,7 @@
                         Nama SF
                     </td>
                     <td class="px-2 py-2 text-sm font-semibold text-center uppercase border-b-2 text-slate-700">
-                        {{ $outlet->sf }}
+                        {{ $outlet->nama_sf }}
                     </td>
                 </tr>
                 <tr>

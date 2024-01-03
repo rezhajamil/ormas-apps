@@ -503,7 +503,7 @@
                                     {{ $detail->nama_outlet }}
                                 </td>
                                 <td class="p-1 text-sm text-center border sf">
-                                    {{ $detail->sf }}
+                                    {{ $detail->nama_sf }}
                                 </td>
                                 <td class="p-1 text-sm text-center border telp_pemilik">
                                     {{ $detail->telp_pemilik }}

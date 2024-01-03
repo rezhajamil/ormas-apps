@@ -25,9 +25,9 @@ class DetailOutletController extends Controller
         if ($request->date) {
             $details = DetailOutlet::getDetailList($request->date, $request->id_outlet);
             $mtd = date('d F', strtotime($request->date));
-            $m1 = date('d F', strtotime($request->date . '-1 Months'));
+            $m1 = date('d F', strtotime(DetailOutlet::convDate($request->date)));
             $month_mtd = date('F', strtotime($request->date));
-            $month_m1 = date('F', strtotime($request->date . '-1 Months'));
+            $month_m1 = date('F', strtotime(DetailOutlet::convDate($request->date)));
             $id_outlet = $request->id_outlet;
         }
 
