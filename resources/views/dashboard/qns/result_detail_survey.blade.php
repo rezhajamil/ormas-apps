@@ -77,7 +77,10 @@
                                             @case('pilgan')
                                                 @foreach ($response->selected_option as $selected)
                                                     @if ($selected->question_id == $question->id && ($selected_response_id = $response->id))
-                                                        {{ $selected->option->text }}
+                                                        {{-- {{ ddd($selected->option->text) }}
+                                                        {{ $selected->option->text }} --}}
+                                                        @php $optionText = optional($selected->option)->text; @endphp
+                                                        {{ $optionText }}
                                                     @endif
                                                 @endforeach
                                             @break
@@ -93,7 +96,8 @@
                                             @case('pilgan_isian')
                                                 @foreach ($response->selected_option as $selected)
                                                     @if ($selected->question_id == $question->id && ($selected_response_id = $response->id))
-                                                        {{ $selected->option ? $selected->option->text : $selected->other_text }}
+                                                        @php $optionText = optional($selected->option)->text; @endphp
+                                                        {{ $selected->option ? $optionText : $selected->other_text }}
                                                     @endif
                                                 @endforeach
                                             @break
@@ -103,8 +107,10 @@
                                                     @foreach ($response->selected_option as $selected)
                                                         @if ($selected->question_id == $question->id && ($selected_response_id = $response->id))
                                                             <li class="list-item">
-                                                                <i
-                                                                    class="mr-2 text-green-600 fa-solid fa-check"></i>{{ $selected->option ? $selected->option->text : $selected->other_text }}
+                                                                <i class="mr-2 text-green-600 fa-solid fa-check"></i>
+
+                                                                @php $optionText = optional($selected->option)->text; @endphp
+                                                                {{ $selected->option ? $optionText : $selected->other_text }}
                                                             </li>
                                                         @endif
                                                     @endforeach

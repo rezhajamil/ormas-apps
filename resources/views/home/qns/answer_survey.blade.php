@@ -62,7 +62,7 @@
                                 @foreach ($question->option as $i_option => $option)
                                     <label>
                                         <input type="radio" name="selected_option_{{ $i_question }}" value="{{ $option->id }}"
-                                            class="hidden peer">
+                                            class="hidden peer" required>
                                         <div
                                             class="flex w-full font-semibold border-2 rounded peer-checked:text-white peer-checked:bg-green-600 peer-checked:border-green-800">
                                             <span class="inline-block w-full p-4">{{ $option->text }}</span>
@@ -75,7 +75,7 @@
                                 @foreach ($question->option as $i_option => $option)
                                     <label>
                                         <input type="radio" name="selected_option_{{ $i_question }}"
-                                            value="{{ $option->id }}" class="hidden peer other_option">
+                                            value="{{ $option->id }}" class="hidden peer other_option" required>
                                         <div
                                             class="flex w-full font-semibold border-2 rounded peer-checked:text-white peer-checked:bg-green-600 peer-checked:border-green-800">
                                             <span class="inline-block w-full p-4">{{ $option->text }}</span>
@@ -84,7 +84,7 @@
                                 @endforeach
                                 <label>
                                     <input type="radio" name="selected_option_{{ $i_question }}"
-                                        class="hidden peer other_option other" value="">
+                                        class="hidden peer other_option other" value="" required>
                                     <div
                                         class="flex w-full font-semibold border-2 rounded peer-checked:text-white peer-checked:bg-green-600 peer-checked:border-green-800">
                                         <span class="inline-block w-full p-4">Lainnya</span>
