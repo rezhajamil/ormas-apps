@@ -115,7 +115,8 @@
                                         <a href="{{ route('qns.result', $data->id) }}" class="text-lg text-premier">
                                             <i class="fa-solid fa-square-poll-vertical"></i>
                                         </a>
-                                        <form action="{{ route('qns.destroy', $data->id) }}" method="post">
+                                        <form action="{{ route('qns.destroy', $data->id) }}" method="post"
+                                            onsubmit="return showConfirmation('Yakin untuk menghapus data?')">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
@@ -181,6 +182,21 @@
                     $(this).parent().hide();
                 }
             });
+        }
+
+        function showConfirmation(text) {
+            // Display a confirmation prompt
+            var userConfirmed = confirm(text);
+
+            // Check the user's response
+            if (userConfirmed) {
+                // The user clicked "OK" or "Yes"
+                return true; // Allow form submission
+            } else {
+                // The user clicked "Cancel" or "No"
+                alert("Batal menghapus data");
+                return false; // Cancel form submission
+            }
         }
     </script>
 @endsection

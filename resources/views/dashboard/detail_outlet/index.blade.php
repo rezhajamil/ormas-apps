@@ -101,6 +101,13 @@
                         <span class="">Hapus By Tanggal</span>
                     </div>
                 </div>
+                <div class="items-center justify-between px-3 py-2 font-semibold text-white bg-green-600 rounded-md shadow-md cursor-pointer lex w-fit focus:outline-none focus:shadow-outline-purple"
+                    id="log-btn">
+                    <div class="flex items-center">
+                        <i class="w-5 fa-solid fa-clock"></i>
+                        <span class="">Log Upload</span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="w-full overflow-hidden border rounded-md shadow-xs">
@@ -1018,6 +1025,38 @@
             </form>
         </div>
     </div>
+    <div id="log-modal" class="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-black/70 "
+        style="display: none">
+        <div class="px-8 py-4 bg-white rounded-lg shadow-xl">
+            <p class="font-semibold text-center text-slate-800">Log Upload Data</p>
+            <hr class="h-1 border-2 border-slate-600">
+            <table class="my-4 border rounded">
+                <thead>
+                    <tr
+                        class="text-xs font-semibold tracking-wide text-center text-white uppercase border-b divide-x divide-solid ">
+                        <th class="p-2 text-center bg-green-600 border ">Tanggal Data</th>
+                        <th class="p-2 text-center bg-green-800 border ">Tanggal Upload</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($logs as $log)
+                        <tr>
+                            <td class="p-2 text-center border">{{ date('Y-m-d', strtotime($log->date)) }}</td>
+                            <td class="p-2 text-center bg-gray-100 border">
+                                {{ date('Y-m-d', strtotime($log->created_at)) }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            <div id="close-log-modal"
+                class="flex items-center justify-between w-full px-3 py-2 font-semibold text-white bg-gray-600 rounded-md shadow-md cursor-pointer h-fit focus:outline-none focus:shadow-outline-purple">
+                <div class="flex items-center justify-center w-full text-center gap-x-2">
+                    <i class="w-5 fa-solid fa-xmark"></i>
+                    <span class="">Tutup</span>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('script')
     <script>
@@ -1039,6 +1078,14 @@
 
         $("#close-delete-modal").click(() => {
             $("#delete-modal").hide()
+        })
+
+        $("#log-btn").click(() => {
+            $("#log-modal").show()
+        })
+
+        $("#close-log-modal").click(() => {
+            $("#log-modal").hide()
         })
 
         const find = () => {

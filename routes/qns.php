@@ -1,12 +1,16 @@
 <?php
 
 use App\Http\Controllers\QnsController;
+use App\Http\Controllers\QnsResponseController;
+use App\Http\Controllers\QnsSelectedOptionController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(
     function () {
         Route::middleware(['checkUserRole:admin'])->group(function () {
             Route::resource('qns', QnsController::class);
+            Route::resource('qns_response', QnsResponseController::class);
+            Route::resource('qns_selected_option', QnsSelectedOptionController::class);
         });
     }
 );

@@ -31,9 +31,12 @@ class DetailOutletController extends Controller
             $id_outlet = $request->id_outlet;
         }
 
+        $logs = DetailOutlet::getLogs();
+        // ddd($logs);
+
         // ddd($details[0]);
 
-        return view('dashboard.detail_outlet.index', compact('details', 'mtd', 'm1', 'month_mtd', 'month_m1', 'id_outlet'));
+        return view('dashboard.detail_outlet.index', compact('logs', 'details', 'mtd', 'm1', 'month_mtd', 'month_m1', 'id_outlet'));
     }
 
     /**

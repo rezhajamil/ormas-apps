@@ -27,6 +27,7 @@
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-white uppercase bg-gray-500 border-b ">
                             <th class="px-4 py-3 border-x-white border-x w-fit">No</th>
+                            <th class="px-4 py-3 bg-gray-700 border-x-white border-x w-fit">Action</th>
                             <th class="px-4 py-3 border-x-white border-x w-fit">Tanggal Pengisian</th>
                             <th class="px-4 py-3 border-x-white border-x w-fit">Cluster</th>
                             <th class="px-4 py-3 border-x-white border-x w-fit">Kecamatan</th>
@@ -45,6 +46,24 @@
                             <tr class="text-gray-700">
                                 <td class="px-4 py-3 text-sm border-r w-fit">
                                     {{ $i_response + 1 }}
+                                </td>
+                                <td class="px-2 text-sm border-r w-fit">
+                                    <div class="flex items-center justify-center space-x-4 text-base">
+                                        <form action="{{ route('qns_response.destroy', $response->id) }}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit"
+                                                class="flex items-center justify-between m-0 text-sm font-medium leading-5 rounded-md text-premier focus:outline-none focus:shadow-outline-gray"
+                                                aria-label="Delete">
+                                                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
+                                                    viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                                 <td class="px-4 py-3 text-sm border-r w-fit whitespace-nowrap">
                                     {{ date('Y-m-d', strtotime($response->created_at)) }}
@@ -72,7 +91,10 @@
                                 </td>
                                 {{-- {{ ddd($response->selected_option) }} --}}
                                 @foreach ($qns->question as $i_question => $question)
-                                    <td class="px-4 py-3 text-sm border-r w-fit">
+                                    <td class="px-4 py-3 text-sm border-r w-fit has-tooltip">
+                                        <span
+                                            class='p-1 -mt-8 -ml-5 bg-gray-300 rounded shadow-lg tooltip text-slate-800 whitespace-nowrap'>Edit
+                                            Jawaban</span>
                                         @switch($question->type)
                                             @case('pilgan')
                                                 @foreach ($response->selected_option as $selected)
@@ -80,7 +102,10 @@
                                                         {{-- {{ ddd($selected->option->text) }}
                                                         {{ $selected->option->text }} --}}
                                                         @php $optionText = optional($selected->option)->text; @endphp
-                                                        {{ $optionText }}
+                                                        <a href="{{ route('qns_selected_option.edit', $selected->id) }}"
+                                                            class="transition-all cursor-pointer hover:underline hover:font-bold">
+                                                            {{ $optionText }}
+                                                        </a>
                                                     @endif
                                                 @endforeach
                                             @break
@@ -88,7 +113,10 @@
                                             @case('isian')
                                                 @foreach ($response->selected_option as $selected)
                                                     @if ($selected->question_id == $question->id && ($selected_response_id = $response->id))
-                                                        {{ $selected->other_text }}
+                                                        <a href="{{ route('qns_selected_option.edit', $selected->id) }}"
+                                                            class="transition-all cursor-pointer hover:underline hover:font-bold">
+                                                            {{ $selected->other_text }}
+                                                        </a>
                                                     @endif
                                                 @endforeach
                                             @break
@@ -96,8 +124,11 @@
                                             @case('pilgan_isian')
                                                 @foreach ($response->selected_option as $selected)
                                                     @if ($selected->question_id == $question->id && ($selected_response_id = $response->id))
-                                                        @php $optionText = optional($selected->option)->text; @endphp
-                                                        {{ $selected->option ? $optionText : $selected->other_text }}
+                                                        <a href="{{ route('qns_selected_option.edit', $selected->id) }}"
+                                                            class="transition-all cursor-pointer hover:underline hover:font-bold">
+                                                            @php $optionText = optional($selected->option)->text; @endphp
+                                                            {{ $selected->option ? $optionText : $selected->other_text }}
+                                                        </a>
                                                     @endif
                                                 @endforeach
                                             @break
@@ -106,12 +137,15 @@
                                                 <ul class="space-y-1">
                                                     @foreach ($response->selected_option as $selected)
                                                         @if ($selected->question_id == $question->id && ($selected_response_id = $response->id))
-                                                            <li class="list-item">
-                                                                <i class="mr-2 text-green-600 fa-solid fa-check"></i>
+                                                            <a href="{{ route('qns_selected_option.edit', $selected->id) }}"
+                                                                class="transition-all cursor-pointer hover:underline hover:font-bold">
+                                                                <li class="list-item whitespace-nowrap">
+                                                                    <i class="mr-2 text-green-600 fa-solid fa-check"></i>
 
-                                                                @php $optionText = optional($selected->option)->text; @endphp
-                                                                {{ $selected->option ? $optionText : $selected->other_text }}
-                                                            </li>
+                                                                    @php $optionText = optional($selected->option)->text; @endphp
+                                                                    {{ $selected->option ? $optionText : $selected->other_text }}
+                                                                </li>
+                                                            </a>
                                                         @endif
                                                     @endforeach
                                                 </ul>

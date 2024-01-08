@@ -333,6 +333,19 @@ class DetailOutlet extends Model
         return $data;
     }
 
+    public static function getLogs($limit = 30)
+    {
+        $query = "SELECT MAX(created_at) AS created_at, date
+            FROM detail_outlets
+            GROUP BY date
+            ORDER BY date DESC
+            LIMIT $limit;";
+
+        $logs = DB::select($query);
+
+        return $logs;
+    }
+
 
     static function convDate($tanggal)
     {

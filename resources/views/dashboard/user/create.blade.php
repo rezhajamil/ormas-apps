@@ -89,7 +89,7 @@
                             <option value="{{ $item }}">{{ strtoupper($item) }}</option>
                         @endforeach
                     </select>
-                    @error('id_digipos')
+                    @error('role')
                         <span class="text-xs text-red-600 ">
                             {{ $message }}
                         </span>
