@@ -1027,8 +1027,10 @@
     </div>
     <div id="log-modal" class="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-black/70 "
         style="display: none">
-        <div class="px-8 py-4 bg-white rounded-lg shadow-xl">
-            <p class="font-semibold text-center text-slate-800">Log Upload Data</p>
+        <div class="px-8 py-4 my-10 overflow-y-auto bg-white rounded-lg shadow-xl max-h-96">
+            <p class="font-semibold text-center text-slate-800">Log Upload Data
+                <span class="float-right text-lg cursor-pointer close-log-modal">X</span>
+            </p>
             <hr class="h-1 border-2 border-slate-600">
             <table class="my-4 border rounded">
                 <thead>
@@ -1049,7 +1051,7 @@
                 </tbody>
             </table>
             <div id="close-log-modal"
-                class="flex items-center justify-between w-full px-3 py-2 font-semibold text-white bg-gray-600 rounded-md shadow-md cursor-pointer h-fit focus:outline-none focus:shadow-outline-purple">
+                class="flex items-center justify-between w-full px-3 py-2 font-semibold text-white bg-gray-600 rounded-md shadow-md cursor-pointer close-log-modal h-fit focus:outline-none focus:shadow-outline-purple">
                 <div class="flex items-center justify-center w-full text-center gap-x-2">
                     <i class="w-5 fa-solid fa-xmark"></i>
                     <span class="">Tutup</span>
@@ -1084,7 +1086,7 @@
             $("#log-modal").show()
         })
 
-        $("#close-log-modal").click(() => {
+        $(".close-log-modal").click(() => {
             $("#log-modal").hide()
         })
 

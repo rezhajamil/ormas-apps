@@ -286,9 +286,12 @@
             @csrf
             <div class="flex w-full gap-4">
                 <label class="block w-full px-6 text-sm">
-                    <span class="font-semibold text-gray-700">
+                    <p class="font-semibold text-gray-700">
                         File CSV (max 20000 row)*
-                    </span>
+                    </p>
+                    <p class="font-semibold text-red-700">
+                        Data dari file csv akan mengganti data lama yang sudah tersimpan*
+                    </p>
                     <p class="w-full overflow-scroll text-sm text-gray-700 whitespace-normal">
                         Header
                     <ol class="grid w-full grid-cols-4 text-gray-500 list-decimal">

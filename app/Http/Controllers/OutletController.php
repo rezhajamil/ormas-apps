@@ -129,6 +129,8 @@ class OutletController extends Controller
                         // echo '<pre>' . $idx . var_export($data, true) . '</pre>';
                         if ($idx > 0) {
                             $outlet = Outlet::create($data);
+                        } else {
+                            DB::table('outlets')->truncate();
                         }
                         // ddd($outlet);
                     } else if ($idx > 20001) {
