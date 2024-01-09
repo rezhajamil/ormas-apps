@@ -22,9 +22,9 @@
 @endphp
 @extends('layouts.dashboard.app', ['plain' => true])
 @section('content')
-    <div class="w-full px-4 py-4 text-lg font-bold text-center bg-sekunder text-kuartener">
+    {{-- <div class="w-full px-4 py-4 text-lg font-bold text-center bg-sekunder text-kuartener">
         <span class="uppercase">PERFORMANCE RS <br> PRODUCTIVITY & AGGRESSIVITY</span>
-    </div>
+    </div> --}}
     @if ($outlet)
         <div class="flex w-full px-2 my-2 gap-x-2">
             <div class="flex p-2 text-sm text-white bg-gray-500 rounded-sm gap-x-2 w-fit">

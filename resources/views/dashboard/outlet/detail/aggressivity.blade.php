@@ -240,7 +240,14 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span class="text-green-600">
-                        {{ convertBil(($detail[0]->pair_in / ($detail[0]->pair_vf != 0 ? $detail[0]->pair_vf : 1)) * 100) }}%
+                        @php
+                            if ($detail[0]->pair_in + $detail[0]->pair_out != 0) {
+                                $result = $detail[0]->pair_in / ($detail[0]->pair_in + $detail[0]->pair_out);
+                            } else {
+                                $result = 0;
+                            }
+                        @endphp
+                        {{ convertBil($result * 100) }}%
                     </span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
@@ -259,7 +266,14 @@
                 </td>
                 <td class="px-3 py-1 text-center whitespace-nowrap">
                     <span class="text-red-600">
-                        {{ convertBil(($detail[0]->pair_out / ($detail[0]->pair_vf != 0 ? $detail[0]->pair_vf : 1)) * 100) }}%
+                        @php
+                            if ($detail[0]->pair_in + $detail[0]->pair_out != 0) {
+                                $result = $detail[0]->pair_out / ($detail[0]->pair_in + $detail[0]->pair_out);
+                            } else {
+                                $result = 0;
+                            }
+                        @endphp
+                        {{ convertBil($result * 100) }}%
                     </span>
                 </td>
                 <td class="flex items-center px-3 py-1 jusitfy-between gap-x-1 whitespace-nowrap">
